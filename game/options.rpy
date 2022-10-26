@@ -33,7 +33,7 @@ define config.has_voice = True
 
 
 ## music to be played on the main menu
-## define config.main_menu_music = "main-menu-theme.ogg"
+define config.main_menu_music = "audio/titlescreenmusic.mp3"
 
 ## transition into main game menu
 define config.enter_transition = dissolve
@@ -43,10 +43,10 @@ define config.exit_transition = dissolve
 define config.intra_transition = dissolve
 
 ## transition into loaded game
-define config.after_load_transition = None
+define config.after_load_transition = dissolve
 
 ## transition for enterting main menu when game ends
-define config.end_game_transition = None
+define config.end_game_transition = dissolve
 
 ## Controls if dialogue window is displayed 
 ## If "show", it is always up

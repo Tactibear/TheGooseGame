@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 387: screen expects a non-empty block.
-    else:
-         ^
+File "game/script.rpy", line 34: play requires a file
+    play rockgardenmusic
+                        ^
 
 Ren'Py Version: Ren'Py 7.5.3.22090809
-Wed Oct 26 00:14:55 2022
+Wed Oct 26 18:33:06 2022
