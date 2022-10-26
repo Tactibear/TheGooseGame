@@ -1,0 +1,27 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+WindowsError: [Error 2] The system cannot find the file specified: u'C:\\Users\\liuch\\AppData\\Roaming/RenPy/GooseVisualNovel-1666730980\\persistent'
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "renpy/bootstrap.py", line 277, in bootstrap
+    renpy.main.main()
+  File "renpy/main.py", line 663, in main
+    renpy.persistent.update(True)
+  File "renpy/persistent.py", line 397, in update
+    save()
+  File "renpy/persistent.py", line 413, in save
+    renpy.loadsave.location.save_persistent(data)
+  File "renpy/savelocation.py", line 494, in save_persistent
+    l.save_persistent(data)
+  File "renpy/savelocation.py", line 352, in save_persistent
+    self.persistent_mtime = os.path.getmtime(fn)
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python2.7/genericpath.py", line 62, in getmtime
+WindowsError: [Error 2] The system cannot find the file specified: u'C:\\Users\\liuch\\AppData\\Roaming/RenPy/GooseVisualNovel-1666730980\\persistent'
+
+Windows-10-10.0.22000 AMD64
+Ren'Py 7.5.3.22090809
+ 
+Wed Oct 26 00:28:17 2022
