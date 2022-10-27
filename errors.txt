@@ -2,9 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 34: play requires a file
-    play rockgardenmusic
-                        ^
+File "game/script.rpy", line 21: expected an indented block
+    if event == "show":
+      ^
+    
 
 Ren'Py Version: Ren'Py 7.5.3.22090809
-Wed Oct 26 18:33:06 2022
+Thu Oct 27 00:06:00 2022

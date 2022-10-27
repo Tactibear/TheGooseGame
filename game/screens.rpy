@@ -772,7 +772,6 @@ style pref_label_text:
 
 style pref_vbox:
     xsize 338
-    #338
 
 style radio_vbox:
     spacing gui.pref_button_spacing
