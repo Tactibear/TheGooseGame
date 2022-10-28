@@ -22,6 +22,7 @@ define MsG = Character("[MsGName]", color="#f542cb", callback=callback)
 define T = Character("Timmy Tam", color= "#35ad28", callback=callback)
 define A = Character("Ana Conda", color = "#2f1fc2", callback=callback)
 
+default shipfavour=25
 
 
 # dialogue starts here
@@ -41,7 +42,8 @@ label start:
     play music "audio/rockgardenmusic.mp3"
     scene rock garden 3
     show rock garden 3 with dissolve
-    N "It's a beautiful Sunday afternoon. you and your friend, Ana Conda, are at the University of Waterloo's Rock Garden"
+    show screen bars
+    N "It's a beautiful Sunday afternoon. You and your friend, Ana Conda, are at the University of Waterloo's Rock Garden"
     N "It is currently 3pm, and you just got a text from your childhood friend, Timmy Tam, asking if you wanted to hang out with him and his friend, Jupyter Journal in MC."
     MsG "Thinking: I can't wait to see Timmy again! It's been so long since I last saw him."
     hide rock garden 3 with dissolve
@@ -49,13 +51,13 @@ label start:
     N "You and Ana walk into MC and take the elevator to the 6th floor, where Timmy and his friend are studying."
     MsG "I hope you don't mind that I brought my friend Ana!"
     show timmy with dissolve
-    T "Oh my gosh, MsG! I haven't seen you in so long! How have you been?"
+    T "Oh my gosh, [MsGName]! I haven't seen you in so long! How have you been?"
     MsG "I've been doing great! I missed you so much Timmy!"
     T "Me too! This is my friend Jupyter by the way, he's in CS BBA, what a silly CS boy."
     hide timmy with dissolve
     show standard mr goose with dissolve
     MsG "thinking: Omg Omg Jupyter is such a dapper goose!!! He is soooo cute"
-    MsG "Hi Jupyter! I'm (MsG) nice to meet you! I'm in Chem Eng :)"
+    MsG "Hi Jupyter! I'm [MsGName] nice to meet you! I'm in Chem Eng :)"
     mG "Nice to meet you! How were your first week of classes?"
     MsG "Tt has been going well :). My favorite class so far has been Computer Literacy and Programming! I love coding and I am so amped to be learning Python"
     mG "that's great to hear! I code in G++, but I love Python way more!"

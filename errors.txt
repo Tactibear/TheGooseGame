@@ -2,10 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 21: expected an indented block
-    if event == "show":
-      ^
-    
+File "game/bars.rpy", line 14: expected a keyword argument or end of line.
+    value StaticValue(barvariable, 100):
+                                       ^
+
+File "game/bars.rpy", line 21: expected statement.
+    bar (shipfavour, 100):
+                         ^
 
 Ren'Py Version: Ren'Py 7.5.3.22090809
-Thu Oct 27 00:06:00 2022
+Thu Oct 27 21:52:55 2022
