@@ -1,21 +1,12 @@
-<<<<<<< HEAD
-renpy.alpha renpy.texture
-renpy.alpha renpy.geometry renpy.texture
-renpy.solid
-renpy.texture
-renpy.ftl
+renpy.geometry renpy.solid
+<<<<<<< HEAD
 renpy.dissolve renpy.dissolve
-renpy.dissolve renpy.geometry
-renpy.geometry renpy.texture
-renpy.geometry renpy.solid
-=======
-renpy.alpha renpy.geometry renpy.texture
-renpy.dissolve renpy.geometry
-renpy.geometry renpy.solid
-renpy.alpha renpy.texture
-renpy.geometry renpy.texture
 renpy.ftl
 renpy.texture
-renpy.dissolve renpy.dissolve
+renpy.alpha renpy.texture
+=======
 renpy.solid
->>>>>>> cca2120 (updated transitiojns)
+renpy.geometry renpy.texture
+>>>>>>> cca2120 (updated transitiojns)
+renpy.dissolve renpy.geometry
+renpy.alpha renpy.geometry renpy.texture

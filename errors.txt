@@ -2,22 +2,9 @@
 errors listed below, and try again.
 
 
-<<<<<<< HEAD
-File "game/bars.rpy", line 14: expected a keyword argument or end of line.
-    value StaticValue(barvariable, 100):
-                                       ^
-
-File "game/bars.rpy", line 21: expected statement.
-    bar (shipfavour, 100):
-                         ^
-
-Ren'Py Version: Ren'Py 7.5.3.22090809
-Thu Oct 27 21:52:55 2022
-=======
-File "game/Transitions.rpy", line 11: style property text_size is not known.
-    text_size 30
-             ^
+File "game/screens.rpy", line 1094: expected a keyword argument or end of line.
+    hovered color '#000000'
+                  ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Fri Oct 28 00:45:15 2022
->>>>>>> cca2120 (updated transitiojns)
+Sat Oct 29 02:39:57 2022

@@ -27,10 +27,7 @@ default shipfavour=25
 
 # dialogue starts here
 label start:
-<<<<<<< HEAD
-    N "What's your name again? I didn't quite catch it the first time."
-
-=======
+    ##transition insertion before beginning the idalogue -CL
     with dissolve
     show screen Opening1() with dissolve
     with dissolve
@@ -38,7 +35,6 @@ label start:
     pause 3
     hide screen day1 with dissolve
     N "What's your name again? I didn't quite catch it the first time."
->>>>>>> cca2120 (updated transitiojns)
     python:
         MsGName=renpy.input("Help me out here, bud:", length=25)
         MsGName=MsGName.strip()
@@ -48,11 +44,8 @@ label start:
     N "Alright, so your job here now is to ignore me and indulge in university life."
     N "You may have noticed that about $16,000 has disappeared from your bank account, but such is life when you're at uwaterloo :)."
     N "Welcome to campus little goosling, enjoy your stay. (Don't enjoy it too much though)"
-<<<<<<< HEAD
-=======
-    hide screen Opening1 with dissolve
->>>>>>> cca2120 (updated transitiojns)
     # background here, just add file name, no file format at end
+    hide screen Opening1 with dissolve
     play music "audio/rockgardenmusic.mp3"
     scene rock garden 3
     show rock garden 3 with dissolve

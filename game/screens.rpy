@@ -385,11 +385,11 @@ screen game_menu(title, scroll=None, yinitial=0.0):
     if main_menu:
         add gui.main_menu_background
     else:
-<<<<<<< HEAD
-         add gui.game_menu_background
-=======
+#<<<<<<< HEAD
         add gui.game_menu_background
->>>>>>> cca2120 (updated transitiojns)
+#=======
+        add gui.game_menu_background
+#>>>>>>> cca2120 (updated transitiojns)
         
 
     frame:
@@ -1090,8 +1090,10 @@ screen confirm(message, yes_action, no_action):
                 xalign 0.5
                 spacing 150
 
-                textbutton _("Yes") action yes_action
-                textbutton _("No") action no_action
+                textbutton _("{color=#000000}Yes"):
+                    action yes_action
+                textbutton _("{color=#000000}No"):
+                    action no_action
 
     ## Right-click and escape answer "no".
     key "game_menu" action no_action

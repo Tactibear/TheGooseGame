@@ -176,8 +176,15 @@ define gui.choice_button_text_size = gui.text_size
 define gui.choice_button_text_xalign = 0.5
 define gui.choice_button_text_idle_color = "#ff00db"
 define gui.choice_button_text_hover_color = "#ffffff"
+define gui.choice_button_text_idle_color = '#000000'
 define gui.choice_button_text_insensitive_color = "#444444"
 
+## in-game menu confirm buttons CL
+
+define gui.button_confirm_idle_color = '#303030'
+define gui.button_confirm_color = gui.hover_color
+define gui.button_confirm_selected_color = gui.selected_color
+define gui.button_Confirm_insensitive_color = gui.insensitive_color
 
 ## save file slot buttons
 

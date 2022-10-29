@@ -1,104 +1,21 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-<<<<<<< HEAD
-While loading <renpy.display.im.Image object (u'barfiller.jpg') at 0x0000000006d46150>:
-  File "game/script.rpy", line 46, in script
-    N "It's a beautiful Sunday afternoon. You and your friend, Ana Conda, are at the University of Waterloo's Rock Garden"
-  File "renpy/common/000window.rpy", line 114, in _window_auto_callback
-    _window_show(auto=True)
-  File "renpy/common/000window.rpy", line 69, in _window_show
-    renpy.with_statement(trans)
-IOError: Couldn't find file 'barfiller.jpg'.
-=======
-While running game code:
-  File "game/script.rpy", line 33, in script
-    show screen day1() with dissolve
-  File "renpy/common/000statements.rpy", line 591, in execute_show_screen
-    renpy.with_statement(eval(transition_expr))
-Exception: Could not find font 'Handwritten_Bold.ttf'.
->>>>>>> cca2120 (updated transitiojns)
+While processing text tag {color '#000000'} in "{color '#000000'}Yes".:
+Exception: Unknown text tag "color '#000000'"
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-<<<<<<< HEAD
-  File "game/script.rpy", line 46, in script
-    N "It's a beautiful Sunday afternoon. You and your friend, Ana Conda, are at the University of Waterloo's Rock Garden"
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/ast.py", line 889, in execute
-    statement_name(stmt_name)
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/ast.py", line 47, in statement_name
-    i(name)
-  File "renpy/common/000window.rpy", line 114, in _window_auto_callback
-    _window_show(auto=True)
-  File "renpy/common/000window.rpy", line 69, in _window_show
-    renpy.with_statement(trans)
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/exports.py", line 1657, in with_statement
-    return renpy.game.interface.do_with(trans, paired, clear=clear)
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 2801, in do_with
-    clear=clear)
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 3377, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 3912, in interact_core
-    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 2605, in draw_screen
-    renpy.config.screen_height,
-  File "render.pyx", line 495, in renpy.display.render.render_screen
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/layout.py", line 884, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/transition.py", line 377, in render
-    bottom = render(self.old_widget, width, height, st, at)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/layout.py", line 884, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/layout.py", line 884, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/screen.py", line 704, in render
-    child = renpy.display.render.render(self.child, w, h, st, at)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/layout.py", line 884, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/behavior.py", line 2128, in render
-    foresurf = render(self.style.fore_bar, width, height, st, at)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/im.py", line 627, in render
-    return cache.get(self, render=True)
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/im.py", line 295, in get
-    surf = image.load()
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/im.py", line 720, in load
-    raise e
-IOError: Couldn't find file 'barfiller.jpg'.
-
-Windows-10-10.0.22000 AMD64
-Ren'Py 7.5.3.22090809
- 
-Thu Oct 27 21:56:46 2022
-=======
-  File "game/script.rpy", line 33, in script
-    show screen day1() with dissolve
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 2232, in execute
-    self.call("execute")
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 2220, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\statements.py", line 281, in call
-    return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 591, in execute_show_screen
-    renpy.with_statement(eval(transition_expr))
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\exports.py", line 1657, in with_statement
-    return renpy.game.interface.do_with(trans, paired, clear=clear)
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\display\core.py", line 2798, in do_with
-    return self.interact(trans_pause=True,
+  File "renpy/common/_layout/screen_load_save.rpym", line 35, in script
+    $ ui.interact()
+  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 1131, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\python.py", line 1061, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "renpy/common/_layout/screen_load_save.rpym", line 35, in <module>
+    $ ui.interact()
+  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
   File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\display\core.py", line 3377, in interact
     repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
   File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\display\core.py", line 3912, in interact_core
@@ -111,8 +28,8 @@ Thu Oct 27 21:56:46 2022
     surf = render(child, width, height, cst, cat)
   File "render.pyx", line 170, in renpy.display.render.render
   File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\display\transition.py", line 378, in render
-    top = render(self.new_widget, width, height, st, at)
+  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\display\transition.py", line 370, in render
+    return render(self.new_widget, width, height, st, at)
   File "render.pyx", line 170, in renpy.display.render.render
   File "render.pyx", line 266, in renpy.display.render.render
   File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\display\layout.py", line 884, in render
@@ -131,24 +48,33 @@ Thu Oct 27 21:56:46 2022
     surf = render(child, width, height, cst, cat)
   File "render.pyx", line 170, in renpy.display.render.render
   File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\display\layout.py", line 1334, in render
+    surf = render(child,
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\display\layout.py", line 1105, in render
+    surf = render(d, width - x, rh, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
   File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\display\layout.py", line 1060, in render
     surf = render(d, rw, height - y, cst, cat)
   File "render.pyx", line 170, in renpy.display.render.render
   File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\display\behavior.py", line 885, in render
+    rv = super(Button, self).render(width, height, st, at)
+  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\display\layout.py", line 1334, in render
+    surf = render(child,
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
   File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\text\text.py", line 2109, in render
     virtual_layout = Layout(self, width, height, renders, drawable_res=False, size_only=True)
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\text\text.py", line 656, in __init__
-    glyphs = ts.glyphs(s, self)
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\text\text.py", line 255, in glyphs
-    fo = font.get_font(self.font, self.size, self.bold, self.italic, 0, self.antialias, self.vertical, self.hinting, layout.oversample)
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\text\font.py", line 717, in get_font
-    face = load_face(fn)
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\text\font.py", line 658, in load_face
-    raise Exception("Could not find font {0!r}.".format(orig_fn))
-Exception: Could not find font 'Handwritten_Bold.ttf'.
+  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\text\text.py", line 627, in __init__
+    self.paragraphs = self.segment(text.tokens, style, renders, text)
+  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\text\text.py", line 1278, in segment
+    raise Exception("Unknown text tag %r" % text)
+Exception: Unknown text tag "color '#000000'"
 
 Windows-10-10.0.19044 AMD64
 Ren'Py 8.0.3.22090809
  
-Fri Oct 28 01:01:53 2022
->>>>>>> cca2120 (updated transitiojns)
+Sat Oct 29 03:03:26 2022
