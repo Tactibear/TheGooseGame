@@ -2,13 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/bars.rpy", line 14: expected a keyword argument or end of line.
-    value StaticValue(barvariable, 100):
-                                       ^
+File "game/script.rpy", line 38: expected 'image_name_component' not found.
+    show scene "e7 window 2.jpg"
+        ^
 
-File "game/bars.rpy", line 21: expected statement.
-    bar (shipfavour, 100):
-                         ^
+File "game/script.rpy", line 67: expected 'image_name_component' not found.
+    hide scene "e7 window 2.jpg"
+        ^
 
 Ren'Py Version: Ren'Py 7.5.3.22090809
-Thu Oct 27 21:52:55 2022
+Sat Oct 29 17:39:46 2022

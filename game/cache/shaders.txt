@@ -1,4 +1,5 @@
 renpy.alpha renpy.texture
+=======
 renpy.alpha renpy.geometry renpy.texture
 renpy.solid
 renpy.texture
@@ -6,4 +7,6 @@ renpy.ftl
 renpy.dissolve renpy.dissolve
 renpy.dissolve renpy.geometry
 renpy.geometry renpy.texture
+<<<<<<< HEAD
 renpy.geometry renpy.solid
+>>>>>>> cca2120 (updated transitiojns)

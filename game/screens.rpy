@@ -4,7 +4,7 @@
 # Stephanie - SL
 # SHIFT+I TO INSPECT IN GAME
 
-
+##CL2
 ## The statements in this file run before any other file because of the negative offset number
 init offset = -1
 
@@ -14,27 +14,36 @@ init offset = -1
 
 ## styles being defined below of different gui button elements
 
+##set a default style where nothing applies
 style default:
     properties gui.text_properties()
+    ##language depends on initial user selection
     language gui.language
 
+## below is the exact same thing repeated
+## start of repeated commentary
 style input:
+    ## defines the usage name of the style, and allows for accent colour to be used
     properties gui.text_properties("input", accent=True)
+    ## adjust_spacing "horizontal"
+    ## adjust_spacing "veritcal"
+    ## both above can also be used, but we want neither
     adjust_spacing False
 
 style hyperlink_text:
     properties gui.text_properties("hyperlink", accent=True)
+    ## allow for an underline to appear when hovering over links
     hover_underline True
 
 style gui_text:
     properties gui.text_properties("interface")
-
 
 style button:
     properties gui.button_properties("button")
 
 style button_text is gui_text:
     properties gui.text_properties("button")
+    ## always align buttons to the center of the next largest container it is occupying
     yalign 0.5
 
 
@@ -43,11 +52,19 @@ style label_text is gui_text:
 
 style prompt_text is gui_text:
     properties gui.text_properties("prompt")
+## end the repeated commentary 
 
 ## scroll bar and progress bar styles, assigning images to display the bars
+## this code is pretty much unused, since we made our own custom display bars
+## this was still kept in regardless, just in case
+##start of repetitive code starts 
 style bar:
+    ##define the height of the bar as the predefined variable 
     ysize gui.bar_size
+    ## define the background of the bar as the image, set its borders as the predefined style
+    ## and instead of allowing a tiling or linear scaling of the image, set it to a variable as well
     left_bar Frame("gui/bar/left.png", gui.bar_borders, tile=gui.bar_tile)
+    ## foreground of the bar, filler
     right_bar Frame("gui/bar/right.png", gui.bar_borders, tile=gui.bar_tile)
 
 style vbar:
@@ -79,42 +96,47 @@ style vslider:
 style frame:
     padding gui.frame_borders.padding
     background Frame("gui/frame.png", gui.frame_borders, tile=gui.frame_tile)
+##end of primarily unused code
 
-
-################################################################################
+##############################################################################################
 ## In-game screens
-################################################################################
-## dialogue display area
+## where we define the actual display containers to the user, to be called on from script file
+##############################################################################################
+
 ## requires two parameters, "who" which is the character talking, and "what" which is the content of the actual dialogue
 screen say(who, what):
+    ##give everything in this the style of say
     style_prefix "say"
 
-    ## location of the variable which is being called
+    ## define a new frame/container, and give it a callable group
     window:
         id "window"
-
+        ## within this new window, 
         ## checks that the character exists, so an empty dialogue box isn't created
         if who is not None:
-
-
+            ## this new window, is smaller than the outer window, which we can position to the upper left corner
+            ## of the bigger dialogue box
             window:
-                #@ sets all the elements in the dialogue to the preset "namebox" style
+                ## sets all the elements in the dialogue to the preset "namebox" style
                 id "namebox"
                 style "namebox"
+                ## the name of the person talking is typed out in the container
                 text who id "who"
-        ## assigns the content of the dialogue to the "what" style
+        ## the text dialogue content is now typed out in the larger window
         text what id "what"
 
 
     ## displays side image above text if it's present
+    ##this is what's used as the background
     if not renpy.variant("small"):
         add SideImage() xalign 0.0 yalign 1.0
 
 
-## Make the namebox available for styling through the Character object.
+## Make the namebox available for styling through the character object
 init python:
     config.character_id_prefixes.append('namebox')
 
+## the style of default was set before, and everything will be set to that at the very beginning
 style window is default
 style say_label is default
 style say_dialogue is default
@@ -385,7 +407,11 @@ screen game_menu(title, scroll=None, yinitial=0.0):
     if main_menu:
         add gui.main_menu_background
     else:
-         add gui.game_menu_background
+#<<<<<<< HEAD
+        add gui.game_menu_background
+#=======
+        add gui.game_menu_background
+#>>>>>>> cca2120 (updated transitiojns)
         
 
     frame:
@@ -1086,8 +1112,10 @@ screen confirm(message, yes_action, no_action):
                 xalign 0.5
                 spacing 150
 
-                textbutton _("Yes") action yes_action
-                textbutton _("No") action no_action
+                textbutton _("{color=#000000}Yes"):
+                    action yes_action
+                textbutton _("{color=#000000}No"):
+                    action no_action
 
     ## Right-click and escape answer "no".
     key "game_menu" action no_action
