@@ -9,17 +9,12 @@
 style bars:
     ##the background bar will be set by an image in the files
     right_bar "barfill.png"
-    ## set dimensions, (x,y), in pixels
     xysize(400,35)
-    ## align in relation to the outer container, in this case, the screen window
-    ## 0 is left, 1 is right
     xalign 0.08
-    ## 0 is top, 1 is bottom
     yalign 0.10
     
 #>>>>>>> cca2120 (updated transitiojns)
 
-## define a screen, which will be overlayed over anything else 
 screen bars:
     ## create a display bar
     bar: 

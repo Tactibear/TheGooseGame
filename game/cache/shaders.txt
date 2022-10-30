@@ -1,4 +1,5 @@
 renpy.alpha renpy.texture
+>>>>>>> 72f9b7e0a4665df0f3988fbf96ad79db62d770df
 =======
 renpy.alpha renpy.geometry renpy.texture
 renpy.solid

@@ -2,13 +2,77 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 38: expected 'image_name_component' not found.
-    show scene "e7 window 2.jpg"
-        ^
+File "game/Transitions.rpy", line 1: expected statement.
+    <<<<<<< HEAD
+                ^
 
-File "game/script.rpy", line 67: expected 'image_name_component' not found.
-    hide scene "e7 window 2.jpg"
-        ^
+File "game/Transitions.rpy", line 2: expected statement.
+    ﻿
+     ^
+
+File "game/Transitions.rpy", line 25: expected statement.
+    =======
+          ^
+
+File "game/Transitions.rpy", line 26: expected statement.
+    ﻿
+     ^
+
+File "game/Transitions.rpy", line 38: expected statement.
+    >>>>>>> 72f9b7e0a4665df0f3988fbf96ad79db62d770df
+                                                    ^
+
+File "game/Transitions.rpy", line 44: frame expects a non-empty block.
+    frame:
+          ^
+
+File "game/Transitions.rpy", line 45: expected statement.
+    <<<<<<< HEAD
+                ^
+
+File "game/Transitions.rpy", line 61: expected statement.
+    =======
+          ^
+
+File "game/Transitions.rpy", line 70: expected statement.
+    >>>>>>> 72f9b7e0a4665df0f3988fbf96ad79db62d770df
+                                                    ^
+
+File "game/bars.rpy", line 1: expected statement.
+    <<<<<<< HEAD
+                ^
+
+File "game/bars.rpy", line 19: expected statement.
+    =======
+          ^
+
+File "game/bars.rpy", line 24: expected statement.
+    >>>>>>> 72f9b7e0a4665df0f3988fbf96ad79db62d770df
+                                                    ^
+
+File "game/bars.rpy", line 29: expected statement.
+    <<<<<<< HEAD
+                ^
+
+File "game/bars.rpy", line 40: expected statement.
+    =======
+          ^
+
+File "game/bars.rpy", line 45: expected statement.
+    >>>>>>> 72f9b7e0a4665df0f3988fbf96ad79db62d770df
+                                                    ^
+
+File "game/bars.rpy", line 52: expected statement.
+    <<<<<<< HEAD
+                ^
+
+File "game/bars.rpy", line 56: expected statement.
+    =======
+          ^
+
+File "game/bars.rpy", line 59: expected statement.
+    >>>>>>> 72f9b7e0a4665df0f3988fbf96ad79db62d770df
+                                                    ^
 
 Ren'Py Version: Ren'Py 7.5.3.22090809
-Sat Oct 29 17:39:46 2022
+Sat Oct 29 20:58:54 2022
