@@ -1,80 +1,84 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While processing text tag {color '#000000'} in "{color '#000000'}Yes".:
-Exception: Unknown text tag "color '#000000'"
+While running game code:
+  File "game/clickertestgame.rpy", line 17, in script
+    call screen clickers
+  File "renpy/common/000statements.rpy", line 609, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "game/clickertestgame.rpy", line 20, in execute
+    screen clickers():
+  File "game/clickertestgame.rpy", line 20, in execute
+    screen clickers():
+  File "game/clickertestgame.rpy", line 21, in execute
+    frame:
+  File "game/clickertestgame.rpy", line 28, in execute
+    hbox:
+  File "game/clickertestgame.rpy", line 31, in execute
+    if time <= 2:
+  File "game/clickertestgame.rpy", line 34, in execute
+    text str(time) xpos .1 ypos .1 at alpha_dissolve
+  File "game/clickertestgame.rpy", line 34, in keywords
+    text str(time) xpos .1 ypos .1 at alpha_dissolve
+  File "game/clickertestgame.rpy", line 34, in <module>
+    text str(time) xpos .1 ypos .1 at alpha_dissolve
+NameError: name 'alpha_dissolve' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/_layout/screen_load_save.rpym", line 35, in script
-    $ ui.interact()
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 1131, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\python.py", line 1061, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "renpy/common/_layout/screen_load_save.rpym", line 35, in <module>
-    $ ui.interact()
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\ui.py", line 299, in interact
+  File "game/clickertestgame.rpy", line 17, in script
+    call screen clickers
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/ast.py", line 2232, in execute
+    self.call("execute")
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/ast.py", line 2220, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/statements.py", line 281, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 609, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/exports.py", line 3181, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/ui.py", line 299, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\display\core.py", line 3377, in interact
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 3377, in interact
     repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\display\core.py", line 3912, in interact_core
-    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\display\core.py", line 2602, in draw_screen
-    surftree = renpy.display.render.render_screen(
-  File "render.pyx", line 495, in renpy.display.render.render_screen
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\display\layout.py", line 884, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\display\transition.py", line 370, in render
-    return render(self.new_widget, width, height, st, at)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\display\layout.py", line 884, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\display\layout.py", line 884, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\display\screen.py", line 704, in render
-    child = renpy.display.render.render(self.child, w, h, st, at)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\display\layout.py", line 884, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\display\layout.py", line 1334, in render
-    surf = render(child,
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\display\layout.py", line 1105, in render
-    surf = render(d, width - x, rh, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\display\layout.py", line 1060, in render
-    surf = render(d, rw, height - y, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\display\behavior.py", line 885, in render
-    rv = super(Button, self).render(width, height, st, at)
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\display\layout.py", line 1334, in render
-    surf = render(child,
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\text\text.py", line 2109, in render
-    virtual_layout = Layout(self, width, height, renders, drawable_res=False, size_only=True)
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\text\text.py", line 627, in __init__
-    self.paragraphs = self.segment(text.tokens, style, renders, text)
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\text\text.py", line 1278, in segment
-    raise Exception("Unknown text tag %r" % text)
-Exception: Unknown text tag "color '#000000'"
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 3810, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/screen.py", line 451, in visit_all
+    callback(self)
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 3810, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/screen.py", line 462, in per_interact
+    self.update()
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/screen.py", line 653, in update
+    self.screen.function(**self.scope)
+  File "game/clickertestgame.rpy", line 20, in execute
+    screen clickers():
+  File "game/clickertestgame.rpy", line 20, in execute
+    screen clickers():
+  File "game/clickertestgame.rpy", line 21, in execute
+    frame:
+  File "game/clickertestgame.rpy", line 28, in execute
+    hbox:
+  File "game/clickertestgame.rpy", line 31, in execute
+    if time <= 2:
+  File "game/clickertestgame.rpy", line 34, in execute
+    text str(time) xpos .1 ypos .1 at alpha_dissolve
+  File "game/clickertestgame.rpy", line 34, in keywords
+    text str(time) xpos .1 ypos .1 at alpha_dissolve
+  File "game/clickertestgame.rpy", line 34, in <module>
+    text str(time) xpos .1 ypos .1 at alpha_dissolve
+NameError: name 'alpha_dissolve' is not defined
 
-Windows-10-10.0.19044 AMD64
-Ren'Py 8.0.3.22090809
+Windows-10-10.0.22000 AMD64
+Ren'Py 7.5.3.22090809
  
-Sat Oct 29 03:03:26 2022
+Thu Nov  3 01:56:19 2022

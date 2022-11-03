@@ -3,8 +3,8 @@
 # Emily - EM
 # Stephanie - SL
 # SHIFT+I TO INSPECT IN GAME, over whatever the mouse is hovering over
-
-
+init python:
+    import pygame
 # main game script
 
 ## CL2
@@ -33,12 +33,11 @@ define A = Character("Ana Conda", color = "#2f1fc2", callback=callback)
 default shipfavour=25
 
 
+
 ## dialogue content starts here
 label start:
     scene e6 window 2 goose god
     show e6 window 2 goose god with dissolve
-    
-
     ## CL2
     N "Welcome to the University of Waterloo!"
     N "This is your first of many mistakes you'll make here, but it's ok."
@@ -62,6 +61,33 @@ label start:
     N "What a funny name for a goose, does your mom also call you that?"
     N "Alright, so your job here now is to ignore me and indulge in university life."
     N "You may have noticed that about $16,000 has disappeared from your bank account, but such is life when you're at uwaterloo :)."
+    N "Wait before you go....."
+    N "Let's put you through a test."
+    N "You're gonna be doing a lot of clicking today.... I think we need to make sure you are fit for the game ahead."
+    N "So how about it?"
+
+label firstgame:
+    menu:
+        "Oh yeah I trained my entire life for this":
+            jump yesfirstgame
+        "Hmmmm may I at least put my bags down?":
+            jump nofirstgame
+label nofirstgame:
+    N "Yeah no, you may not."
+    N "So you playing or what?"
+    jump firstgame
+label yesfirstgame:
+    $ quick_menu=False
+    $ renpy.block_rollback()
+    stop music 
+    #play music ""
+    jump clickergamelabel
+label returnfromfirstgame:
+    $ renpy.block_rollback()
+    $ renpy.checkpoint()
+    $ quick_menu=True
+    N "[clicks]..... I see..... Better than the average Laurier student."
+    N "At the very least you knew to click the button."
     N "Welcome to campus little goosling, enjoy your stay. (Don't enjoy it too much though)"
     ## CL
     ##transition insertion before beginning the dialogue 
@@ -77,7 +103,7 @@ label start:
     ## CL2, EM
     # background here, just add file name, no file format at end
     hide screen Opening1 with dissolve
-    play music "audio/rockgardenmusic.mp3"
+    play music "audio/rockgardenmusic.mp3" volume 1.8
     scene rock garden 3
     show rock garden 3 with dissolve
     show screen bars
@@ -116,7 +142,8 @@ label start:
         "No, just suffer in ambiguity about Jupyter's relationship status":
             MsG "Thinking: Damn, I don't really know if I should look at Jupyter's Wingstagram, is that a little creepy?"
             N "You decided not to check Jupyter's Wingstagram to see his relationship status. There is no change to your relationship points"
-    
+
+  
     # show the character sprite, no file format at end eiother
     ## want about 875x875 pixel image for best results
     # game ends here, return to main screen

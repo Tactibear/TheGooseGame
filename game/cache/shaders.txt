@@ -1,5 +1,4 @@
 renpy.alpha renpy.texture
->>>>>>> 72f9b7e0a4665df0f3988fbf96ad79db62d770df
 =======
 renpy.alpha renpy.geometry renpy.texture
 renpy.solid
@@ -8,6 +7,7 @@ renpy.ftl
 renpy.dissolve renpy.dissolve
 renpy.dissolve renpy.geometry
 renpy.geometry renpy.texture
+>>>>>>> 72f9b7e0a4665df0f3988fbf96ad79db62d770df
 <<<<<<< HEAD
 renpy.geometry renpy.solid
 >>>>>>> cca2120 (updated transitiojns)
