@@ -1,8 +1,8 @@
 ## format the actual button (replace with better image later on)
 transform buttonformat:
-    zoom 0.13
-    xzoom 1.2
-    yzoom 0.7
+    zoom 0.4
+    xzoom 0.9
+    yzoom 0.8
     align(0.24,1.0)
 
 ## set initial vairables
@@ -32,6 +32,7 @@ screen clickers():
             text "Score [clicks]" size 40 xpos 0.1 ypos 0.1 
     
         hbox:
+            #align 0.5
             timer 0.1 repeat True action If(time > 0, SetVariable('time', time - 0.1), false=Jump(timer_ends))
             timer 1 repeat True action If(time > 0, true=SetVariable('time', time - 1), false=Jump(timer_ends))
             if time <= 3:
@@ -39,7 +40,7 @@ screen clickers():
             else:
                 text str(time) xpos .1 ypos .1 color '#00ff00'
 
-    imagebutton auto "images/buttontemp_%s.png" align(0.5, 0.5) action SetVariable("clicks",clicks+1) at buttonformat 
+    imagebutton auto "images/goosebutton_%s.png" align(0.5, 0.5) action [SetVariable("clicks",clicks+1),Play(config.has_sound,"audio/buttonhovereffect.mp3",selected=None)] at buttonformat 
 
     
 

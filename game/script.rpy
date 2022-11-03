@@ -40,6 +40,9 @@ label start:
     show e6 window 2 goose god with dissolve
     ## CL2
     N "Welcome to the University of Waterloo!"
+    # stop music
+    # jump rockpaperscissorslabel
+label tempstart:
     N "This is your first of many mistakes you'll make here, but it's ok."
     N "Mistakes are what makes us geese."
     N "Sorry what's your name again? I didn't quite catch it the first time."
@@ -86,6 +89,11 @@ label returnfromfirstgame:
     $ renpy.block_rollback()
     $ renpy.checkpoint()
     $ quick_menu=True
+    menu:
+        "Whew!":
+            jump continue1
+
+label continue1:
     N "[clicks]..... I see..... Better than the average Laurier student."
     N "At the very least you knew to click the button."
     N "Welcome to campus little goosling, enjoy your stay. (Don't enjoy it too much though)"
@@ -107,7 +115,12 @@ label returnfromfirstgame:
     scene rock garden 3
     show rock garden 3 with dissolve
     show screen bars
-    N "It's a beautiful Sunday afternoon. You and your friend, Ana Conda, are at the University of Waterloo's Rock Garden"
+    N "It's a beautiful Sunday afternoon. You and your friend, Ana Conda, are at the University of Waterloo's Rock Garden."
+    N "What pristine rocks these are, where I'm from you either stand on guano or you don't."
+    N "Hey did I ever tell you about the seagulls and the laxati-"
+    N "Hmgh right"
+    N "Back to the matter at hand."
+
     N "It is currently 3pm, and you just got a text from your childhood friend, Timmy Tam, asking if you wanted to hang out with him and his friend, Jupyter Journal in MC."
     MsG "Thinking: I can't wait to see Timmy again! It's been so long since I last saw him."
     hide rock garden 3 with dissolve
@@ -138,10 +151,11 @@ label returnfromfirstgame:
             N "you open Wingstagram"
             MsG "Thinking: He has no tagged posts of him with any girls, or any photos with any girls... I think he's single!"
             N "You have learned that Jupyter is single, even though stalking his Wingstagram might be a little creepy... But is it really that creepy?"
-            N "plus 5 relationship points"
+            $ shipfavour+=5
         "No, just suffer in ambiguity about Jupyter's relationship status":
             MsG "Thinking: Damn, I don't really know if I should look at Jupyter's Wingstagram, is that a little creepy?"
             N "You decided not to check Jupyter's Wingstagram to see his relationship status. There is no change to your relationship points"
+    N "placeholder"
 
   
     # show the character sprite, no file format at end eiother
