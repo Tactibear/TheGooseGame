@@ -41,7 +41,7 @@ label start:
     ## CL2
     N "Welcome to the University of Waterloo!"
     # stop music
-    # jump rockpaperscissorslabel
+    jump rpsfinal
 label tempstart:
     N "This is your first of many mistakes you'll make here, but it's ok."
     N "Mistakes are what makes us geese."
