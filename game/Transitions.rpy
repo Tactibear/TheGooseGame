@@ -31,12 +31,67 @@ screen Opening1():
         style "opening"
 ##defines the screen that will create the text onscreen, this will be overlayed on top of the previous screen 
 ## to create the full display
+
+## CL
 screen day1():
     hbox:
         ##in its separate container, set the style to defined above
         style "Centering"
         ## type out text, not using pythong print since it can't be formatted as easily
-        text('Day one'):
+        text('Day One'):
+            ##size in pixels
+            size 200
+            ##set colour
+            color '#ffffff'
+            ## set font
+            font 'fonts/Blomberg.otf'
+
+## CL, CL2
+screen day2():
+    hbox:
+        ##in its separate container, set the style to defined above
+        style "Centering"
+        ## type out text, not using pythong print since it can't be formatted as easily
+        text('Day Two'):
+            ##size in pixels
+            size 200
+            ##set colour
+            color '#ffffff'
+            ## set font
+            font 'fonts/Blomberg.otf'
+
+screen day3():
+    hbox:
+        ##in its separate container, set the style to defined above
+        style "Centering"
+        ## type out text, not using pythong print since it can't be formatted as easily
+        text('Day Three'):
+            ##size in pixels
+            size 200
+            ##set colour
+            color '#ffffff'
+            ## set font
+            font 'fonts/Blomberg.otf'
+
+screen day4():
+    hbox:
+        ##in its separate container, set the style to defined above
+        style "Centering"
+        ## type out text, not using pythong print since it can't be formatted as easily
+        text('Day Four'):
+            ##size in pixels
+            size 200
+            ##set colour
+            color '#ffffff'
+            ## set font
+            font 'fonts/Blomberg.otf'
+
+screen day5():
+    hbox:
+        ##in its separate container, set the style to defined above
+        style "Centering"
+        ## type out text, not using pythong print since it can't be formatted as easily
+        text('Day Five'):
             ##size in pixels
             size 200
             ##set colour

@@ -1,34 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/game1.rpy", line 8, in script
-    init python:
-  File "game/game1.rpy", line 8, in script
-    init python:
-  File "game/game1.rpy", line 11, in <module>
-    userchoice
-NameError: name 'userchoice' is not defined
+  File "game/script.rpy", line 92, in script
+    jump firstgame
+ScriptError: could not find label 'firstgame'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/bootstrap.py", line 277, in bootstrap
-    renpy.main.main()
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/main.py", line 558, in main
-    renpy.game.context().run(node)
-  File "game/game1.rpy", line 8, in script
-    init python:
-  File "game/game1.rpy", line 8, in script
-    init python:
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/ast.py", line 1131, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/python.py", line 1061, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/game1.rpy", line 11, in <module>
-    userchoice
-NameError: name 'userchoice' is not defined
+  File "game/script.rpy", line 92, in script
+    jump firstgame
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/ast.py", line 1974, in execute
+    rv = renpy.game.script.lookup(target)
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/script.py", line 927, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'firstgame'.
 
 Windows-10-10.0.22000 AMD64
 Ren'Py 7.5.3.22090809
  
-Thu Nov  3 18:52:49 2022
+Sat Nov 12 18:34:02 2022
