@@ -1,330 +1,41 @@
-Sat Nov 12 18:28:20 2022
+Sat Nov 12 20:30:34 2022
 Windows-10-10.0.22000
 Ren'Py 7.5.3.22090809
  
 
-Bootstrap to the start of init.init took 0.07s
+Bootstrap to the start of init.init took 0.08s
 Early init took 0.00s
-Loader init took 0.05s
+Loader init took 0.04s
 Loading error handling took 0.02s
-Loading script took 0.24s
-Loading save slot metadata. took 0.02s
-Loading persistent took 0.00s
-
-File "game/script.rpy", line 185: expected end of line
-    play music what audio? 
-                    ^
-
-File "game/script.rpy", line 236: menu statement expects a non-empty block.
-    menu: 
-        ^
-
-File "game/script.rpy", line 237: expected statement.
-    "Choose to follow the original plan to study because you haven’t learned C’s get degrees" :
-                                                                                              ^
-
-File "game/script.rpy", line 246: expected statement.
-    "Choose to be a gamer goose with Jupyter.":
-                                              ^
-
-File "game/script.rpy", line 257: end of line expected.
-    N "You and Jupyter had a productive "study" session. Not much studying was done, but much flirting was done, if you know what I mean ;)" 
-                                         ^
-
-File "game/script.rpy", line 328: Say menuitems and captions may not exist in the same menu.
-    N "You decide to go to E6 with Ana, Timmy, and Jupyter." 
-                                                            ^
-
-File "game/script.rpy", line 335: expected statement.
-    *TRANSITION TO MINI GAME* 
-                            ^
-
-File "game/script.rpy", line 337: expected statement.
-    there is simply too much stuff to be included here, so go here for the rest of this option’s code! 
-                                                      ^
-
-File "game/script.rpy", line 339: expected statement.
-    "Decline the offer and go back to your residence to die on the inside." :
-                                                                            ^
-
-File "game/script.rpy", line 406: expected statement.
-    shipfavour-=50
-               ^
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Interface start took 0.37s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 3060/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 516.94'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1058, 595) drawable=(1058, 595)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init took 69.76s
-Early init took 0.00s
-Loader init took 0.03s
-Loading error handling took 0.01s
-Loading script took 0.12s
-Loading save slot metadata. took 0.01s
-Loading persistent took 0.00s
-
-File "game/script.rpy", line 236: menu statement expects a non-empty block.
-    menu: 
-        ^
-
-File "game/script.rpy", line 237: expected statement.
-    "Choose to follow the original plan to study because you haven’t learned C’s get degrees" :
-                                                                                              ^
-
-File "game/script.rpy", line 246: expected statement.
-    "Choose to be a gamer goose with Jupyter.":
-                                              ^
-
-File "game/script.rpy", line 257: end of line expected.
-    N "You and Jupyter had a productive "study" session. Not much studying was done, but much flirting was done, if you know what I mean ;)" 
-                                         ^
-
-File "game/script.rpy", line 341: end of line expected.
-    jump day 5  
-             ^
-
-File "game/script.rpy", line 401: expected statement.
-    shipfavour-=50
-               ^
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Interface start took 0.34s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 3060/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 516.94'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1058, 595) drawable=(1058, 595)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init took 133.78s
-Early init took 0.00s
-Loader init took 0.03s
-Loading error handling took 0.01s
-Loading script took 0.11s
-Loading save slot metadata. took 0.01s
-Loading persistent took 0.00s
-
-File "game/script.rpy", line 250: expected menuitem
-    hide dp library with dissolve 
-    ^
-
-File "game/script.rpy", line 257: end of line expected.
-    N "You and Jupyter had a productive "study" session. Not much studying was done, but much flirting was done, if you know what I mean ;)" 
-                                         ^
-
-File "game/script.rpy", line 341: end of line expected.
-    jump day 5  
-             ^
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Interface start took 0.33s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 3060/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 516.94'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1058, 595) drawable=(1058, 595)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init took 153.90s
-Early init took 0.00s
-Loader init took 0.02s
-Loading error handling took 0.01s
-Loading script took 0.11s
-Loading save slot metadata. took 0.01s
-Loading persistent took 0.00s
-
-File "game/script.rpy", line 250: expected menuitem
-    hide dp library with dissolve 
-    ^
-
-File "game/script.rpy", line 257: end of line expected.
-    N "You and Jupyter had a productive "study" session. Not much studying was done, but much flirting was done, if you know what I mean ;)" 
-                                         ^
-
-File "game/script.rpy", line 341: end of line expected.
-    jump day 5  
-             ^
-
-File "game/script.rpy", line 427: expected ':' not found.
-    label day 5:
-              ^
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Interface start took 0.33s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 3060/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 516.94'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1058, 595) drawable=(1058, 595)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init took 197.00s
-Early init took 0.00s
-Loader init took 0.02s
-Loading error handling took 0.01s
-Loading script took 0.11s
-Loading save slot metadata. took 0.02s
-Loading persistent took 0.00s
-
-File "game/script.rpy", line 249: expected menuitem
-    hide dp library with dissolve 
-    ^
-
-File "game/script.rpy", line 256: end of line expected.
-    N "You and Jupyter had a productive "study" session. Not much studying was done, but much flirting was done, if you know what I mean ;)" 
-                                         ^
-
-File "game/script.rpy", line 343: end of line expected.
-    jump day 5  
-             ^
-
-File "game/script.rpy", line 433: expected ':' not found.
-    label day 5:
-              ^
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Interface start took 0.31s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 3060/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 516.94'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1058, 595) drawable=(1058, 595)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init took 211.50s
-Early init took 0.00s
-Loader init took 0.02s
-Loading error handling took 0.01s
-Loading script took 0.12s
-Loading save slot metadata. took 0.02s
-Loading persistent took 0.00s
-
-File "game/script.rpy", line 256: end of line expected.
-    N "You and Jupyter had a productive "study" session. Not much studying was done, but much flirting was done, if you know what I mean ;)" 
-                                         ^
-
-File "game/script.rpy", line 343: end of line expected.
-    jump day 5  
-             ^
-
-File "game/script.rpy", line 433: expected ':' not found.
-    label day 5:
-              ^
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Interface start took 0.39s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 3060/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 516.94'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1058, 595) drawable=(1058, 595)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init took 228.63s
-Early init took 0.00s
-Loader init took 0.02s
-Loading error handling took 0.02s
-Loading script took 0.12s
-Loading save slot metadata. took 0.01s
-Loading persistent took 0.00s
-
-File "game/script.rpy", line 343: end of line expected.
-    jump day 5  
-             ^
-
-File "game/script.rpy", line 433: expected ':' not found.
-    label day 5:
-              ^
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Interface start took 0.34s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 3060/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 516.94'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1058, 595) drawable=(1058, 595)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init took 301.59s
-Early init took 0.00s
-Loader init took 0.02s
-Loading error handling took 0.01s
-Loading script took 0.14s
+Loading script took 0.35s
 Loading save slot metadata. took 0.02s
 Loading persistent took 0.00s
 Faled to initialize steam: WindowsError(126, 'The specified module could not be found')
-Running init code took 0.05s
-Loading analysis data took 0.01s
+Running init code took 0.07s
+Loading analysis data took 0.03s
 Analyze and compile ATL took 0.00s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\liuch\\AppData\\Roaming/RenPy/backups\\GooseVisualNovel-v8.0':
-Dump and make backups. took 0.05s
+Dump and make backups. took 0.12s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc. took 0.03s
+Initial gc. took 0.05s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 0.24s
+Creating interface object took 0.45s
 Cleaning stores took 0.00s
-Init translation took 0.04s
+Init translation took 0.05s
 Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.04s
-Save pyanalysis. took 0.03s
-Save bytecode. took 0.01s
+Save screen analysis took 0.03s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.03s
 Running _start took 0.00s
 Performance test:
-Interface start took 0.16s
+Interface start took 0.22s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -336,17 +47,10 @@ Version: '4.6.0 NVIDIA 516.94'
 Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1058, 595) drawable=(1058, 595)
 Maximum texture size: 4096x4096
-
-Full traceback:
-  File "game/script.rpy", line 92, in script
-    jump firstgame
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/ast.py", line 1974, in execute
-    rv = renpy.game.script.lookup(target)
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/script.py", line 927, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'firstgame'.
-
-While running game code:
-  File "game/script.rpy", line 92, in script
-    jump firstgame
-ScriptError: could not find label 'firstgame'.
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s

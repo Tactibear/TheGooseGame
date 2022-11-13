@@ -17,6 +17,13 @@ define gui.show_name = True
 define config.version = ""
 ## both title and subtitle are awkwardly placed and we don't want to work with it
 
+## create more sound channels to play multiple sounds at the same time
+# renpy.music.register_channel("channel1", "sfx")
+# renpy.music.register_channel("channel2", "sfx")
+# renpy.music.register_channel("channel3", "sfx")
+# renpy.music.register_channel("channel4", "sfx")
+# renpy.music.register_channel("channel5", "sfx")
+# renpy.music.register_channel("channel6", "sfx")
 ## About menu text
 ## in a paragraph, write contents when called in about screen
 define gui.about = _p("""Regretted by Camillo, Charles, Emily, and Stephanie
@@ -41,7 +48,7 @@ define config.has_voice = True
 
 ## music to be played on the main menu
 ## Nintendo, Fountain Gardens (Kirbys Epic Yarn)
-define config.main_menu_music = "audio/titlescreenmusic.mp3"
+define config.main_menu_music = "audio/titlescreenmusicac.mp3"
 
 ## transition type into main game menu
 define config.enter_transition = dissolve

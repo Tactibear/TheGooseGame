@@ -5,6 +5,7 @@
 # SHIFT+I TO INSPECT IN GAME, over whatever the mouse is hovering over
 init python:
     import pygame
+    import random
 # main game script
 
 ## CL2
@@ -26,6 +27,7 @@ init python:
 define N = Character("Goose God", color="#000000", callback=callback)
 define mG = Character("Jupyter Journal", color="#ad2a28",callback=callback)
 define MsG = Character("[MsGName]", color="#f542cb", callback=callback)
+define MsGthinking = Character("[MsGName], Thinking", color="#a80883", callback=callback)
 define T = Character("Timmy Tam", color= "#35ad28", callback=callback)
 define A = Character("Ana Conda", color = "#2f1fc2", callback=callback)
 
@@ -51,7 +53,7 @@ label start:
     stop music
     jump rpsagainstgod
 label afterrpsgod:
-    play music titlescreenmusic
+    play music titlescreenmusicac
     scene e6 window 2 goose god
     show e6 window 2 goose god with dissolve
     N "This is your first of many mistakes you'll make here, but it's ok."
@@ -65,7 +67,7 @@ label afterrpsgod:
         ##if there are any spaces in front or behind the given name, take those away
         ##this saves on dialogue box space if someone decides to troll 
         MsGName=MsGName.strip()
-        #capitalize every word of the string
+        #capitalize first word of the string
         MsGName=str.title(MsGName)
         ##if no name is inputted at all, set default to "CHE120"
         if not MsGName:
@@ -102,7 +104,7 @@ label returnfromclicker:
     $ quick_menu=True
     menu:
         "Whew!":
-            jump continue1
+            jump continuefromclicker
 
 label continuefromclicker:
     if clicks>1:
@@ -126,10 +128,18 @@ label continuefromclicker:
     ## CL2, EM
     # background here, just add file name, no file format at end
     hide screen Opening1 with dissolve
-    play music "audio/rockgardenmusic.mp3" volume 1.8
+    play music "audio/rockgardenmusic-animalcrossing.mp3" volume 1.8
+
+    show screen bars
+    N "I should probably mention something before I let you go."
+    N "See that little cool thing in the top left?"
+    N "That's your relationship bar."
+    N "It tracks how others view you, in favourability."
+    N "It changes based on your words and actions around other geese."
+    N "Please don't be like every other goose and try to get it as low as possible by pooping on things, honking aggressively, and generally being menaces on campus."
+    N "Anyways, onto the campus, fly, little one!"
     scene rock garden 3
     show rock garden 3 with dissolve
-    show screen bars
     N "It's a beautiful Sunday afternoon. You and your friend, Ana Conda, are at the University of Waterloo's Rock Garden."
     N "What pristine rocks these are, where I'm from you either stand on guano or you don't."
     N "Hey did I ever tell you about the seagulls and the laxati-"
@@ -137,7 +147,7 @@ label continuefromclicker:
     N "Back to the matter at hand."
 
     N "It is currently 3pm, and you just got a text from your childhood friend, Timmy Tam, asking if you wanted to hang out with him and his friend, Jupyter Journal in MC."
-    MsG "Thinking: I can't wait to see Timmy again! It's been so long since I last saw him."
+    MsGthinking "I can't wait to see Timmy again! It's been so long since I last saw him."
     hide rock garden 3 with dissolve
     show mc trelfords office 2 with dissolve
     N "You and Ana walk into MC and take the elevator to the 6th floor, where Timmy and his friend are studying."
@@ -148,7 +158,7 @@ label continuefromclicker:
     T "Me too! This is my friend Jupyter by the way, he's in CS BBA, what a silly CS boy."
     hide timmy with dissolve
     show standard mr goose with dissolve
-    MsG "thinking: Omg Omg Jupyter is such a dapper goose!!! He is soooo cute"
+    MsGthinking "Omg Omg Jupyter is such a dapper goose!!! He is soooo cute"
     MsG "Hi Jupyter! I'm [MsGName] nice to meet you! I'm in Chem Eng :)"
     mG "Nice to meet you! How were your first week of classes?"
     MsG "Tt has been going well :). My favorite class so far has been Computer Literacy and Programming! I love coding and I am so amped to be learning Python"
@@ -156,7 +166,7 @@ label continuefromclicker:
     hide standard mr goose with dissolve
     N "You and Jupyter talk more about your hobbies. You discover that you both enjoy swimming, playing GO FISH with your fellow goose comrades, and finding new plant-based recipes"
     N "The group continues to study and get to know each other. After a few hours of hard work on that Waterloo grind set, you all exchange information and plan to meet up the next day for more studying (and possibly more)."
-    MsG "Thinking: Omg, sould I check Wingstagram to see if Jupyter has a girlfriend?"
+    MsGthinking "Omg, sould I check Wingstagram to see if Jupyter has a girlfriend?"
     ## CL2, EM
     ## menu defines a set of clickable choices for the suer
     ## under each "if" circumstance, is a set of actions that happens upon selecting that option
@@ -164,11 +174,11 @@ label continuefromclicker:
     menu:
         "Yes, stalk Jupyter's Wingstagram and see if he has a girlfriend":
             N "you open Wingstagram"
-            MsG "Thinking: He has no tagged posts of him with any girls, or any photos with any girls... I think he's single!"
+            MsGthinking "He has no tagged posts of him with any girls, or any photos with any girls... I think he's single!"
             N "You have learned that Jupyter is single, even though stalking his Wingstagram might be a little creepy... But is it really that creepy?"
             $ shipfavour+=5
         "No, just suffer in ambiguity about Jupyter's relationship status":
-            MsG "Thinking: Damn, I don't really know if I should look at Jupyter's Wingstagram, is that a little creepy?"
+            MsGthinking "Damn, I don't really know if I should look at Jupyter's Wingstagram, is that a little creepy?"
             N "You decided not to check Jupyter's Wingstagram to see his relationship status. There is no change to your relationship points"
     N "placeholder"
 ########################################################################################################################################################################
@@ -181,7 +191,7 @@ label day2start:
     ## wait before continuing with code (seconds) 
     pause 3 
     hide screen day2 with dissolve 
-    #play music what audio? 
+    play music rch301musicpolybridge
     scene rch 301 
     show rch 301 with dissolve 
     show screen bars 
@@ -202,13 +212,13 @@ label day2start:
     hide Day 1 Text 1 with dissolve 
     show dp library with dissolve 
 
-    MsG "Thinking: Omg omg, I’m so excited to see Jupyter again! I hope he can help me study these matrix applications though, I’m so bad at MATH 115."
+    MsGthinking "Omg omg, I’m so excited to see Jupyter again! I hope he can help me study these matrix applications though, I’m so bad at MATH 115."
 
     show standard mr goose with dissolve 
     mG "Hey [MsGName], nice to see you again!" 
     MsG "Blushing: H-hey Jupyter! How are you?"
     mG "Good good, I’m excited to study together today!"
-    MsG "Blushing and thinking: Omg!!! He said he’s excited to study with me today."
+    MsGthinking "Omg!!! He said he’s excited to study with me today."
 
     #play music PHONE NOTIFICATION SOUND 
 
@@ -272,7 +282,7 @@ label day2continue:
 
     MsG "Bye Jupyter! This was super fun!! We should do this again this week!!" 
     mG "See ya later [MsGName]!!" 
-    MsG "Blushing and thinking: He’s so cute!!" 
+    MsGthinking "He’s so cute!!" 
     N "You walk back to your dorm room, thinking about your study session with Jupyter. It seems like you’ve developed a crush on our homie Jupyter." 
 
 ########################################################################################################################################################################
@@ -365,7 +375,7 @@ label day4end:
 
     T "Hey Ana, are you getting some vibes from these two?" 
 
-    show ana waving at right with moveinright
+    show ana wave at right with moveinright
     show timmy at left with moveinleft
 
     A "Yeah Timmy, the vibes are very very interesting…" 

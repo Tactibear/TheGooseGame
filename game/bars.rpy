@@ -19,7 +19,6 @@ screen bars:
             yalign 0.05
             xmaximum 382
             bar:
-
                 value shipfavour
                 range 120
                 right_bar "barfiller.png" 
