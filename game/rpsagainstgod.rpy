@@ -1,3 +1,4 @@
+## CL2
 define N = Character("Goose God", color="#000000")
 
 # define rpslibrary=[('rock','paper'), ('paper','scissors'), ('scissors','rock')]
@@ -6,7 +7,7 @@ define N = Character("Goose God", color="#000000")
 #         image "fightinggod.jpg" zoom 0.8
 
 #     imagebutton auto "goosegod_%s.png" align(-1.2, 0.4) action NullAction() at goosegodimage
-## CL2
+
 label rpsagainstgod:
     show fightinggod
     show goosegod

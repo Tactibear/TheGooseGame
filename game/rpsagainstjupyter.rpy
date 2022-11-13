@@ -1,4 +1,21 @@
-## janked code, python based
+## CL2
+init python:
+    ## define a function, callback, and allow for the acceptance of any number of inputs into the function
+    def callback(scrollingtextevent, **kwargs):
+        ## if a defined event is occuring, in this case, the text is scrolling past the user,
+        ## play the sound file that plays with scrolling text, a text "blip" sound
+        if scrollingtextevent == "show":
+            renpy.music.play("audio/textblipsoundeffect.mp3", channel="sound", loop=True)
+        ## the other two possible states of the dialogue content is when is done scrolling,
+        ## and sitting idle, where the sound stops playing
+        elif scrollingtextevent == "slow_done" or scrollingtextevent == "end":
+            renpy.music.stop(channel="sound")
+
+define mG = Character("Jupyter Journal", color="#ad2a28",callback=callback)
+define MsG = Character("[MsGName]", color="#f542cb", callback=callback)
+
+define rpslibrary=[('rock','paper'), ('paper','scissors'), ('scissors','rock')]
+
 init python:
     def rpsrolling(userchoice):
         import random
@@ -6,49 +23,68 @@ init python:
 transform buttonformat:
     zoom 0.7
     rotate -90
-transform goosegodimage:
+transform jupyterimage:
     zoom 0.7
+transform backgroundimage:
+    zoom 0.5
 
 screen rpstest():
     frame:
-        image "fightinggod.jpg" zoom 0.8
+        image "e7 lobby 2.jpg" zoom 0.8
         hbox:
             spacing 10
             align(0.5,0.5)
             text "Score [compscore]   [userscore]" size 40 xpos 0.1 ypos 0.1 
     
 
-    imagebutton auto "rockgoose_%s.png" align(1.13, -1.1) at buttonformat action [SetVariable('userchoice',1),Function(rpsrolling,userchoice)]
-    imagebutton auto "papergoose_%s.png" align(1.13,0.5) at buttonformat action [SetVariable('userchoice',2),Function(rpsrolling,userchoice)]
-    imagebutton auto "scissorsgoose_%s.png" align(1.13,1.8) at buttonformat action [SetVariable('userchoice',3),Function(rpsrolling,userchoice)]
+    imagebutton auto "rockgoose_%s.png" align(1.13, -1.1) at buttonformat action [SetVariable('userchoice','rock'),Function(rpsrolling,userchoice), Jump('choserock')]
+    imagebutton auto "papergoose_%s.png" align(1.13,0.5) at buttonformat action [SetVariable('userchoice','paper'),Function(rpsrolling,userchoice), Jump('chosepaper')]
+    imagebutton auto "scissorsgoose_%s.png" align(1.13,1.8) at buttonformat action [SetVariable('userchoice','scissors'),Function(rpsrolling,userchoice), Jump('chosescissors')]
   
-    imagebutton auto "goosegod_%s.png" align(-1.2, 0.4) action NullAction() at goosegodimage
-#####################
-## working code, besides a few misplaced vars, renpy based
-define N = Character("Goose God", color="#000000")
+    imagebutton auto "standard mr goose right facing_%s.png" align(0, 0.4) action NullAction() at jupyterimage
 
-define rpslibrary=[('rock','paper'), ('paper','scissors'), ('scissors','rock')]
-label rps1final:
-    #call screen rpstest
+label rpstest11:
+    call screen rpstest
+    show standard mr goose right facing 
+    mG "Go ahead, choose an option."
+label choserock:
+    scene e7 lobby 2
+    show e7 lobby 2 
+    $userchoice='rock'
+    mG "so you chose rock"
 
-    N 'So it seems that you want to challenge me of all geese.'
-    N 'This will indeed be good practice for when you face Jupyter.'
-    N 'Whoops did not mean to spoil.'
-    N 'So now, little goosling, try and win against the almighty omnipotent being.'
-    N 'Choose your hand.'
-    menu:
-        "Rock!":
-            $userchoice='rock'
-        "Paper!":
-            $userchoice='paper'
-        "Scissors!":
-            $ rps_player='scissors'
-            
+    jump rpsresult
+
+label chosepaper:
+    scene e7 lobby 2
+    show e7 lobby 2
+    $userchoice='paper'
+    mG "so you chose paper"
+    jump rpsresult
+    
+label chosescissors:
+    scene e7 lobby 2
+    show e7 lobby 2
+    $userchoice='scissors'
+    mG "so you chose scissors"
+    jump rpsresult
+
+label rpsresult:
+    scene e7 lobby 2 at backgroundimage
+    show e7 lobby 2
     $compchoice=renpy.random.choice(['rock', 'paper', 'scissors'])
-    if (rps_player, rps_npc) in rps_beats:
-        N 'L, I win'
-    elif (rps_npc, rps_player) in rps_beats:
-        N 'Got lucky, you win'
+    if (userchoice, compchoice) in rpslibrary:
+        mG "I chose [compchoice]"
+        mG 'L, I win'
+        $compscore+=1
+        jump rpstest11
+
+    elif (compchoice, userchoice) in rpslibrary:
+        mG "I chose [compchoice]"
+        mG 'Got lucky, you win'
+        $userscore+=1
+        jump rpstest11
     else:
-        N 'tie, go again'
-        jump rps
+        mG "I chose [compchoice]"
+        mG 'tie, go again'
+        jump rpstest11

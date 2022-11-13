@@ -1,38 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "renpy/common/00keymap.rpy", line 473, in script
-    python hide:
-  File "renpy/common/00keymap.rpy", line 473, in <module>
-    python hide:
-  File "renpy/common/00keymap.rpy", line 497, in _execute_python_hide
-    renpy.save("_reload-1", "reload save game")
-Exception: Could not pickle <module 'time' (built-in)>. (perhaps renpy.game.log.log[40].stores[u'store']['time'] = <module 'time' (built-in)>)
+  File "game/rpsagainstjupyter.rpy", line 77, in script
+    if (userchoice, compchoice) in rpslibrary:
+  File "game/rpsagainstjupyter.rpy", line 81, in <module>
+    elif (compchoice, userchoice) in library:
+TypeError: argument of type '_Config' is not iterable
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/00keymap.rpy", line 473, in script
-    python hide:
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/ast.py", line 1131, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/python.py", line 1061, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "renpy/common/00keymap.rpy", line 473, in <module>
-    python hide:
-  File "renpy/common/00keymap.rpy", line 497, in _execute_python_hide
-    renpy.save("_reload-1", "reload save game")
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/loadsave.py", line 408, in save
-    reraise(t, e, tb)
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/loadsave.py", line 389, in save
-    dump((roots, renpy.game.log), logf)
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/compat/pickle.py", line 51, in dump
-    cPickle.dump(o, f, PROTOCOL)
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/python.py", line 1158, in module_pickle
-    raise Exception("Could not pickle {!r}.".format(module))
-Exception: Could not pickle <module 'time' (built-in)>. (perhaps renpy.game.log.log[40].stores[u'store']['time'] = <module 'time' (built-in)>)
+  File "game/rpsagainstjupyter.rpy", line 77, in script
+    if (userchoice, compchoice) in rpslibrary:
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/ast.py", line 2115, in execute
+    if renpy.python.py_eval(condition):
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/python.py", line 1092, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/python.py", line 1085, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/rpsagainstjupyter.rpy", line 81, in <module>
+    elif (compchoice, userchoice) in library:
+TypeError: argument of type '_Config' is not iterable
 
 Windows-10-10.0.22000 AMD64
 Ren'Py 7.5.3.22090809
  
-Sat Nov 12 20:30:29 2022
+Sun Nov 13 13:47:04 2022

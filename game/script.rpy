@@ -41,6 +41,7 @@ label start:
     show e6 window 2 goose god with dissolve
     ## CL2
     N "Welcome to the University of Waterloo!"
+    jump rpstest11
     N 'I go by Gregory but you can call me God.'
     N 'However you got here, be it by plane, car, train, wings, or admissions committee luck,'
     N 'You are in fact here.'
