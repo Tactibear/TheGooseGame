@@ -44,9 +44,15 @@ screen rpstest():
     imagebutton auto "standard mr goose right facing_%s.png" align(0, 0.4) action NullAction() at jupyterimage
 
 label rpstest11:
-    call screen rpstest
-    show standard mr goose right facing 
+    if compscore+userscore==7:
+        hide screen rpstest
+        hide e7 lobby 2
+        jump placeholderreturnfromrps
+    scene e7 lobby 2 
+    show e7 lobby 2 at backgroundimage
     mG "Go ahead, choose an option."
+    call screen rpstest
+
 label choserock:
     scene e7 lobby 2
     show e7 lobby 2 

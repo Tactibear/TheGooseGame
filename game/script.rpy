@@ -42,6 +42,9 @@ label start:
     ## CL2
     N "Welcome to the University of Waterloo!"
     jump rpstest11
+label placeholderreturnfromrps:
+    scene e6 window 2 goose god
+    show e6 window 2 goose god with dissolve
     N 'I go by Gregory but you can call me God.'
     N 'However you got here, be it by plane, car, train, wings, or admissions committee luck,'
     N 'You are in fact here.'
@@ -178,6 +181,8 @@ label continuefromclicker:
             MsGthinking "He has no tagged posts of him with any girls, or any photos with any girls... I think he's single!"
             N "You have learned that Jupyter is single, even though stalking his Wingstagram might be a little creepy... But is it really that creepy?"
             $ shipfavour+=5
+            play music highblingbuttonclickeffect
+            play music "audio/rockgardenmusic-animalcrossing.mp3" volume 1.8
         "No, just suffer in ambiguity about Jupyter's relationship status":
             MsGthinking "Damn, I don't really know if I should look at Jupyter's Wingstagram, is that a little creepy?"
             N "You decided not to check Jupyter's Wingstagram to see his relationship status. There is no change to your relationship points"
@@ -251,6 +256,7 @@ label day2start:
             mG "Oh, you probably aren’t a very good student. I kind of don’t want to do any studying for now and since the others aren’t coming I think I’m just going to go… I’ll cya around though." 
             N "Somehow despite being given the best opportunity you still managed to mess things up… Your day ends in failure." 
             $shipfavour-=10 
+            play music loserelationshippoints
             jump day3start 
 
         "Choose to be a gamer goose with Jupyter.":
@@ -340,6 +346,7 @@ label day4start:
         "Go to E6 with Ana, Timmy, and Jupyter and spend some quality time with the homies": 
             N "You decide to go to E6 with Ana, Timmy, and Jupyter." 
             $shipfavour+=20
+            play music highblingbuttonclickeffect
             #hide CHATIME DC PHOTO with dissolve 
             show e6studyspace2 with dissolve 
             N "Jupyter pulls out his computer and starts doing some LEETCODE LIKE A NERDY CS BOY (which is exactly what he is). You decide to watch and admire Jupyter as he codes. Maybe you should complement him as he codes…"
@@ -351,6 +358,7 @@ label day4start:
             hide sad mr goose with dissolve 
             N "Safe to say, you had an amazing time bawling your eyes out to a TV show, while Ana, Jupyter, and Timmy hung out together in E6. If I were you, I’d watch out if you wanted to date Jupyter." 
             $shipfavour-=40 
+            play music loserelationshippoints
             jump day5  
 
 label placeholderreturnfromminigame:
@@ -394,6 +402,7 @@ label day4end:
         "Go get dinner with Jupyter – this might be a good chance to make a move":
             MsG "Of course!!" 
             $shipfavour+=20
+            play music highblingbuttonclickeffect
 
     hide e6studyspace2 with dissolve 
 
@@ -412,6 +421,7 @@ label day4end:
             mG "Ah, that’s fair!" 
             hide sad mr goose right facing with dissolve 
             $shipfavour-=50
+            play music loserelationshippoints
         "Say yes and refuse to elaborate.":
             show blushing ms goose right facing with dissolve 
             MsG "Yeah I kinda like this one guy goose, he’s a real charmer, y’know." 
@@ -420,6 +430,7 @@ label day4end:
             show blushing mr goose right facing with dissolve 
             mG "Oooh he must be one lucky goose then!" 
             $shipfavour+=40
+            play music highblingbuttonclickeffect
     mG "I didn’t know time could fly by so quickly! Should I walk you home?" 
     MsG "That would be great, thanks!!" 
     N "Jupyter walks you back to your residence. He gives you a goodbye hug and waits for you to enter your residence building before leaving. What a… romantic evening…?" 
