@@ -1,0 +1,28 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/rpsagainstjupyter.rpy", line 77, in script
+    if (userchoice, compchoice) in rpslibrary:
+  File "game/rpsagainstjupyter.rpy", line 81, in <module>
+    elif (compchoice, userchoice) in library:
+TypeError: argument of type '_Config' is not iterable
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/rpsagainstjupyter.rpy", line 77, in script
+    if (userchoice, compchoice) in rpslibrary:
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/ast.py", line 2115, in execute
+    if renpy.python.py_eval(condition):
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/python.py", line 1092, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/python.py", line 1085, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/rpsagainstjupyter.rpy", line 81, in <module>
+    elif (compchoice, userchoice) in library:
+TypeError: argument of type '_Config' is not iterable
+
+Windows-10-10.0.22000 AMD64
+Ren'Py 7.5.3.22090809
+ 
+Sun Nov 13 13:47:04 2022

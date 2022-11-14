@@ -1,0 +1,14 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 343: end of line expected.
+    jump day 5  
+             ^
+
+File "game/script.rpy", line 433: expected ':' not found.
+    label day 5:
+              ^
+
+Ren'Py Version: Ren'Py 7.5.3.22090809
+Sat Nov 12 18:32:09 2022
