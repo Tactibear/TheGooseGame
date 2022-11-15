@@ -37,6 +37,7 @@ default shipfavour=25
 
 ## dialogue content starts here
 label start:
+    
     scene e6 window 2 goose god
     show e6 window 2 goose god with dissolve
     ## CL2
@@ -78,6 +79,7 @@ label afterrpsgod:
             MsGName="CHE120"
     ## CL2, EM
     N "'[MsGName]'..... I see....."
+    jump day2start
     N "What a funny name for a goose, does your mom also call you that?"
     N "Alright, so your job here now is to ignore me and indulge in university life."
     N "You may have noticed that about $16,000 has disappeared from your bank account, but such is life when you're at uwaterloo :)."
@@ -135,6 +137,8 @@ label continuefromclicker:
     play music "audio/rockgardenmusic-animalcrossing.mp3" volume 1.8
 
     show screen bars
+    scene e6 window 2 goose god
+    show e6 window 2 goose god 
     N "I should probably mention something before I let you go."
     N "See that little cool thing in the top left?"
     N "That's your relationship bar."
@@ -142,6 +146,7 @@ label continuefromclicker:
     N "It changes based on your words and actions around other geese."
     N "Please don't be like every other goose and try to get it as low as possible by pooping on things, honking aggressively, and generally being menaces on campus."
     N "Anyways, onto the campus, fly, little one!"
+    hide e6 window 2 goose god 
     scene rock garden 3
     show rock garden 3 with dissolve
     N "It's a beautiful Sunday afternoon. You and your friend, Ana Conda, are at the University of Waterloo's Rock Garden."
@@ -198,13 +203,17 @@ label day2start:
     pause 3 
     hide screen day2 with dissolve 
     play music rch301musicpolybridge
+
     scene rch 301 
     show rch 301 with dissolve 
     show screen bars 
     N "You just finished your MATH 115 tutorial, when you receive a text from Ana. Ana made a group chat with herself, Timmy, Jupyter, and you, on Wingstagram."
-
-    show Day 1 Text 1 with dissolve
-    hide rch 301 with dissolve 
+    hide rch 301 with dissolve
+    scene Day 2 Text 1
+    show Day 2 Text 1 
+    pause 200
+    hide Day 2 Text 1 with dissolve 
+    MsGthinking "How should I answer?"
 
     menu: 
         "Sorry guys I’m gonna go home and play League of Legends, a new champion called Eggbert came out 3 hours ago!": 
@@ -214,8 +223,8 @@ label day2start:
         "Gee wilkers, I sure will join yall.": 
             T "Yeah I’m down!"
             mG "Sounds good." 
-
-    hide Day 1 Text 1 with dissolve 
+     
+    
     show dp library with dissolve 
 
     MsGthinking "Omg omg, I’m so excited to see Jupyter again! I hope he can help me study these matrix applications though, I’m so bad at MATH 115."

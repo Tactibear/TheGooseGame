@@ -1,72 +1,30 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/buttonmashergame.rpy", line 27, in script
-    call screen clickers
-  File "renpy/common/000statements.rpy", line 609, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "game/buttonmashergame.rpy", line 29, in execute
-    screen clickers():
-  File "game/buttonmashergame.rpy", line 29, in execute
-    screen clickers():
-  File "game/buttonmashergame.rpy", line 46, in execute
-    imagebutton auto "images/1goosebutton_%s.png" action [SetVariable("clicks",clicks+1),Play(config.has_sound,"audio/buttonhovereffect.mp3",selected=None), Jump(buttondown)] at buttonmashing
-  File "game/buttonmashergame.rpy", line 46, in keywords
-    imagebutton auto "images/1goosebutton_%s.png" action [SetVariable("clicks",clicks+1),Play(config.has_sound,"audio/buttonhovereffect.mp3",selected=None), Jump(buttondown)] at buttonmashing
-  File "game/buttonmashergame.rpy", line 46, in <module>
-    imagebutton auto "images/1goosebutton_%s.png" action [SetVariable("clicks",clicks+1),Play(config.has_sound,"audio/buttonhovereffect.mp3",selected=None), Jump(buttondown)] at buttonmashing
-NameError: name 'buttondown' is not defined
+  File "game/script.rpy", line 228, in script
+    show dp library (1) with dissolve
+Exception: Image 'dp library' does not accept attributes '(1)'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/buttonmashergame.rpy", line 27, in script
-    call screen clickers
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/ast.py", line 2232, in execute
-    self.call("execute")
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/ast.py", line 2220, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/statements.py", line 281, in call
-    return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 609, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/exports.py", line 3181, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/ui.py", line 299, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 3377, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 3810, in interact_core
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 582, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 582, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 582, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 582, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/screen.py", line 451, in visit_all
-    callback(self)
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 3810, in <lambda>
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/screen.py", line 462, in per_interact
-    self.update()
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/screen.py", line 653, in update
-    self.screen.function(**self.scope)
-  File "game/buttonmashergame.rpy", line 29, in execute
-    screen clickers():
-  File "game/buttonmashergame.rpy", line 29, in execute
-    screen clickers():
-  File "game/buttonmashergame.rpy", line 46, in execute
-    imagebutton auto "images/1goosebutton_%s.png" action [SetVariable("clicks",clicks+1),Play(config.has_sound,"audio/buttonhovereffect.mp3",selected=None), Jump(buttondown)] at buttonmashing
-  File "game/buttonmashergame.rpy", line 46, in keywords
-    imagebutton auto "images/1goosebutton_%s.png" action [SetVariable("clicks",clicks+1),Play(config.has_sound,"audio/buttonhovereffect.mp3",selected=None), Jump(buttondown)] at buttonmashing
-  File "game/buttonmashergame.rpy", line 46, in <module>
-    imagebutton auto "images/1goosebutton_%s.png" action [SetVariable("clicks",clicks+1),Play(config.has_sound,"audio/buttonhovereffect.mp3",selected=None), Jump(buttondown)] at buttonmashing
-NameError: name 'buttondown' is not defined
+  File "game/script.rpy", line 228, in script
+    show dp library (1) with dissolve
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/ast.py", line 1408, in execute
+    show_imspec(self.imspec, atl=getattr(self, "atl", None))
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/ast.py", line 1378, in show_imspec
+    atl=atl)
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/exports.py", line 686, in show
+    if not base.find_target() and renpy.config.missing_show:
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/image.py", line 414, in find_target
+    self.target = target._duplicate(a)
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 397, in _duplicate
+    args.extraneous()
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 267, in extraneous
+    " ".join(self.args),
+Exception: Image 'dp library' does not accept attributes '(1)'.
 
 Windows-10-10.0.22000 AMD64
 Ren'Py 7.5.3.22090809
  
-Mon Nov 14 22:41:40 2022
+Mon Nov 14 23:34:35 2022

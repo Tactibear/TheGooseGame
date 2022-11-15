@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/rpsagainstgod.rpy", line 6: end of line expected.
-    show goosegod_hover zoom 0.8 ypos 300
-                                 ^
+File "game/script.rpy", line 40: expected statement.
+    MsGName='a'
+           ^
 
 Ren'Py Version: Ren'Py 7.5.3.22090809
-Mon Nov 14 23:06:13 2022
+Mon Nov 14 23:27:13 2022
