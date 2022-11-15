@@ -11,15 +11,20 @@ init python:
         elif scrollingtextevent == "slow_done" or scrollingtextevent == "end":
             renpy.music.stop(channel="sound")
 
+## no need to redefine, since renpy reads across files, but I get confused so :(
 define mG = Character("Jupyter Journal", color="#ad2a28",callback=callback)
 define MsG = Character("[MsGName]", color="#f542cb", callback=callback)
 
+## create a list, that defines the possible winning/losing outcomes of a rock paper scissors game
 define rpslibrary=[('rock','paper'), ('paper','scissors'), ('scissors','rock')]
 
+## find a random integer between 1 and 3 and assign it to a variable.
 init python:
     def rpsrolling(userchoice):
         import random
         compchoice=random.randint(1,3)
+
+## stylings to be assigned to certain images
 transform buttonformat:
     zoom 0.7
     rotate -90
@@ -28,21 +33,26 @@ transform jupyterimage:
 transform backgroundimage:
     zoom 0.5
 
+## screen to be called, later on
 screen rpstest():
     frame:
+        ## background image set
         image "e7 lobby 2.jpg" zoom 0.8
+        ## contain the score of the rps game, within a container, and display as variables
         hbox:
             spacing 10
             align(0.5,0.5)
             text "Score [compscore]   [userscore]" size 40 xpos 0.1 ypos 0.1 
     
-
+    ##display the buttons that let the player choose an option. If they do click it, set the userchoice variable, to the corresponding string, then jump to the correct label
     imagebutton auto "rockgoose_%s.png" align(1.13, -1.1) at buttonformat action [SetVariable('userchoice','rock'),Function(rpsrolling,userchoice), Jump('choserock')]
     imagebutton auto "papergoose_%s.png" align(1.13,0.5) at buttonformat action [SetVariable('userchoice','paper'),Function(rpsrolling,userchoice), Jump('chosepaper')]
     imagebutton auto "scissorsgoose_%s.png" align(1.13,1.8) at buttonformat action [SetVariable('userchoice','scissors'),Function(rpsrolling,userchoice), Jump('chosescissors')]
   
     imagebutton auto "standard mr goose right facing_%s.png" align(0, 0.4) action NullAction() at jupyterimage
 
+## main label that we start in, if the score, (best of 7) hits 7 in total, we just go right back to the main script 
+## otherwise, we continue the game
 label rpstest11:
     if compscore+userscore==7:
         hide screen rpstest
@@ -51,8 +61,10 @@ label rpstest11:
     scene e7 lobby 2 
     show e7 lobby 2 at backgroundimage
     mG "Go ahead, choose an option."
+    ## we now show the buttons to the user
     call screen rpstest
 
+## we set the userchoice to the variable in the label, and let Jupyter say something witty
 label choserock:
     scene e7 lobby 2
     show e7 lobby 2 
@@ -75,22 +87,29 @@ label chosescissors:
     mG "so you chose scissors"
     jump rpsresult
 
+## this determines the result of the rps 
 label rpsresult:
     scene e7 lobby 2 at backgroundimage
     show e7 lobby 2
+    ##let the computer pick a random string as well, as their play
     $compchoice=renpy.random.choice(['rock', 'paper', 'scissors'])
+    ##now check if this specific pairing and order is in the losing library, if it is, then the computer won
     if (userchoice, compchoice) in rpslibrary:
         mG "I chose [compchoice]"
         mG 'L, I win'
+        ## add a point to compscore
         $compscore+=1
         jump rpstest11
-
+    ## if it isn't found in the losing library, player won
     elif (compchoice, userchoice) in rpslibrary:
         mG "I chose [compchoice]"
         mG 'Got lucky, you win'
+        ## add one to userscore
         $userscore+=1
         jump rpstest11
+    ##otherwise, it was a tie for sure
     else:
         mG "I chose [compchoice]"
         mG 'tie, go again'
+        ##regardless we go back to the game initiation once again, to play more as long as the sum of the scores isn't 7
         jump rpstest11

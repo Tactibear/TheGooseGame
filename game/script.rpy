@@ -41,7 +41,7 @@ label start:
     show e6 window 2 goose god with dissolve
     ## CL2
     N "Welcome to the University of Waterloo!"
-    jump rpstest11
+    #jump rpstest11
 label placeholderreturnfromrps:
     scene e6 window 2 goose god
     show e6 window 2 goose god with dissolve
@@ -101,7 +101,7 @@ label yesclicker:
     $ renpy.block_rollback()
     stop music 
     #play music ""
-    jump clickergamelabel
+    jump clickergamelabelentry1
 label returnfromclicker:
     $ renpy.block_rollback()
     $ renpy.checkpoint()

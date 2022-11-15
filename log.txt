@@ -1,4 +1,4 @@
-Sun Nov 13 14:14:41 2022
+Mon Nov 14 22:36:41 2022
 Windows-10-10.0.22000
 Ren'Py 7.5.3.22090809
  
@@ -6,36 +6,22 @@ Ren'Py 7.5.3.22090809
 Bootstrap to the start of init.init took 0.06s
 Early init took 0.00s
 Loader init took 0.02s
-Loading error handling took 0.01s
-Loading script took 0.18s
+Loading error handling took 0.02s
+Loading script took 0.19s
 Loading save slot metadata. took 0.01s
 Loading persistent took 0.00s
-Faled to initialize steam: WindowsError(126, 'The specified module could not be found')
-Running init code took 0.04s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\liuch\\AppData\\Roaming/RenPy/backups\\GooseVisualNovel-v8.0':
-Dump and make backups. took 0.05s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc. took 0.02s
+
+File "game/buttonmashergame.rpy", line 45: u'show' is not a keyword argument or valid child for the screen statement.
+    show 1goosebutton_hover at buttonmashing
+        ^
+
+File "game/buttonmashergame.rpy", line 48: u'show' is not a keyword argument or valid child for the screen statement.
+    show 1goosebutton_idle at buttonmashing
+        ^
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 0.27s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.05s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.02s
-Running _start took 0.00s
-Performance test:
-Interface start took 0.15s
+Interface start took 0.39s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)

@@ -1,28 +1,72 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/rpsagainstjupyter.rpy", line 77, in script
-    if (userchoice, compchoice) in rpslibrary:
-  File "game/rpsagainstjupyter.rpy", line 81, in <module>
-    elif (compchoice, userchoice) in library:
-TypeError: argument of type '_Config' is not iterable
+  File "game/buttonmashergame.rpy", line 27, in script
+    call screen clickers
+  File "renpy/common/000statements.rpy", line 609, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "game/buttonmashergame.rpy", line 29, in execute
+    screen clickers():
+  File "game/buttonmashergame.rpy", line 29, in execute
+    screen clickers():
+  File "game/buttonmashergame.rpy", line 46, in execute
+    imagebutton auto "images/1goosebutton_%s.png" action [SetVariable("clicks",clicks+1),Play(config.has_sound,"audio/buttonhovereffect.mp3",selected=None), Jump(buttondown)] at buttonmashing
+  File "game/buttonmashergame.rpy", line 46, in keywords
+    imagebutton auto "images/1goosebutton_%s.png" action [SetVariable("clicks",clicks+1),Play(config.has_sound,"audio/buttonhovereffect.mp3",selected=None), Jump(buttondown)] at buttonmashing
+  File "game/buttonmashergame.rpy", line 46, in <module>
+    imagebutton auto "images/1goosebutton_%s.png" action [SetVariable("clicks",clicks+1),Play(config.has_sound,"audio/buttonhovereffect.mp3",selected=None), Jump(buttondown)] at buttonmashing
+NameError: name 'buttondown' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/rpsagainstjupyter.rpy", line 77, in script
-    if (userchoice, compchoice) in rpslibrary:
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/ast.py", line 2115, in execute
-    if renpy.python.py_eval(condition):
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/python.py", line 1092, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/python.py", line 1085, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/rpsagainstjupyter.rpy", line 81, in <module>
-    elif (compchoice, userchoice) in library:
-TypeError: argument of type '_Config' is not iterable
+  File "game/buttonmashergame.rpy", line 27, in script
+    call screen clickers
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/ast.py", line 2232, in execute
+    self.call("execute")
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/ast.py", line 2220, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/statements.py", line 281, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 609, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/exports.py", line 3181, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 3377, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 3810, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/screen.py", line 451, in visit_all
+    callback(self)
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 3810, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/screen.py", line 462, in per_interact
+    self.update()
+  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/screen.py", line 653, in update
+    self.screen.function(**self.scope)
+  File "game/buttonmashergame.rpy", line 29, in execute
+    screen clickers():
+  File "game/buttonmashergame.rpy", line 29, in execute
+    screen clickers():
+  File "game/buttonmashergame.rpy", line 46, in execute
+    imagebutton auto "images/1goosebutton_%s.png" action [SetVariable("clicks",clicks+1),Play(config.has_sound,"audio/buttonhovereffect.mp3",selected=None), Jump(buttondown)] at buttonmashing
+  File "game/buttonmashergame.rpy", line 46, in keywords
+    imagebutton auto "images/1goosebutton_%s.png" action [SetVariable("clicks",clicks+1),Play(config.has_sound,"audio/buttonhovereffect.mp3",selected=None), Jump(buttondown)] at buttonmashing
+  File "game/buttonmashergame.rpy", line 46, in <module>
+    imagebutton auto "images/1goosebutton_%s.png" action [SetVariable("clicks",clicks+1),Play(config.has_sound,"audio/buttonhovereffect.mp3",selected=None), Jump(buttondown)] at buttonmashing
+NameError: name 'buttondown' is not defined
 
 Windows-10-10.0.22000 AMD64
 Ren'Py 7.5.3.22090809
  
-Sun Nov 13 13:47:04 2022
+Mon Nov 14 22:41:40 2022
