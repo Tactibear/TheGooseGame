@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/buttonmashergame.rpy", line 45: u'goosebutton_hover' is not a keyword argument or valid child for the image statement.
-    image 1goosebutton_hover at buttonmashing
-                            ^
-
-File "game/buttonmashergame.rpy", line 48: u'goosebutton_idle' is not a keyword argument or valid child for the image statement.
-    image 1goosebutton_idle at buttonmashing
-                           ^
+File "game/rpsagainstgod.rpy", line 6: end of line expected.
+    show goosegod_hover zoom 0.8 ypos 300
+                                 ^
 
 Ren'Py Version: Ren'Py 7.5.3.22090809
-Mon Nov 14 22:36:58 2022
+Mon Nov 14 23:06:13 2022

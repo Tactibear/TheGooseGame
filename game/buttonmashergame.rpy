@@ -70,6 +70,7 @@ screen clickers():
 
 ## if we jump here, we go back to main code script
 label returnfromclickers:
+    hide clickers
     jump returnfromclicker
 
 

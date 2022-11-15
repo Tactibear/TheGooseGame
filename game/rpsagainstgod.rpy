@@ -3,7 +3,7 @@ define N = Character("Goose God", color="#000000")
 
 label rpsagainstgod:
     show fightinggod
-    show goosegod
+    show goosegod_hover 
     N 'So it seems that you want to challenge me of all geese.'
     N 'This will indeed be good practice for when you face Jupyter.'
     N 'Whoops did not mean to spoil.'
