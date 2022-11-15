@@ -236,7 +236,7 @@ label day2start:
     hide dp library with dissolve 
 
     # ana says she cannot come to the study session
-    scnee Day 2 Text 1 Option 2 with dissolve
+    scene Day 2 Text 1 Option 2 with dissolve
     show Day 2 Text 1 Option 2 with dissolve
     hide Day 2 Text 1 Option 2 with dissolve
     
