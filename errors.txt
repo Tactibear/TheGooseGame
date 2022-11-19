@@ -2,9 +2,18 @@
 errors listed below, and try again.
 
 
+<<<<<<< HEAD
 File "game/script.rpy", line 40: expected statement.
     MsGName='a'
            ^
 
 Ren'Py Version: Ren'Py 7.5.3.22090809
 Mon Nov 14 23:27:13 2022
+=======
+File "game/rpsagainstjupyter.rpy", line 27: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    focus_mask True
+                   ^
+
+Ren'Py Version: Ren'Py 8.0.3.22090809
+Fri Nov 18 13:55:57 2022
+>>>>>>> 37d109f (DDR game code with other working files)

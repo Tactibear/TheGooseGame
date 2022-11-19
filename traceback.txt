@@ -1,13 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
+<<<<<<< HEAD
   File "game/script.rpy", line 228, in script
     show dp library (1) with dissolve
 Exception: Image 'dp library' does not accept attributes '(1)'.
+=======
+  File "game/DDR game.rpy", line 105, in script call
+    call qte_setup(0.5, 0.5, 0.01, renpy.random.choice(arr_keys), renpy.random.randint(1, 9) * 0.1, renpy.random.randint(1, 9) * 0.1)
+  File "game/DDR game.rpy", line 105, in script call
+    call qte_setup(0.5, 0.5, 0.01, renpy.random.choice(arr_keys), renpy.random.randint(1, 9) * 0.1, renpy.random.randint(1, 9) * 0.1)
+ScriptError: could not find label 'qte_setup'.
+>>>>>>> 37d109f (DDR game code with other working files)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
+<<<<<<< HEAD
   File "game/script.rpy", line 228, in script
     show dp library (1) with dissolve
   File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/ast.py", line 1408, in execute
@@ -28,3 +37,19 @@ Windows-10-10.0.22000 AMD64
 Ren'Py 7.5.3.22090809
  
 Mon Nov 14 23:34:35 2022
+=======
+  File "game/DDR game.rpy", line 105, in script call
+    call qte_setup(0.5, 0.5, 0.01, renpy.random.choice(arr_keys), renpy.random.randint(1, 9) * 0.1, renpy.random.randint(1, 9) * 0.1)
+  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 1705, in execute
+    rv = renpy.game.context().call(label, return_site=self.next.name)
+  File "game/DDR game.rpy", line 105, in script call
+    call qte_setup(0.5, 0.5, 0.01, renpy.random.choice(arr_keys), renpy.random.randint(1, 9) * 0.1, renpy.random.randint(1, 9) * 0.1)
+  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\script.py", line 927, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'qte_setup'.
+
+Windows-10-10.0.19044 AMD64
+Ren'Py 8.0.3.22090809
+ 
+Fri Nov 18 14:10:58 2022
+>>>>>>> 37d109f (DDR game code with other working files)

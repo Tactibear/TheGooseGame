@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 renpy.alpha renpy.texture
 =======
 renpy.alpha renpy.geometry renpy.texture
@@ -11,3 +12,18 @@ renpy.geometry renpy.texture
 <<<<<<< HEAD
 renpy.geometry renpy.solid
 >>>>>>> cca2120 (updated transitiojns)
+=======
+renpy.dissolve renpy.geometry
+=======
+>>>>>>> 72f9b7e0a4665df0f3988fbf96ad79db62d770df
+<<<<<<< HEAD
+renpy.ftl
+>>>>>>> cca2120 (updated transitiojns)
+renpy.geometry renpy.solid
+renpy.texture
+renpy.geometry renpy.texture
+renpy.alpha renpy.texture
+renpy.solid
+renpy.dissolve renpy.dissolve
+renpy.alpha renpy.geometry renpy.texture
+>>>>>>> 37d109f (DDR game code with other working files)

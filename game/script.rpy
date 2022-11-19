@@ -37,11 +37,15 @@ default shipfavour=25
 
 ## dialogue content starts here
 label start:
+<<<<<<< HEAD
     
+=======
+>>>>>>> 37d109f (DDR game code with other working files)
     scene e6 window 2 goose god
     show e6 window 2 goose god with dissolve
     ## CL2
     N "Welcome to the University of Waterloo!"
+<<<<<<< HEAD
     #jump rpstest11
 label placeholderreturnfromrps:
     scene e6 window 2 goose god
@@ -57,6 +61,23 @@ label placeholderreturnfromrps:
     N 'ROCK PAPER SCISSORS!!!'
     stop music
     jump rpsagainstgod
+=======
+    jump ddrgame
+# label placeholderreturnfromrps:
+#     scene e6 window 2 goose god
+#     show e6 window 2 goose god with dissolve
+#     N 'I go by Gregory but you can call me God.'
+#     N 'However you got here, be it by plane, car, train, wings, or admissions committee luck,'
+#     N 'You are in fact here.'
+#     N 'So what now.'
+#     N '...'
+#     N '.............'
+#     N 'How about we play a game? The bus wont come for another 35 minutes anyways.'
+#     N 'My all time favourite....'
+#     N 'ROCK PAPER SCISSORS!!!' with vpunch ##CL cool effect i found online
+#     stop music
+#     jump rpsagainstgod
+>>>>>>> 37d109f (DDR game code with other working files)
 label afterrpsgod:
     play music titlescreenmusicac
     scene e6 window 2 goose god
@@ -79,7 +100,10 @@ label afterrpsgod:
             MsGName="CHE120"
     ## CL2, EM
     N "'[MsGName]'..... I see....."
+<<<<<<< HEAD
     jump day2start
+=======
+>>>>>>> 37d109f (DDR game code with other working files)
     N "What a funny name for a goose, does your mom also call you that?"
     N "Alright, so your job here now is to ignore me and indulge in university life."
     N "You may have noticed that about $16,000 has disappeared from your bank account, but such is life when you're at uwaterloo :)."
@@ -103,7 +127,11 @@ label yesclicker:
     $ renpy.block_rollback()
     stop music 
     #play music ""
+<<<<<<< HEAD
     jump clickergamelabelentry1
+=======
+    jump clickergamelabel
+>>>>>>> 37d109f (DDR game code with other working files)
 label returnfromclicker:
     $ renpy.block_rollback()
     $ renpy.checkpoint()
@@ -121,6 +149,7 @@ label continuefromclicker:
         N 'Please do consider glasses.'
     N "Welcome to campus little goosling, enjoy your stay. (Don't enjoy it too much though)"
     ## CL
+<<<<<<< HEAD
     ##transition insertion before beginning the dialogue 
     with dissolve
     hide e6 window 2 good god
@@ -139,6 +168,22 @@ label continuefromclicker:
     show screen bars
     scene e6 window 2 goose god
     show e6 window 2 goose god 
+=======
+    ##transition insertion before beginning the dialogue
+    show screen Opening1() with dissolve
+    scene Opening
+    hide e6 window 2 good god
+    with dissolve
+    show screen EndCredits1() with dissolve##change back to day1 after testing
+    ## wait before continuing with code (seconds)
+    pause 3
+    hide screen EndCredits1 with Dissolve(3)##change back to day1 after testing
+    ## CL2, EM, CL
+    # background here, just add file name, no file format at end
+    play music "audio/rockgardenmusic-animalcrossing.mp3" volume 1.8
+
+    show screen bars
+>>>>>>> 37d109f (DDR game code with other working files)
     N "I should probably mention something before I let you go."
     N "See that little cool thing in the top left?"
     N "That's your relationship bar."
@@ -146,8 +191,13 @@ label continuefromclicker:
     N "It changes based on your words and actions around other geese."
     N "Please don't be like every other goose and try to get it as low as possible by pooping on things, honking aggressively, and generally being menaces on campus."
     N "Anyways, onto the campus, fly, little one!"
+<<<<<<< HEAD
     hide e6 window 2 goose god 
     scene rock garden 3
+=======
+    scene rock garden 3
+    hide screen Opening1 with dissolve
+>>>>>>> 37d109f (DDR game code with other working files)
     show rock garden 3 with dissolve
     N "It's a beautiful Sunday afternoon. You and your friend, Ana Conda, are at the University of Waterloo's Rock Garden."
     N "What pristine rocks these are, where I'm from you either stand on guano or you don't."
@@ -157,8 +207,13 @@ label continuefromclicker:
 
     N "It is currently 3pm, and you just got a text from your childhood friend, Timmy Tam, asking if you wanted to hang out with him and his friend, Jupyter Journal in MC."
     MsGthinking "I can't wait to see Timmy again! It's been so long since I last saw him."
+<<<<<<< HEAD
     hide rock garden 3 with dissolve
     show mc trelfords office 2 with dissolve
+=======
+    show mc trelfords office 2 with Dissolve(2)
+    hide rock garden 3 with dissolve
+>>>>>>> 37d109f (DDR game code with other working files)
     N "You and Ana walk into MC and take the elevator to the 6th floor, where Timmy and his friend are studying."
     MsG "I hope you don't mind that I brought my friend Ana!"
     show timmy with dissolve
@@ -170,8 +225,13 @@ label continuefromclicker:
     MsGthinking "Omg Omg Jupyter is such a dapper goose!!! He is soooo cute"
     MsG "Hi Jupyter! I'm [MsGName] nice to meet you! I'm in Chem Eng :)"
     mG "Nice to meet you! How were your first week of classes?"
+<<<<<<< HEAD
     MsG "Tt has been going well :). My favorite class so far has been Computer Literacy and Programming! I love coding and I am so amped to be learning Python"
     mG "that's great to hear! I code in G++, but I love Python way more!"
+=======
+    MsG "It has been going well :). My favorite class so far has been Computer Literacy and Programming! I love coding and I am so amped to be learning Python"
+    mG "That's great to hear! I code in G++, but I love Python way more!"
+>>>>>>> 37d109f (DDR game code with other working files)
     hide standard mr goose with dissolve
     N "You and Jupyter talk more about your hobbies. You discover that you both enjoy swimming, playing GO FISH with your fellow goose comrades, and finding new plant-based recipes"
     N "The group continues to study and get to know each other. After a few hours of hard work on that Waterloo grind set, you all exchange information and plan to meet up the next day for more studying (and possibly more)."
@@ -182,7 +242,11 @@ label continuefromclicker:
     ## afterwards, the if statement breaks, continuing on with the next code
     menu:
         "Yes, stalk Jupyter's Wingstagram and see if he has a girlfriend":
+<<<<<<< HEAD
             N "you open Wingstagram"
+=======
+            N "You open Wingstagram"
+>>>>>>> 37d109f (DDR game code with other working files)
             MsGthinking "He has no tagged posts of him with any girls, or any photos with any girls... I think he's single!"
             N "You have learned that Jupyter is single, even though stalking his Wingstagram might be a little creepy... But is it really that creepy?"
             $ shipfavour+=5
@@ -197,6 +261,7 @@ label continuefromclicker:
 
 ## SL, CL2
 label day2start:
+<<<<<<< HEAD
     hide mc trelfords office 2 with dissolve 
     show screen day2() with dissolve 
     ## wait before continuing with code (seconds) 
@@ -214,6 +279,25 @@ label day2start:
     pause 200
     hide Day 2 Text 1 with dissolve 
     MsGthinking "How should I answer?"
+=======
+    show screen Opening1() with dissolve
+    show screen day2() with dissolve
+    hide mc trelfords office 2 
+    hide screen day2 with Dissolve(2)
+    ## wait before continuing with code (seconds) 
+    pause 3 
+    play music rch301musicpolybridge
+    transform rch301:
+        zoom 0.2 ###try fixing this so that rch 301 zooms out
+    scene rch301 
+    show rch301 with dissolve
+    hide screen Opening1
+    show screen bars 
+    N "You just finished your MATH 115 tutorial, when you receive a text from Ana. Ana made a group chat with herself, Timmy, Jupyter, and you, on Wingstagram."
+
+    show Day2Text1 with dissolve
+    hide rch301 with dissolve 
+>>>>>>> 37d109f (DDR game code with other working files)
 
     menu: 
         "Sorry guys I’m gonna go home and play League of Legends, a new champion called Eggbert came out 3 hours ago!": 
@@ -223,9 +307,15 @@ label day2start:
         "Gee wilkers, I sure will join yall.": 
             T "Yeah I’m down!"
             mG "Sounds good." 
+<<<<<<< HEAD
      
     
     show dp library with dissolve 
+=======
+
+    show dp library with dissolve 
+    hide Day2Text1 with dissolve 
+>>>>>>> 37d109f (DDR game code with other working files)
 
     MsGthinking "Omg omg, I’m so excited to see Jupyter again! I hope he can help me study these matrix applications though, I’m so bad at MATH 115."
 
@@ -292,8 +382,13 @@ label placeholdergameday2lost:
 
 label day2continue:    
 
+<<<<<<< HEAD
     hide GAME SCREEN with dissolve 
     show dp library with dissolve 
+=======
+    show dp library with dissolve 
+    hide GAME SCREEN with dissolve 
+>>>>>>> 37d109f (DDR game code with other working files)
     show standard mr goose with dissolve 
 
     MsG "Bye Jupyter! This was super fun!! We should do this again this week!!" 
@@ -311,6 +406,10 @@ label day3start:
     # show the character sprite, no file format at end eiother
     ## want about 875x875 pixel image for best results
     # game ends here, return to main screen
+<<<<<<< HEAD
+=======
+    jump day5
+>>>>>>> 37d109f (DDR game code with other working files)
     return
 
 ########################################################################################################################################################################
@@ -460,6 +559,7 @@ label day4end:
 
 ########################################################################################################################################################################
 ########################################################################################################################################################################
+<<<<<<< HEAD
 
 label day5:
     N "placeholder"
@@ -523,3 +623,166 @@ label day5:
     # N "You and Jupyter end up dating! What a beautiful and romantic ending to this story. Makes me want to tear up as well." 
 
     
+=======
+##EM scripting
+##CL code
+label day5:
+    ##CL insert text here that leads to the endings
+#    show screen wheretheconfessionhappens ###change these when a screen is decided
+#   hide screen screenbeforetoday
+    N "It’s been a crazy first term at the University of Waterloo and you can’t believe that it’s only been that long since you’ve met Jupyter! After a long day of classes, you get a text from him asking if you want to explore downtown Toronto with the group. Of course, you accept and you all explore the downtown area." 
+
+    N "After a long ride on the GO Train, you go into the AGO to see all the wonderful art it has to offer. Then, you waddle around the sketchy streets of Toronto before ending up in the Christmas Market."
+    # show screen AGO
+    show standard mr goose right facing:
+        yalign 0.95
+        xalign 0.05
+        zoom 0.8
+    with dissolve
+    mG "Hey [MsG]! How were your final exams?"
+
+    MsG "Jupyter!!!! I think they went well! All of our studying really paid off and I am confident I passed them all. Is everyone excited to be in the Christmas Market? Although I don’t love the cold, Christmas is my favourite holiday!"
+    show ana:
+        yalign 0.95
+        xalign 0.95
+        zoom 0.8
+    with dissolve
+    A "Frankly, I am super happy to be done exams! Chem was really hard!"
+    show timmy:
+        yalign 0.45
+        xalign 0.5
+        zoom 0.65
+    with dissolve
+    T "I personally wish I was down in Florida right now! This cold weather really sucks!"
+
+    hide standard mr goose right facing
+    hide ana
+    hide timmy
+    with dissolve
+
+    show blushing ms goose with dissolve
+
+    mG "I love Christmas too! It’s the best season to show the people you care about what they mean to you. I know there is someone whom I want to give extra thanks to."
+    
+    show standard ms goose:
+        zoom 0.43
+        xalign 0.5
+        yalign 0.99
+    hide blushing ms goose
+    with dissolve
+
+    MsG "Lets go explore the Market!!!!"
+    
+    hide standard ms goose
+    # show screen nightmarket ###again screen here when you get it to function
+    # hide screen wheretheconfessionhappens
+
+    N "You, Ana, Timmy and Jupyter waddle around the Christmas Market and explore all the beauty it has in store for you. The Christmas lights shine bright in the night sky and you all approach the gorgeous massive Christmas tree in the middle of the square."
+
+    MsG "This has got to be the BIGGEST Christmas tree I’ve ever seen! Like how do they even get this thing in here?"
+    show timmy:
+        yalign 0.45
+        xalign 0.5
+        zoom 0.65
+    show ana:
+        yalign 0.95
+        xalign 0.95
+        zoom 0.8
+    with dissolve
+    T "I don’t know but it's pretty epic!"
+
+    A "Hey Tim-Tim, do you want to come get some Hot Cocoa with me? I think there Is a booth down this way"
+
+    T "For sure! I am so cold I feel like I will turn into a Goose-sicle"
+    hide ana
+    hide timmy
+    with easeoutleft
+    show standard mr goose right facing:
+        yalign 0.95
+        xalign 0.1
+        zoom 0.8
+    with dissolve
+    N "Ana and Timmy go off and somehow you and and Jupyter have ended up alone. The mood in the square has given you a warm feeling of happiness and romance. Jupyter gets a little closer and seems to have an anxious look about him"
+
+    MsG "Jupyter is everything ok? You look like you’re gonna throw up haha"
+
+    hide standard mr goose right facing
+    show blushing mr goose right facing:
+        yalign 0.7
+        xalign 0.1
+        zoom 1.1
+    with dissolve
+
+    mG "Huh? Oh yea. Sorry I was just thinking about something. [MsG] there has been something I’ve been wanting to tell you for the longest time."
+
+    MsG "What’s up? You can tell me anything"
+
+    mG "I have had so much fun getting to know you over this past term. You have helped me with so many things and made me the goose I am today. This first term has been so stressful and hectic and I don’t think I would have survived it without you by my side. I guess what I am trying to say is…"
+    
+    mG "..."
+
+    mG "I like you [MsG]... So yea. That’s all."
+    #CL create 2 endings that  have the conditional statements of having a certain likeability
+    #need ending screens unless they continue from before
+    $shipfavour=120
+    if shipfavour>=115:
+        show blushing ms goose:
+            yalign 0.7
+            xalign 0.8
+            zoom 0.9
+        with dissolve 
+
+        MsG "Oh Jupyter, I like you too! I’ve been meaning to tell you, but school just kept us so busy, and I never got the right opportunity to…" 
+
+        show blushing mr goose right facing:
+            yalign 0.7
+            xalign 0.1
+            zoom 1
+        with dissolve 
+
+        mG "Oh my goose-ness, really? I’m so happy you feel the same way, [MsG]. Would you like to be my girlfriend then?"
+        MsG "I would love to! This is the best day in my entire life. Thank you, Jupyter!" 
+
+        hide blushing mr goose with dissolve 
+
+        ###please insert something into here i was hit by a frieght train of plot development way too quickly
+
+        N "You and Jupyter end up dating! What a beautiful and romantic ending to this story. Makes me want to tear up as well." 
+        return
+    else:
+    ##CL  maybe add in a ms goose with an offset so that theyre facing each other?
+        N "You tense up at Jupyter’s confession. You look like you’ve just seen a ghost and a half. The poor man Jupyter looks like he’s about to cry a river and not build a bridge to get over it."
+        MsG "Oh okay.. Um… Thanks for telling me Jupyter."
+        
+        hide blushing mr goose right facing
+        show sad mr goose right facing:
+            yalign 0.9
+            xalign 0.15
+            zoom 0.9
+        with dissolve
+        
+        mG "Oh yeah um… no rush to respond with your feelings… I just wanted to let you know." with hpunch
+        MsG "Yeah um.. no worries!"
+        MsGthinking "Aw honks, [MsG], you are such a mother fluffer! Now things between us will be awkward!! Why do I keep messing up these things"
+        
+        hide sad mr goose right facing
+
+        show screen Timeskip with dissolve
+        
+        show screen TimeSkipText1 with Dissolve(5)
+        
+        hide screen TimeSkipText1 with dissolve
+        
+        show screen TimeSkipText2 with Dissolve(5)
+        
+        hide screen TimeSkipText2 with dissolve
+        
+        hide screen Timeskip with dissolve
+        
+        N "After your little screw up, Jupyter built a bridge and got over his feelings for you, and ends up dating your best friend, Ana Conda. Oops."
+        mG "Hi [MsG]! Did I ever tell you that Ana and I are dating now?"
+        MsG "That’s great news Jupyter! You deserve someone as great as Ana, I’m so happy for the two of you."
+
+        ##play audio by Joji as an endtune and transition to an end screen
+        #play music (filename)
+>>>>>>> 37d109f (DDR game code with other working files)
