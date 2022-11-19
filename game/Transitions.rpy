@@ -37,11 +37,7 @@ screen day1():
     hbox:
         ##in its separate container, set the style to defined above
         style "Centering"
-<<<<<<< HEAD
-        ## type out text, not using pythong print since it can't be formatted as easily
-=======
         ## type out text, not using python print since it can't be formatted as easily
->>>>>>> 37d109f (DDR game code with other working files)
         text('Day One'):
             ##size in pixels
             size 200
@@ -55,11 +51,7 @@ screen day2():
     hbox:
         ##in its separate container, set the style to defined above
         style "Centering"
-<<<<<<< HEAD
-        ## type out text, not using pythong print since it can't be formatted as easily
-=======
         ## type out text, not using python print since it can't be formatted as easily
->>>>>>> 37d109f (DDR game code with other working files)
         text('Day Two'):
             ##size in pixels
             size 200
@@ -72,11 +64,7 @@ screen day3():
     hbox:
         ##in its separate container, set the style to defined above
         style "Centering"
-<<<<<<< HEAD
-        ## type out text, not using pythong print since it can't be formatted as easily
-=======
         ## type out text, not using python print since it can't be formatted as easily
->>>>>>> 37d109f (DDR game code with other working files)
         text('Day Three'):
             ##size in pixels
             size 200
@@ -89,11 +77,7 @@ screen day4():
     hbox:
         ##in its separate container, set the style to defined above
         style "Centering"
-<<<<<<< HEAD
-        ## type out text, not using pythong print since it can't be formatted as easily
-=======
         ## type out text, not using python print since it can't be formatted as easily
->>>>>>> 37d109f (DDR game code with other working files)
         text('Day Four'):
             ##size in pixels
             size 200
@@ -106,20 +90,13 @@ screen day5():
     hbox:
         ##in its separate container, set the style to defined above
         style "Centering"
-<<<<<<< HEAD
-        ## type out text, not using pythong print since it can't be formatted as easily
-=======
         ## type out text, not using python print since it can't be formatted as easily
->>>>>>> 37d109f (DDR game code with other working files)
         text('Day Five'):
             ##size in pixels
             size 200
             ##set colour
             color '#ffffff'
             ## set font
-<<<<<<< HEAD
-            font 'fonts/Blomberg.otf'
-=======
             font 'fonts/Blomberg.otf'
 ##CL endgame screens that are conditional based off the likeability meter and the transitions to the 1B term
 ##CL comments
@@ -220,4 +197,3 @@ init python:
         c1=c[0]
     credits_s += "\n{size=40}Engine\n{size=60}Ren'py\n6.15.7.374" #Don't forget to set this to our Ren'py version
 ##CL try to disable the functionality of skipping through some text/scenes
->>>>>>> 37d109f (DDR game code with other working files)
