@@ -21,7 +21,7 @@ label clickergamelabel:
     
 screen clickers():
     frame:
-        image "e6studyspace2.jpg" zoom 0.55
+        image "e6studyspace2.jpg"
         hbox:
             spacing 10
             align(0.5,0.5)
@@ -36,7 +36,7 @@ screen clickers():
             else:
                 text str(time) xpos .1 ypos .1 color '#00ff00'
 
-    imagebutton auto "images/goosebutton_%s.png" align(0.5, 0.5) action [SetVariable("clicks",clicks+1),Play(config.has_sound,"audio/buttonhovereffect.mp3",selected=None)] at buttonmasherformat 
+    imagebutton auto "images/goosebutton_%s.png" align(0.5, 0.5) focus_mask True action [SetVariable("clicks",clicks+1),Play(config.has_sound,"audio/buttonhovereffect.mp3",selected=None)] at buttonmasherformat 
 
 label returnfromfirstgameentry:
     jump returnfromclicker

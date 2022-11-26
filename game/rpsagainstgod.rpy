@@ -14,6 +14,7 @@ transform goosegood:
     ypos 100
 
 label rpsagainstgod:
+    play music "audio/rpsmusic Battle Ready By AudioMachine.mp3"
     show fightinggod
     show goosegod_idle at goosegood
     N 'So it seems that you want to challenge me of all geese.'
@@ -29,21 +30,21 @@ label rpsagainstgod:
         "Scissors!":
             $userchoice='scissors'
     if userchoice=='rock':
-        N 'Well this is truly too bad.'
-        N 'I probably live in your head rent free, cause I chose paper.'
-        N 'I win!'
+        N 'Well this is truly too bad.' with vpunch
+        N 'I probably live in your head rent free, cause I chose paper.' with vpunch
+        N 'I win!' with vpunch
         N 'Better luck next time haha.'
         jump afterrpsgod
     if userchoice=='paper':
-        N 'Well this is truly too bad.'
-        N 'I probably live in your head rent free, cause I chose scissors.'
-        N 'I win!'
+        N 'Well this is truly too bad.' with vpunch
+        N 'I probably live in your head rent free, cause I chose scissors.' with vpunch
+        N 'I win!' with vpunch
         N 'Better luck next time haha.'
         jump afterrpsgod
     if userchoice=='scissors':
-        N 'Well this is truly too bad.'
-        N 'I probably live in your head rent free, cause I chose rock.'
-        N 'I win!'
+        N 'Well this is truly too bad.' with vpunch
+        N 'I probably live in your head rent free, cause I chose rock.' with vpunch
+        N 'I win!' with vpunch
         N 'Better luck next time haha.'
         jump afterrpsgod
 

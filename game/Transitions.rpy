@@ -140,7 +140,7 @@ screen EndCreditsBG():
         ## allow for the image to stretch the height and width of screen
         yfill True
         ##set the background itself
-        background "images/Opening.png" ###maybe change this when theres a chance to a background image for the credits
+        background "images/goodending.png" ###maybe change this when theres a chance to a background image for the credits
 
 screen EndCredits1():
     frame:
@@ -165,29 +165,29 @@ screen EndCredits1():
             font 'fonts/Blomberg.otf'
 ## CL function that scrolls the text in the end credits we need images for it to work
 label endcredits2:
-    show screen my_keys()
     $ renpy.block_rollback()
-    $ credits_speed = 25 #scrolling speed in seconds
-    scene white #replace this with a fancy background
+    $ credits_speed = 50 #scrolling speed in seconds
+    scene goodending # fancy background
     with dissolve
     show theend:
         yanchor 0.5 ypos 0.5
         xanchor 0.5 xpos 0.5
     with dissolve
     with Pause(3)
-    hide theend
-    show text(credits_s) at Move((0.5, 4.0), (0.5, 0.0), credits_speed, repeat=False, bounce=False, xanchor="center", yanchor="bottom")
+    hide theend with dissolve
+    show text(credits_s) at Move((0.5, 5.0), (0.5, 0.0), credits_speed, repeat=False, bounce=False, xanchor="center", yanchor="bottom")
     with Pause(credits_speed)
-    show thanks:
+    show thankyou:
         yanchor 0.5 ypos 0.5
         xanchor 0.5 xpos 0.5
     with dissolve
-    with Pause(3)
-    hide thanks
-    hide screen my_keys
+    with Pause(100)
+    hide thankyou with dissolve
+    show apologies with dissolve
+    pause 10
     return
 init python:
-    credits = ('Backgrounds', 'aah'), ('Backgrounds', 'UwU'), ('Sprites and CG', 'my mental health'), ('GUI', 'Charles\'s work ethic'), ('Writing', 'emily and steph\'s'), ('Writing', 'fanfic dreams'), ('Programming', '2AM code with snapple'), ('Music', 'nintendo daddys music'), ('Music', 'boutta get copyright striked')
+    credits = ('Backgrounds', 'Stephanie Li'), ('Sprites and CG', 'Stephanie Li'), ('Sprites and CG', 'Charles Liu'), ('Sprites and CG', 'Camilo Llanten'), ('Sprites and CG', 'Emily Medved'), ('GUI', 'Camilo Llanten'), ('GUI', 'Charles Liu'), ('Writing', 'Emily Medved'), ('Writing', 'Stephanie Li'), ('Writing', 'Camilo Llanten'), ('Writing', 'Charles Liu'), ('Programming', 'Charles Liu'), ('Programming', 'Camilo Llanten'), ('Programming', 'Stephanie Li'), ('Programming', 'Emily Medved')
     credits_s = "{size=80}Credits\n\n"
     c1 = ''
     for c in credits:
@@ -195,5 +195,5 @@ init python:
             credits_s += "\n{size=40}" + c[0] + "\n"
         credits_s += "{size=60}" + c[1] + "\n"
         c1=c[0]
-    credits_s += "\n{size=40}Engine\n{size=60}Ren'py\n6.15.7.374" #Don't forget to set this to our Ren'py version
+    credits_s += "\n{size=40}Engine\n{size=60}Ren'py\n8.0.3" #Don't forget to set this to our Ren'py version
 ##CL try to disable the functionality of skipping through some text/scenes

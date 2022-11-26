@@ -2,81 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/rpsagainstgod.rpy", line 56: Indentation mismatch.
-
-File "game/rpsagainstjupyter.rpy", line 14: expected statement.
-    <<<<<<< HEAD
-                ^
-
-File "game/rpsagainstjupyter.rpy", line 23: expected statement.
-    =======
+File "game/script.rpy", line 610: expecting name after dot.
+    zoom0.7
           ^
-
-File "game/rpsagainstjupyter.rpy", line 30: expected statement.
-    >>>>>>> 37d109f (DDR game code with other working files)
-                    ^
-
-File "game/rpsagainstjupyter.rpy", line 35: expected statement.
-    <<<<<<< HEAD
-                ^
-
-File "game/rpsagainstjupyter.rpy", line 38: expected statement.
-    =======
-          ^
-
-File "game/rpsagainstjupyter.rpy", line 39: expected statement.
-    >>>>>>> 37d109f (DDR game code with other working files)
-                    ^
-
-File "game/rpsagainstjupyter.rpy", line 48: expected statement.
-    <<<<<<< HEAD
-                ^
-
-File "game/rpsagainstjupyter.rpy", line 55: expected statement.
-    =======
-          ^
-
-File "game/rpsagainstjupyter.rpy", line 59: expected statement.
-    >>>>>>> 37d109f (DDR game code with other working files)
-                    ^
-
-File "game/rpsagainstjupyter.rpy", line 65: expected statement.
-    <<<<<<< HEAD
-                ^
-
-File "game/rpsagainstjupyter.rpy", line 75: expected statement.
-    =======
-          ^
-
-File "game/rpsagainstjupyter.rpy", line 82: expected statement.
-    >>>>>>> 37d109f (DDR game code with other working files)
-                    ^
-
-File "game/rpsagainstjupyter.rpy", line 91: expected statement.
-    <<<<<<< HEAD
-                ^
-
-File "game/rpsagainstjupyter.rpy", line 96: expected statement.
-    =======
-          ^
-
-File "game/rpsagainstjupyter.rpy", line 99: expected statement.
-    >>>>>>> 37d109f (DDR game code with other working files)
-                    ^
-
-File "game/rpsagainstjupyter.rpy", line 122: expected statement.
-    <<<<<<< HEAD
-                ^
-
-File "game/rpsagainstjupyter.rpy", line 148: expected statement.
-    =======
-          ^
-
-File "game/rpsagainstjupyter.rpy", line 167: expected statement.
-    >>>>>>> 37d109f (DDR game code with other working files)
-                    ^
-
-File "game/script.rpy", line 255: Indentation mismatch.
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Sat Nov 19 02:31:43 2022
+Sat Nov 26 00:44:11 2022

@@ -67,7 +67,7 @@ define config.end_game_transition = dissolve
 ## If "show", it is always up
 ## If "hide", only shows if dialogue is present
 ## "auto", hidden before scene statements then shown again
-define config.window = "auto"
+define config.window = "hide"
 
 ## dialogue window transitions, type(time in seconds)
 define config.window_show_transition = Dissolve(.2)

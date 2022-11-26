@@ -7,21 +7,29 @@
 # ## CL2 - all
 style bar:
     bar_resizing True
+
+    
+    
 ## ADD a background for the bar so text can be seen better
 ## add sound effect when bar value changes
 screen bars:
     vbox:
-        xalign 0.04
-        yalign 0.04
-        hbox:
+
+        frame:
+            background "barbackground.png"
+            
             $maxshipfavour=120
             xalign 0.5
             yalign 0.05
             xmaximum 382
             bar:
+                yalign 0.075
+                xpos 70
                 value shipfavour
                 range 120
                 right_bar "barfiller.png" 
                 left_bar "goosedispbar.png" 
-        hbox:
-            text "[shipfavour]/[maxshipfavour] " xalign 0 yalign 0.02 color '#000000'
+            hbox:
+                yalign 0.105
+                xpos 70
+                text "[shipfavour]/[maxshipfavour] " xalign 0 yalign 0.02 color '#000000' font "fonts/Blomberg.otf"

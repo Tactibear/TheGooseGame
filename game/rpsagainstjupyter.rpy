@@ -21,6 +21,8 @@ init python:
     def rpsrolling(userchoice):
         import random
         compchoice=random.randint(1,3)
+    compscore = 0
+    userscore = 0
 transform buttonformat:
     zoom 0.7
     rotate -90
@@ -47,7 +49,7 @@ label rpstest11:
     if compscore+userscore==7:
         hide screen rpstest
         hide e7 lobby 2
-        jump placeholderreturnfromrps
+        jump returnfromrps
     scene e7 lobby 2 
     show e7 lobby 2 at backgroundimage
     mG "Go ahead, choose an option."

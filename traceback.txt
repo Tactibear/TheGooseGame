@@ -1,55 +1,36 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-<<<<<<< HEAD
-  File "game/script.rpy", line 228, in script
-    show dp library (1) with dissolve
-Exception: Image 'dp library' does not accept attributes '(1)'.
-=======
-  File "game/DDR game.rpy", line 105, in script call
-    call qte_setup(0.5, 0.5, 0.01, renpy.random.choice(arr_keys), renpy.random.randint(1, 9) * 0.1, renpy.random.randint(1, 9) * 0.1)
-  File "game/DDR game.rpy", line 105, in script call
-    call qte_setup(0.5, 0.5, 0.01, renpy.random.choice(arr_keys), renpy.random.randint(1, 9) * 0.1, renpy.random.randint(1, 9) * 0.1)
-ScriptError: could not find label 'qte_setup'.
->>>>>>> 37d109f (DDR game code with other working files)
+  File "game/Transitions.rpy", line 178, in script
+    show text({color='#f00'}credits_s) at Move((0.5, 5.0), (0.5, 0.0), credits_speed, repeat=False, bounce=False, xanchor="center", yanchor="bottom")
+SyntaxError: invalid syntax (<none>, line 1)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-<<<<<<< HEAD
-  File "game/script.rpy", line 228, in script
-    show dp library (1) with dissolve
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/ast.py", line 1408, in execute
+  File "game/Transitions.rpy", line 178, in script
+    show text({color='#f00'}credits_s) at Move((0.5, 5.0), (0.5, 0.0), credits_speed, repeat=False, bounce=False, xanchor="center", yanchor="bottom")
+  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 1408, in execute
     show_imspec(self.imspec, atl=getattr(self, "atl", None))
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/ast.py", line 1378, in show_imspec
-    atl=atl)
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/exports.py", line 686, in show
+  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 1371, in show_imspec
+    renpy.config.show(name,
+  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\exports.py", line 686, in show
     if not base.find_target() and renpy.config.missing_show:
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/image.py", line 414, in find_target
+  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\display\image.py", line 414, in find_target
     self.target = target._duplicate(a)
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 397, in _duplicate
-    args.extraneous()
-  File "C:\Users\liuch\Downloads\renpy-8.0.3-sdk/renpy/display/core.py", line 267, in extraneous
-    " ".join(self.args),
-Exception: Image 'dp library' does not accept attributes '(1)'.
-
-Windows-10-10.0.22000 AMD64
-Ren'Py 7.5.3.22090809
- 
-Mon Nov 14 23:34:35 2022
-=======
-  File "game/DDR game.rpy", line 105, in script call
-    call qte_setup(0.5, 0.5, 0.01, renpy.random.choice(arr_keys), renpy.random.randint(1, 9) * 0.1, renpy.random.randint(1, 9) * 0.1)
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\ast.py", line 1705, in execute
-    rv = renpy.game.context().call(label, return_site=self.next.name)
-  File "game/DDR game.rpy", line 105, in script call
-    call qte_setup(0.5, 0.5, 0.01, renpy.random.choice(arr_keys), renpy.random.randint(1, 9) * 0.1, renpy.random.randint(1, 9) * 0.1)
-  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\script.py", line 927, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'qte_setup'.
+  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\text\extras.py", line 259, in _duplicate
+    string = renpy.python.py_eval(param)
+  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\python.py", line 1090, in py_eval
+    code = py_compile(code, 'eval')
+  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\python.py", line 1027, in py_compile
+    raise e
+  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\python.py", line 979, in py_compile
+    raise orig_e
+  File "C:\Users\Silve\Desktop\RenPy\renpy-8.0.3-sdk\renpy\python.py", line 972, in py_compile
+    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, 1)
+SyntaxError: invalid syntax (<none>, line 1)
 
 Windows-10-10.0.19044 AMD64
 Ren'Py 8.0.3.22090809
  
-Fri Nov 18 14:10:58 2022
->>>>>>> 37d109f (DDR game code with other working files)
+Sat Nov 26 00:23:17 2022
