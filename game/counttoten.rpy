@@ -1,4 +1,4 @@
-﻿##CL2 code
+﻿###############           CL2                ################
 init python:
     ## define a function, callback, and allow for the acceptance of any number of inputs into the function
     def callback(scrollingtextevent, **kwargs):

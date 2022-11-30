@@ -1,4 +1,4 @@
-## CL2
+###############           CL2                ################
 define N = Character("Goose God", color="#000000")
 
 # define rpslibrary=[('rock','paper'), ('paper','scissors'), ('scissors','rock')]

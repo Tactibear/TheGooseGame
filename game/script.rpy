@@ -3,17 +3,27 @@
 # Emily - EM
 # Stephanie - SL
 # SHIFT+I TO INSPECT IN GAME, over whatever the mouse is hovering over
+###############           CL2                ################
 init python:
     import pygame
     import random
     shipfavour=25
-    if shipfavour<0:
-        shipfavour==0
-    if shipfavour>120:
-        shipfavour==120
-    
-# main game script
+    _skipping = False ##Disables skipping
 
+screen disableskiptext:
+    layer 'ontop'
+    key "mousedown_1" action Hide("placerholder")
+    key "mousedown_2" action Hide("placerholder")
+    key "mouseup_3" action Hide("placerholder")
+    key "mousedown_4" action Hide("placerholder")
+    key "mousedown_5" action Hide("placerholder")
+
+    key "K_KP_ENTER" action Hide("placerholder")
+    key "K_SPACE" action Hide("placerholder")
+    
+    key "K_PAGEUP" action Hide("placerholder")
+    key "K_PAGEDOWN" action Hide("placerholder")
+    
 ###############              CL2               ################ 
 ## start python script to be recognized
 init python:
@@ -44,7 +54,7 @@ default shipfavour=25
 ###############              CL2               ################
 ## dialogue content starts here
 label start:
-    
+    #jump firstcoinmovingspritegame
     scene e6 window 2 goose god
     show e6 window 2 goose god with dissolve
     
@@ -65,7 +75,7 @@ label start:
 
 ###############            CL2                 ################
 label afterrpsgod:
-    play music titlescreenmusicac
+    play music mainmenu
     scene e6 window 2 goose god
     show e6 window 2 goose god with dissolve
     N "This is your first of many mistakes you'll make here, but it's ok."
@@ -118,6 +128,7 @@ label noclicker:
             N "Goodbye."
             $ renpy.run(OpenURL('https://gamequitters.com/how-to-quit-playing-league-of-legends/'))
             $ renpy.quit()
+###############           CL2                ################
 label yesclicker:
     $ quick_menu=False
     $ renpy.block_rollback()
@@ -128,30 +139,33 @@ label returnfromclicker:
     $ renpy.block_rollback()
     $ renpy.checkpoint()
     $ quick_menu=True
-    play music titlescreenmusicac
+    play music mainmenu
     menu:
         "Whew!":
             N "Pretty cool eh?"
             jump continuefromclicker
 ###############             CL2                ################
 label continuefromclicker:
-    if clicks>1:
+    if clicks>15:
         N "[clicks]..... I see..... Better than the average Laurier student."
         N "At the very least you knew to click the button."
     else: 
         N 'Did you not click the button at all??'
+        N "I hardly see a dent here."
         N 'Please do consider glasses.'
     N "Welcome to campus little goosling, enjoy your stay. (Don't enjoy it too much though)"
 ###############            CL                 ################
     ##transition insertion before beginning the dialogue
+    
     show screen Opening1() with dissolve
+
     hide e6 window 2 good god
     with dissolve
     
 
 ###############              CL2               ################
     # background here, just add file name, no file format at end
-    play music "audio/rockgardenmusic-animalcrossing.mp3" volume 1.8
+    play music "audio/rockgarden.mp3" volume 1.8
 
     show screen bars
     N "I should probably mention something before I let you go."
@@ -164,17 +178,19 @@ label continuefromclicker:
 ###############             EM,SL,CL2,CL                ################
     scene Opening1
     show screen day1 with dissolve
-    pause 1
+    show screen disableskiptext
+    pause 4
     hide screen day1 with dissolve
     scene rock garden 3
     hide screen Opening1 with dissolve
     show rock garden 3 with dissolve
     pause 2
+    hide screen disableskiptext
     N "It's a beautiful Sunday afternoon. You and your friend, Ana Conda, are at the University of Waterloon's Rock Garden."
     N "It is currently 3pm, and you just got a text from your childhood friend, Timmy Tam, asking if you wanted to hang out with him and his friend, Jupyter Journal in MC."
     MsGthinking "I can't wait to see Timmy again! It's been so long since I last saw him."
     
-    show mc trelfords office 2 with Dissolve(2)
+    show mctrelfordsoffice2 with Dissolve(2)
     hide rock garden 3 with dissolve
     N "You and Ana walk into MC and take the elevator to the 6th floor, where Timmy and his friend are studying."
     MsG "I hope you don't mind that I brought my friend Ana!"
@@ -183,7 +199,10 @@ label continuefromclicker:
     MsG "I've been doing great! I missed you so much Timmy!"
     T "Me too! This is my friend Jupyter by the way, he's in CS BBA, what a silly CS boy."
     hide timmy wave with dissolve
-    show standard mr goose with dissolve
+    show standard mr goose with dissolve:
+        yalign 1.5
+        xalign 0.5
+       
     MsGthinking "Omg Omg Jupyter is such a dapper goose!!! He is soooo cute"
     MsG "Hi Jupyter! I'm [MsGName] nice to meet you! I'm in Chem Eng :)"
     mG "Nice to meet you! How were your first week of classes?"
@@ -205,7 +224,7 @@ label continuefromclicker:
             $ shipfavour+=5
             play sound highblingbuttonclickeffect
             pause 1
-            play music "audio/rockgardenmusic-animalcrossing.mp3" volume 1.8
+            play music "audio/rockgarden.mp3" volume 1
         "No, just suffer in ambiguity about Jupyter's relationship status":
             MsGthinking "Damn, I don't really know if I should look at Jupyter's Wingstagram, is that a little creepy?"
             N "You decided not to check Jupyter's Wingstagram to see his relationship status."
@@ -220,61 +239,85 @@ label continuefromclicker:
 
 ###############            SL,CL2               ################
 label day2start:
+    show screen disableskiptext
     show screen Opening1() with dissolve
+    hide mctrelfordsoffice2 
     show screen day2() with dissolve
-    hide mc trelfords office 2 
+    pause 3
     hide screen day2 with Dissolve(2)
+    
     ## wait before continuing with code (seconds) 
-    pause 3 
-    play music rch301musicpolybridge
+    
+    hide screen disableskiptext
+
+    play music rch301
 
     scene rch 301 
     show rch 301 with dissolve 
     hide screen Opening1
     show screen bars 
     N "You just finished your MATH 115 tutorial, when you receive a text from Ana. Ana made a group chat with herself, Timmy, Jupyter, and you, on Wingstagram."
-
+    play sound "audio/cute_notification.mp3"
     show daytwotextone with dissolve
     hide rch 301 with dissolve 
-
+    MsGthinking "Oh? Hmmmm, where should I go after class...."
     menu: 
         "Sorry guys I’m gonna go home and play League of Egg, a new champion called Eggbert came out 3 hours ago!": 
-            N "Really?" 
+            show day2text2optionone
+            N "Really? Where are your priorities?" 
             N "Welp."
+            N "Let's go and get this over with."
             jump day3start
 
         "Gee wilkers, I sure will join y'all.": 
+            play sound "audio/cute_notification.mp3"
+            show day2text2optiontwo
             T "Yeah I’m down!"
             mG "Sounds good." 
 
-    show dp library with dissolve 
+    show dplibrary2 with dissolve 
+    play music "audio/dplibrary.mp3" volume 0.5
     hide Day2Text1 with dissolve 
 
     MsGthinking "Omg omg, I’m so excited to see Jupyter again! I hope he can help me study these matrix applications though, I’m so bad at MATH 115."
 
-    show standard mr goose with dissolve 
+    show standard mr goose with dissolve:
+        yalign 1.5
+        xalign 0.5
     mG "Hey [MsGName], nice to see you again!" 
-    MsG "Blushing: H-hey Jupyter! How are you?"
+    MsG "H-hey Jupyter! How are you?"
     mG "Good good, I’m excited to study together today!"
-    MsGthinking "Omg!!! He said he’s excited to study with me today."
-
-    #play music PHONE NOTIFICATION SOUND 
+    MsGthinking "Omg!!! He said he’s excited to study with me today." 
 
     ## transitions into a text from ana conda 
 
     hide standard mr goose with dissolve 
+    show day2text3ana with dissolve
+    play sound "audio/cute_notification.mp3"
     hide dp library with dissolve 
+    A "Sorry guys, Timmy and I can't make it!! There's an EggSoc meeting for class reps today!!"
+    A "You two have fun studying though <3 ;)"
+    hide day2text3ana with dissolve
 
-    #show WHAETEVR THE FILE NAME IS FOR THE CHAT with dissolve 
-    ## ana says she cannot attend the study session on text message. 
-    #hide WHATEVER THE FILE NAME IS FOR THE CHAT with dissolve 
+    
 
     show dp library with dissolve 
-    show standard mr goose with dissolve 
-
+    show standard mr goose with dissolve:
+        yalign 1.5
+        xalign 0.5
+    MsG "Wow they really ditched us at the very last second."
     mG "Damn, I guess it’s just us two. Should we go find a table to sit at to study together?"
     MsG "Yeah sure, let’s go!"
-    N "The two of you sit down at a table."
+    N "The two of you go to sit down at a table."
+    show e6windowsize with dissolve
+    hide standard mr goose with dissolve
+    show standard mr goose with dissolve:
+        yalign 1.5
+        xalign 0.5
+    MsG "What a nice view, isn't it?"
+    mG "You betcha!"
+    MsG "Well I guess it's time to start studying."
+    mG "You know what?"
     mG "Studying sucks, let’s play something instead!" 
 
     hide standard mr goose with dissolve 
@@ -283,12 +326,24 @@ label day2start:
 ###############            SL,CL2               ################
     menu: 
         "Choose to follow the original plan to study because you haven’t learned C’s get degrees" :
-            MsG "Maybe we should study a bit before gaming it’s better to be prepared for the next tutorial right" 
+            show standard mr goose with dissolve:
+                yalign 1.5
+                xalign 0.5
+            MsG "Maybe we should study a bit before gaming it’s better to be prepared for the next tutorial right?" 
             mG "Huh? What do you mean? I never study for my tutorials cause it’s such an easy course there’s no way anyone could struggle with it haha."
             MsG "......" 
-            mG "Oh, you probably aren’t a very good student. I kind of don’t want to do any studying for now and since the others aren’t coming I think I’m just going to go… I’ll cya around though." 
-            N "Somehow despite being given the best opportunity you still managed to mess things up… Your day ends in failure." 
-            $shipfavour-=10 
+            mG "Oh, you probably aren’t a very good student. I kind of don’t want to do any studying for now and since the others aren’t coming I think I’m just going to go…" 
+            mG "I'll see you around."
+            hide standard mr goose with dissolve
+            N "What a rat." 
+            N "Honestly you dodged a bullet there."
+            N "Just chill, he's just another goose"
+            N "Regardless, too bad, so sad, your mom is mad that you gave in the the latest fad."
+            $shipfavour-=10
+            if shipfavour<0:
+                $shipfavour==0
+            if shipfavour>120:
+                $shipfavour==120 
             play sound loserelationshippoints
             pause 2
             jump day3start 
@@ -304,6 +359,10 @@ label day2start:
 label returnlostlives:
     N "You failed your mission."
     $ shipfavour-=15
+    if shipfavour<0:
+        $shipfavour==0
+    if shipfavour>120:
+        $shipfavour==120
 label day2continue: 
     show black    
     $timediff=ogtime-recordedtime+0.1
@@ -330,29 +389,53 @@ label day2continue:
 
 ###############             EM              ################
 label day3start:
+    show screen disableskiptext
+    show screen Opening1() with dissolve
+    hide daytwotextone 
+    show screen day3() with dissolve
+    
+    pause 1
+    scene e6hallway
+    show e6hallway with dissolve
+    hide screen day3 with Dissolve(2)
+    hide screen Opening1 with dissolve
+    hide screen disableskiptext
+
+    
     hide daytwotextone with dissolve
-    scene e6 hallway
-    show e6 hallway with dissolve
     N "Two weeks later..."
     N "You just finished a Chem Egg Student Society (CESS) meeting when you receive a text from Jupyter asking to hang out in the QNC basement."
     menu:
         "Say no and go to the WEEF office to ask questions about the CHE 100 assignment":
             N "You leave Jupyter on read and decide to head to WEEF to ask the WEEF TAs about your CHE 100 assignment. Boohoo, nerd."
             $shipfavour-=20
+            if shipfavour<0:
+                $shipfavour==0
+            if shipfavour>120:
+                $shipfavour==120
+            play sound loserelationshippoints
             jump day4start
-        "Go to QNC and meet Jupyter for some fun times (+10 relationship points)":
+        "Go to QNC and meet Jupyter for some fun times":
+            $shipfavour+=10
+            play sound highblingbuttonclickeffect
             N "You decide to go to the QNC basement to hang out with Jupyter and hopefully get some 'studying' done while you're there."
-            scene qnc basement
-            show qnc basement with dissolve
-            show standard mr goose with dissolve
+            scene qncbasement
+            show qncbasement with dissolve
+            show standard mr goose with dissolve:
+                yalign 1.5
+                xalign 0.5
             mG "Hey [MsG]!! What's up!"
             MsG "Hiiiiiii, I just finished a CESS meeting but I wanted to see you :))"
             hide standard mr goose with dissolve
-            show blushing mr goose with dissolve
+            show blushing mr goose with dissolve:
+                yalign 1.5
+                xalign 0.5
             mG "Ayo okay bro chill chill, I just wanted to show you my awesome piano skills on this piano."
             MsG "You play piano?! That's so slay, so do I! When did you start playing?"
             hide blushing mr goose with dissolve
-            show standard mr goose with dissolve
+            show standard mr goose with dissolve:
+                yalign 1.5
+                xalign 0.5
             mG "Ever since I was a wee little gosling, I played piano in the Ryan Piano School for Goslings"
             MsG "Yoooo that's so cool! Let's play something together :))))"
             hide standard mr goose with dissolve
@@ -361,12 +444,20 @@ label day3start:
                 "Hungarian Dance No 2. by Franz Liszt":
                     N "Spicy.. try not to mess it up"
                     $ shipfavour+=10
+                    if shipfavour<0:
+                        $shipfavour==0
+                    if shipfavour>120:
+                        $shipfavour==120
                     jump ddrgamesetup
                 "Mary Had a Little Lamb ":
                     N "Seriously?"
                     N "You know what sure if thats what you want to play to impress the drippiest goose on all of campus"
                     N "Better hope Jupyter gets over the fact that you have the skill rating of a toddler..."
                     $ shipfavour-=10
+                    if shipfavour<0:
+                        $shipfavour==0
+                    if shipfavour>120:
+                        $shipfavour==120
                     jump ddrgamesetup2
                 ####
                 #transition to ddr minigame
@@ -377,34 +468,50 @@ label day3start:
 
 ###############            EM, CL2, CL              ################
 label returnfromddr:
-    scene qnc basement with dissolve
-    show qnc basement
+    scene qncbasement with dissolve
+    show qncbasement
     N "You and Jupyter jam along happily on the QNC piano, possibly disturbing every other goose in the vicinity."
-    show standard mr goose
+    show standard mr goose with dissolve:
+        yalign 1.5
+        xalign 0.5
     MsG "I think we make a pretty good duet! You play super well by the way"
     hide standard mr goosewith dissolve
-    show blushing mr goose with dissolve
+    show blushing mr goose with dissolve:
+        yalign 1.5
+        xalign 0.5
     mG "Aw thanks [MsGName], you're not so bad yourself!"
-    MsG "Thanks Jupyter!! Let's continue to jam on the piano"
+    MsG "Thanks Jupyter!! Let's continue to jam on the piano."
     hide blushing mr goose with dissolve
-    N "You and Jupyter continue to jam out on the QNC piano, possibly sending every other goose in the room into the 4th dimension with how “beautiful” your playing was. An hour or two passes by, and before you both knew it, it was time for Jupyter to leave to his ECON 120 lecture."
+    N "You and Jupyter continue to jam out on the QNC piano."
+    N "Possibly sending every other goose in the room into the 4th dimension with how “beautiful” your playing was. An hour or two passes by, and before you both knew it, it was time for Jupyter to leave to his ECON 120 lecture."
+    mG "Sorry [MsGName] I have to head on out to Pendarth's lecture, she's teaching us market forces and is going to rant about the uwaterloon subreddit, and I just can't miss it."
     hide blushing mr goose with dissolve
-    show standard mr goose with dissolve
+    show standard mr goose with dissolve:
+        yalign 1.5
+        xalign 0.5
     mG "Bye [MsGName]!! I had fun today!!"
     MsG "Bye Jupyter!! I did too, have fun in econ!"
     mG "Thanks! Have a great day too!!"
     menu:
         "Lean in for a hug":
             $shipfavour+=15
+            if shipfavour<0:
+                $shipfavour==0
+            if shipfavour>120:
+                $shipfavour==120
             hide standard mr goose 
-            show blushing mr goose 
+            show blushing mr goose with dissolve:
+                yalign 1.5
+                xalign 0.5
             N "You lean in for a hug. You can feel Jupyter stiffen and offer you an awkward hug back."
             hide blushing mr goose
             jump day4start
         "Wave goodbye":
             $shipfavour+=5
             hide standard mr goose 
-            show standard mr goose right facing
+            show standard mr goose right facing with dissolve:
+                yalign 1.5
+                xalign 0.5
             N "You wave goodbye at Jupyter and he waves back and smiles"
             N "You feel your heart beat a little faster than before. Maybe someone is beginning to feel like they're in love?"
             hide standard mr goose right facing
@@ -417,30 +524,34 @@ label returnfromddr:
 
 ###############            SL, CL2               ################
 label day4start: 
+    show screen disableskiptext
 
     show screen Opening1() with dissolve
     show screen day4() with dissolve 
     pause 3 
     hide screen day4 with dissolve
-
+    hide screen disableskiptext
     #play music what audio? 
 
-    scene Chatime
-    show Chatime with dissolve
+    scene chatime
+    show chatime with dissolve
     hide screen Opening1
 
     show screen bars 
     N "A few weeks have gone by, and you’re getting Chatime in DC with Ana after finishing your CHE 102 Midterm." 
-    show ana with dissolve 
+    show ana with dissolve:
+        yalign 1.5
+        xalign 0.5
     A "How was the midterm? I thought it was pretty easy, but then again, I’m kinda dumb." 
-    MsG "I thought it was okay, I’m really glad Professor Tam taught us manometer pressure in CHE 100 because it showed up on our CHE 102 midterm somehow!" 
+    MsG "I thought it was okay, I’m really glad Professor Tem taught us manometer pressure in CHE 100 because it showed up on our CHE 102 midterm somehow!" 
     A "Lucky duck, I haven’t learned that in any of my Tron courses!" 
     MsG "Sounds like a you problem, what a skill issue." 
     A "Screw you. Oh hey, they’re calling our Chatime orders. I’ll go grab our orders for us." 
 
     hide ana with dissolve 
-    show standard mr goose with dissolve 
-
+    show standard mr goose with dissolve:
+        yalign 1.5
+        xalign 0.5
     mG "Oh hey [MsG], what are you doing here?" 
     MsG "Jupyter! Ana and I were grabbing Chatime after our CHE 102 midterm, what about you? Oh hey Timmy!" 
 
@@ -466,25 +577,34 @@ label day4start:
             jump tugofwar
         "Decline the offer and go back to your residence to die on the inside." :
             MsG "Sorry guys, I gotta go back to my res. My regularly scheduled mental breakdown is in 10 mins, and I need to cry my eyes out to the ending scene to the k-drama Snowdrop in order to feel something. Bye guys!" 
+            hide timmy with dissolve
             show sad mr goose with dissolve 
             mG "Aw man, I really wanted to hang out with [MsG]. Who knew she was so weird?!"
             hide sad mr goose with dissolve 
             N "Safe to say, you had an amazing time bawling your eyes out to a TV show, while Ana, Jupyter, and Timmy hung out together in E6. If I were you, I’d watch out if you wanted to date Jupyter." 
             $shipfavour-=40 
+            if shipfavour<0:
+                $shipfavour==0
+            if shipfavour>120:
+                $shipfavour==12
             play sound loserelationshippoints
             pause 3
             jump day5  
 
 ###############            CL2               ################
 label returnfromtog:
+    play music "audio/e6study.mp3"
     menu:
         "By the way, I think you look so cool when you flap those wings, Jupyter.":
             scene e6studyspace2
             show e6studyspace2 with dissolve
-            N "I should not have trusted you."
+            N "You suck at flirting dude."
             $shipfavour+=20
+            if shipfavour<0:
+                $shipfavour==0
+            if shipfavour>120:
+                $shipfavour==120
             mG "Heh, thanks."
-            N "He what????"
             jump day4end
         "....":
             scene e6studyspace2
@@ -492,7 +612,7 @@ label returnfromtog:
             N "......"
             mG "....."
             MsG "....."
-            mG "Uhhhh anyways, let's play a number guessing game...?"
+            mG "Uhhhh anyways, I made up this cool new game."
             jump numberguessinggame
 
 label returnfromnumberguessing:
@@ -504,12 +624,13 @@ label day4end:
     show e6studyspace2 with dissolve
 
     N "You attempt to flirt with Jupyter as he codes." 
-    show standard mr goose right facing with dissolve 
-
+    show standard mr goose right facing with dissolve:
+        yalign 1.5
+        xalign 0.5
     MsG "Jupyter, are you a duck? Because you make my heart waddle." 
 
     hide standard mr goose right facing with dissolve 
-    show blushing mr goose right facing with dissolve 
+    show blushing mr goose right facing 
 
     mG "Haha good one! Are you made of fluorine, iodine, and neon? Because damn girl you’re fine." 
     MsG "Sheesh Jupyter that was pretty smooth!" 
@@ -519,14 +640,14 @@ label day4end:
 
     T "Hey Ana, are you getting some vibes from these two?" 
 
-    show ana mouth at right with moveinright
+    show ana mouth at right with moveinright 
 
     A "Yeah Timmy, the vibes are very very interesting…" 
 
     hide timmy mouth with dissolve 
     hide ana mouth with dissolve 
 
-    N "You and Jupyter keep firing pickup lines at each other, making Ana and Timmy third wheel awkwardly on the side." 
+    N "You and Jupyter keep firing pickup lines at each other, making Ana and Timmy third and fourth wheel awkwardly on the side." 
     N "Needless to say, little leetcoding was done by Jupyter, and no studying was done by the rest of you. Before you knew it, it was already dinnertime. Ana had a club meeting after dinner, and Timmy had to go rescue his roommate from the depths of diarrhea in the V1 washroom."
 
     show standard mr goose with dissolve 
@@ -537,6 +658,10 @@ label day4end:
         "Go get dinner with Jupyter – this might be a good chance to make a move":
             MsG "Of course!!" 
             $shipfavour+=20
+            if shipfavour<0:
+                $shipfavour==0
+            if shipfavour>120:
+                $shipfavour==120
             play sound highblingbuttonclickeffect
             pause 1
             jump campuspizzaline
@@ -559,8 +684,12 @@ label day4end:
 
 ###############           CL2                ################
 label campuspizzaline:
-    scene CampusPizza
-    #show campus pizza background????
+    play music pizza
+    scene campuspizza
+    show campuspizza
+    show standard mr goose right facing with dissolve:
+        yalign 1.5
+        xalign 0.5
     hide e6studyspace2 with dissolve 
     mG "Man this line is taking so long."
     mG "Let's burn some time the old fashioned way?"
@@ -572,6 +701,9 @@ label campuspizzaline:
             mG "C'mon!"
             jump rpstest11
 label returnfromrps:
+    play music e6study
+    scene campuspizza
+    show campuspizza
     N "You and Jupyter later enjoy a very nice large pizza with grass instead of pepperoni (I mean, you both are geese…). The two of you are having a very nice conversation. Suddenly, Jupyter asks you an unexpected question." 
     mG "Hey [MsGName], do you have a crush on anyone?"
 ###############          SL                 ################
@@ -585,6 +717,10 @@ label returnfromrps:
             mG "Ah, that’s fair!" 
             hide sad mr goose right facing with dissolve 
             $shipfavour-=50
+            if shipfavour<0:
+                $shipfavour==0
+            if shipfavour>120:
+                $shipfavour==120
             play sound loserelationshippoints
             pause 3
         "Say yes and refuse to elaborate.":
@@ -595,6 +731,10 @@ label returnfromrps:
             show blushing mr goose right facing with dissolve 
             mG "Oooh he must be one lucky goose then!" 
             $shipfavour+=40
+            if shipfavour<0:
+                $shipfavour==0
+            if shipfavour>120:
+                $shipfavour==120
             play sound highblingbuttonclickeffect
             pause 1
     mG "I didn’t know time could fly by so quickly! Should I walk you home?" 
@@ -605,17 +745,27 @@ label returnfromrps:
 ########################################################################################################################################################################
 ########################################################################################################################################################################
 
-###############            CL               ################
+###############            CL,CL2               ################
 transform endingtrans:
     zoom 0.7
     xalign 0.5
     yalign 0.5
 label day5:
+    show screen disableskiptext
+
+    show screen Opening1() with dissolve
+    show screen day5() with dissolve 
+    pause 3 
+    scene ago
+    show ago with dissolve
+    hide screen Opening1 with dissolve
+    hide screen day5 with dissolve
+    hide screen disableskiptext
     ##CL insert text here that leads to the endings
 #    show screen wheretheconfessionhappens ###change these when a screen is decided
 #   hide screen screenbeforetoday
-    scene ago
-    show ago with dissolve
+
+    
     
     N "It’s been a crazy first term at the University of Waterloon and you can’t believe that it’s only been that long since you’ve met Jupyter! After a long day of classes, you get a text from him asking if you want to explore downtown Toronto with the group. Of course, you accept and you all explore the downtown area." 
 
@@ -710,12 +860,14 @@ label day5:
     mG "I have had so much fun getting to know you over this past term. You have helped me with so many things and made me the goose I am today. This first term has been so stressful and hectic and I don’t think I would have survived it without you by my side. I guess what I am trying to say is…"
     
     mG "..."
+    hide screen bars with dissolve
 
     mG "I like you [MsG]... " ###Have fun rewriting this charles :D
     #CL create 2 endings that  have the conditional statements of having a certain likeability
     #need ending screens unless they continue from before
 
-###############            CL               ################
+###############            CL,CL2               ################
+    $ shipfavour=120
     if shipfavour>=115:
         show blushing ms goose:
             yalign 0.7
@@ -736,18 +888,21 @@ label day5:
 
         hide blushing mr goose with dissolve 
 
-        ###please insert something into here i was hit by a frieght train of plot development way too quickly
+        ###please insert something into here i was hit by a frieght train of plot development way too quickly###
 
         N "You and Jupyter end up dating! What a beautiful and romantic ending to this story. Makes me want to tear up as well."
         hide screen bars
         play music 'audio/Glimpseofus.mp3'
         scene EndCreditsBG
-        show screen EndCreditsBG
+        show screen disableskiptext
+        show screen EndCreditsBG with dissolve
+        pause 5
         show screen EndCredits1 with Dissolve(2)
         pause 3
         hide screen EndCredits1 with dissolve
         hide screen EndCreditsBG
         jump endcredits2
+        call screen navigation
 
         return
     else:
@@ -789,20 +944,14 @@ label day5:
         MsG "I-I’m so happy for the two of you....."
 
         hide screen bars
+        show screen disableskiptext
         play music 'audio/Glimpseofus.mp3'
         show screen EndCredits1 with Dissolve(2)
         pause 3
         hide screen EndCredits1 with dissolve
         jump endcredits2
+        call screen navigation
 
         return
 
-        ##play audio by Joji as an endtune and transition to an end screen
-        #play music (filename)
-        show screen EndCredits1() with dissolve ##change back to day1 after testing
-    ## wait before continuing with code (seconds)
-    pause 3
-    hide screen EndCredits1 with Dissolve(3)##change back to day1 after testing
-    ## add in the the end, and thank you screens --> for camilo to finish
-    "placeholder"
-    return
+        ###########   End of Code   #############

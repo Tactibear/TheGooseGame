@@ -4,8 +4,8 @@
 # Stephanie - SL
 # SHIFT+I TO INSPECT IN GAME, over whatever the mouse is hovering over
 
-## CL for code
-## CL2 for commenting
+###############           CL,CL2                ################
+
 ##create a style for the background image used for the transition days
 style opening:
     ## center the opening
@@ -167,27 +167,24 @@ screen EndCredits1():
 label endcredits2:
     $ renpy.block_rollback()
     $ credits_speed = 50 #scrolling speed in seconds
-    scene goodending # fancy background
-    with dissolve
+    scene theend # fancy background
+    show screen disableskiptext
     show theend:
         yanchor 0.5 ypos 0.5
         xanchor 0.5 xpos 0.5
     with dissolve
-    with Pause(3)
-    hide theend with dissolve
-    show text(credits_s) at Move((0.5, 5.0), (0.5, 0.0), credits_speed, repeat=False, bounce=False, xanchor="center", yanchor="bottom")
+    show text(credits_s) at Move((0.5, 3.5), (0.5, 0.0), credits_speed, repeat=False, bounce=False, xanchor="center", yanchor="bottom")
     with Pause(credits_speed)
     show thankyou:
         yanchor 0.5 ypos 0.5
         xanchor 0.5 xpos 0.5
-    with dissolve
-    with Pause(100)
+    with Dissolve(3)
+    pause 5
     hide thankyou with dissolve
-    show apologies with dissolve
-    pause 10
-    return
+    hide screen disableskiptext
+    call screen navigation
 init python:
-    credits = ('Backgrounds', 'Stephanie Li'), ('Sprites and CG', 'Stephanie Li'), ('Sprites and CG', 'Charles Liu'), ('Sprites and CG', 'Camilo Llanten'), ('Sprites and CG', 'Emily Medved'), ('GUI', 'Camilo Llanten'), ('GUI', 'Charles Liu'), ('Writing', 'Emily Medved'), ('Writing', 'Stephanie Li'), ('Writing', 'Camilo Llanten'), ('Writing', 'Charles Liu'), ('Programming', 'Charles Liu'), ('Programming', 'Camilo Llanten'), ('Programming', 'Stephanie Li'), ('Programming', 'Emily Medved')
+    credits = ('Sprites and CG', 'Stephanie Li'), ('Backgrounds', 'Stephanie Li'), ('Backgrounds', 'Charles Liu'), ('Backgrounds', 'Camilo Llanten'), ('Backgrounds', 'Emily Medved'), ('GUI', 'Camilo Llanten'), ('GUI', 'Charles Liu'), ('Writing', 'Emily Medved'), ('Writing', 'Stephanie Li'), ('Writing', 'Camilo Llanten'), ('Writing', 'Charles Liu'), ('Programming', 'Charles Liu'), ('Programming', 'Camilo Llanten'), ('Programming', 'Stephanie Li'), ('Programming', 'Emily Medved')
     credits_s = "{size=80}Credits\n\n"
     c1 = ''
     for c in credits:

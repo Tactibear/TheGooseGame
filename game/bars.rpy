@@ -4,7 +4,7 @@
 # # Stephanie - SL
 # # SHIFT+I TO INSPECT IN GAME, over whatever the mouse is hovering over
 
-# ## CL2 - all
+###############           CL2                ################
 style bar:
     bar_resizing True
 
@@ -23,6 +23,7 @@ screen bars:
             yalign 0.05
             xmaximum 382
             bar:
+                xmaximum 382
                 yalign 0.075
                 xpos 70
                 value shipfavour

@@ -4,6 +4,7 @@
 # Stephanie - SL
 # SHIFT+I TO INSPECT IN GAME
 
+##### MiNIMAL EDITS MADE
 
 ## The statements in this file run before any other file because of the negative offset number
 init offset = -2

@@ -1,4 +1,4 @@
-﻿##CL2
+﻿###############           CL2                ################
 init python:
     gooseorient=0
     randelevate=0
@@ -20,6 +20,7 @@ screen tog():
       
 
 label tugofwar:
+    show screen tog
     play music "audio/Fluffing-a-Duck-KevinMcleod.mp3"
     $losepos = 2300    
     $winpos = 450 
@@ -28,7 +29,7 @@ label tugofwar:
     $timerstate = False
     "..."
     "Alternate N and M to move"
-    show screen tog
+    
     "game start"
     $timerstate = True
 
@@ -49,7 +50,7 @@ label tugofwar:
             $prevpos=goosepos
             $goosepos += renpy.random.randint(3,25)  
             if goosepos-prevpos>23:
-                play sound "audio/honk.mp3" volume 1.8
+                play sound "audio/honk.mp3" volume 3
            
        
         if previouskey == "":

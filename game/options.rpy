@@ -48,7 +48,7 @@ define config.has_voice = True
 
 ## music to be played on the main menu
 ## Nintendo, Fountain Gardens (Kirbys Epic Yarn)
-define config.main_menu_music = "audio/titlescreenmusicac.mp3"
+define config.main_menu_music = "audio/mainmenu.mp3"
 
 ## transition type into main game menu
 define config.enter_transition = dissolve

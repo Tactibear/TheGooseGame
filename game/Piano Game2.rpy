@@ -128,7 +128,7 @@ label onkeypress2:
     jump ddrgame2
 
 label pianoend2:
-    play music rch301musicpolybridge
+    play music qnc
     if cont == 2:
         $ shipfavour+=15
         N "ConGraTs On FinIsHiNg ThE SoNg"
