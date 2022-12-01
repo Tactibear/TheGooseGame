@@ -15,7 +15,7 @@ define mG = Character("Jupyter Journal", color="#ad2a28",callback=callback)
 define MsG = Character("[MsGName]", color="#f542cb", callback=callback)
 
 init python:
-    count=0
+    count=1
     counthistory=[0,1,2,3,4,5,6,7,8,9,10]
     track=1    
 
@@ -32,28 +32,33 @@ label repeatcount:
 label startcounting:
     N "Game start"
 label computercalc:
-    if count>10 or count==10:
+    if count>11 or count==11:
         jump userlostcounting
-    if count<10:
+    if count<11:
         if countstate==1:
             $compcurrentcount=renpy.random.choice(["1","12","123"])
             $count+=len(compcurrentcount)
             jump printcompnum
+        elif track==1:
+            jump userchooses
     
 label printcompnum:
     if track!=count:
         N "[track]"
         $track+=1
-        if track==10:
+        if track==11:
             N "[count]"
             jump complostcounting
         jump printcompnum
     jump userchooses
 
 label userchooses:
-    if count>10 or count==10:
+    if count>11 or count==11:
         jump complostcounting
-    $userinput=renpy.input('Enter up to 3 numbers, unseparated',3)
+    $userinput=renpy.input('Enter up to 3 numbers, unseparated',length=3, allow=['1','2','3','4','5','6','6','7','8','9','0'])
+    if not userinput:
+        $ userinput='1'
+    $countstate=1
     $count+=len(userinput)
     $track+=len(userinput)
 
@@ -72,7 +77,7 @@ label returnfromcounting:
     N "Shall we play again?"
     menu:
         "Yes":
-            $count=0
+            $count=1
             $track=1
             jump repeatcount
             

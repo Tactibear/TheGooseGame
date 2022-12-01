@@ -7,12 +7,12 @@
 init python:
     import pygame
     import random
-    shipfavour=25
+    shipfavour=30
     _skipping = False ##Disables skipping
 
 screen disableskiptext:
     layer 'ontop'
-    key "mousedown_1" action Hide("placerholder")
+    key "mouseup_1" action Hide("placerholder")
     key "mousedown_2" action Hide("placerholder")
     key "mouseup_3" action Hide("placerholder")
     key "mousedown_4" action Hide("placerholder")
@@ -49,7 +49,7 @@ define T = Character("Timmy Tam", color= "#35ad28", callback=callback)
 define A = Character("Ana Conda", color = "#2f1fc2", callback=callback)
 
 ## define and set a default value for the relationship score the player starts with
-default shipfavour=25
+default shipfavour=30
 
 ###############              CL2               ################
 ## dialogue content starts here
@@ -97,6 +97,7 @@ label afterrpsgod:
 ###############             EM, CL2                ################
     N "'[MsGName]'....."
     N "I see.............."
+    jump day5 ##comment out later
     N "What a funny name for a goose, does your mom also call you that?"
     N "Alright, so your job here now is to ignore me and indulge in university life."
     N "You may have noticed that about $16,000 has disappeared from your bank account, but such is life when you're at uwaterloon :)."
@@ -770,6 +771,7 @@ label day5:
     N "It’s been a crazy first term at the University of Waterloon and you can’t believe that it’s only been that long since you’ve met Jupyter! After a long day of classes, you get a text from him asking if you want to explore downtown Toronto with the group. Of course, you accept and you all explore the downtown area." 
 
     N "After a long ride on the GO Train, you go into the ago to see all the wonderful art it has to offer. Then, you waddle around the sketchy streets of Toronto before ending up in the Christmas Market."
+    jump counting_to_ten
 
     show christmas market 2 with dissolve
     hide ago
@@ -867,7 +869,6 @@ label day5:
     #need ending screens unless they continue from before
 
 ###############            CL,CL2               ################
-    $ shipfavour=120
     if shipfavour>=115:
         show blushing ms goose:
             yalign 0.7
