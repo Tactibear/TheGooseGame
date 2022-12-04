@@ -54,13 +54,17 @@ default shipfavour=30
 ###############              CL2               ################
 ## dialogue content starts here
 label start:
-    #jump firstcoinmovingspritegame
+    #jump clickergamelabel
+    ## scene deletes all previous backgrounds and images to be replaced by new defined
     scene e6 window 2 goose god
     show e6 window 2 goose god with dissolve
-    
+    ## how charatcers talk
     N "Welcome to the University of Waterloon!"
     scene e6 window 2 goose god
     show e6 window 2 goose god with dissolve
+    N "You're probably wondering..."
+    N "oohhhHH where's the love interest I can't be attracted to a God, they're too cool and smart and awesome."
+    N "Rest assured young goosling, I'm just here so you don't fall flat on your face when going through university."
     N 'I go by Gregory but you can call me God.'
     N 'However you got here, be it by plane, car, train, wings, or admissions committee luck,'
     N 'You are in fact here.'
@@ -97,7 +101,6 @@ label afterrpsgod:
 ###############             EM, CL2                ################
     N "'[MsGName]'....."
     N "I see.............."
-    jump day5 ##comment out later
     N "What a funny name for a goose, does your mom also call you that?"
     N "Alright, so your job here now is to ignore me and indulge in university life."
     N "You may have noticed that about $16,000 has disappeared from your bank account, but such is life when you're at uwaterloon :)."
@@ -119,6 +122,8 @@ label noclicker:
     menu:
         "Okok, I will, please don't smite me with that mighty beak.":
             N "Good, that's what I like to hear."
+            N "Finally some proper etiquette."
+            N "So how about it?"
             jump clickergameprompt
         "I just want to play Riot Games hit arcade game League of Egg though.":
             N "Wow dude."
@@ -147,8 +152,8 @@ label returnfromclicker:
             jump continuefromclicker
 ###############             CL2                ################
 label continuefromclicker:
-    if clicks>15:
-        N "[clicks]..... I see..... Better than the average Laurier student."
+    if clicks>8:
+        N "[clicks] clicks..... I see..... Better than the average Laurier student."
         N "At the very least you knew to click the button."
     else: 
         N 'Did you not click the button at all??'
@@ -166,8 +171,7 @@ label continuefromclicker:
 
 ###############              CL2               ################
     # background here, just add file name, no file format at end
-    play music "audio/rockgarden.mp3" volume 1.8
-
+    play music "audio/rockgarden.mp3" volume 1.3
     show screen bars
     N "I should probably mention something before I let you go."
     N "See that little cool thing in the top left?"
@@ -257,7 +261,7 @@ label day2start:
     show rch 301 with dissolve 
     hide screen Opening1
     show screen bars 
-    N "You just finished your MATH 115 tutorial, when you receive a text from Ana. Ana made a group chat with herself, Timmy, Jupyter, and you, on Wingstagram."
+    N "You just finished your grueling and probably life threatening MATH 115 tutorial, when you receive a text from Ana. Ana made a group chat with herself, Timmy, Jupyter, and you, on Wingstagram."
     play sound "audio/cute_notification.mp3"
     show daytwotextone with dissolve
     hide rch 301 with dissolve 
@@ -265,6 +269,7 @@ label day2start:
     menu: 
         "Sorry guys I’m gonna go home and play League of Egg, a new champion called Eggbert came out 3 hours ago!": 
             show day2text2optionone
+            play music "audio/nogame.mp3"
             N "Really? Where are your priorities?" 
             N "Welp."
             N "Let's go and get this over with."
@@ -289,6 +294,7 @@ label day2start:
     MsG "H-hey Jupyter! How are you?"
     mG "Good good, I’m excited to study together today!"
     MsGthinking "Omg!!! He said he’s excited to study with me today." 
+    MsG "I need your help so badly Markov chains are going to end meeeee."
 
     ## transitions into a text from ana conda 
 
@@ -308,6 +314,7 @@ label day2start:
         xalign 0.5
     MsG "Wow they really ditched us at the very last second."
     mG "Damn, I guess it’s just us two. Should we go find a table to sit at to study together?"
+    N "How convenient. How quaint."
     MsG "Yeah sure, let’s go!"
     N "The two of you go to sit down at a table."
     show e6windowsize with dissolve
@@ -317,7 +324,9 @@ label day2start:
         xalign 0.5
     MsG "What a nice view, isn't it?"
     mG "You betcha!"
-    MsG "Well I guess it's time to start studying."
+    mG "Man every week is just test after test, the tutorial grind doesn't stop."
+    MsG "Well I suppose it's time to start studying then."
+    MsG "Why do we have to do so many applications with matrices ugh."
     mG "You know what?"
     mG "Studying sucks, let’s play something instead!" 
 
@@ -327,6 +336,7 @@ label day2start:
 ###############            SL,CL2               ################
     menu: 
         "Choose to follow the original plan to study because you haven’t learned C’s get degrees" :
+            play music "audio/nogame.mp3"
             show standard mr goose with dissolve:
                 yalign 1.5
                 xalign 0.5
@@ -338,19 +348,26 @@ label day2start:
             hide standard mr goose with dissolve
             N "What a rat." 
             N "Honestly you dodged a bullet there."
-            N "Just chill, he's just another goose"
-            N "Regardless, too bad, so sad, your mom is mad that you gave in the the latest fad."
+            N "Just chill, he's just another goose."
+            MsGthinking "But he isn't just another goose."
             $shipfavour-=10
             if shipfavour<0:
-                $shipfavour==0
+                $shipfavour=0
             if shipfavour>120:
-                $shipfavour==120 
+                $shipfavour=120 
             play sound loserelationshippoints
             pause 2
             jump day3start 
 
         "Choose to be a gamer goose with Jupyter.":
-            N "Now would be a good time to earn some brownie relationship points…" 
+            N "Now would be a good time to earn some brownie relationship points…"
+            N "Your goal here is to collect 10 coins that spawn across the map."
+            N "Use your WASD keys to move around."
+            N "Your collect key is going to be F."
+            N "Then drop off the coin at your nest with G."
+            N "Try not to get in the way of the frustrated programmer, they tend not to like it."
+            N "Oh, and also try to get it done within this arbitrarily set time limit."
+            N "I do actually have all day, but I like to see you sweat." 
             ## transition to game !!!! 
 
             hide dp library with dissolve 
@@ -358,21 +375,27 @@ label day2start:
 
 ###############          CL2                 ################
 label returnlostlives:
+    $ renpy.block_rollback()
     N "You failed your mission."
     $ shipfavour-=15
+    play sound loserelationshippoints
     if shipfavour<0:
-        $shipfavour==0
+        $shipfavour=0
     if shipfavour>120:
-        $shipfavour==120
+        $shipfavour=120
 label day2continue: 
     show black    
     $timediff=ogtime-recordedtime+0.1
     if timediff>60:
         $timediffmin=timediff/60
+        $ renpy.block_rollback()
         N "You took [timediffmin] minutes."
         N "Really took your time with that one eh?"
     else:
+        $ renpy.block_rollback()
         N "[recordedtime] seconds, very well done."
+    $shipfavour+=lives*5
+    play sound highblingbuttonclickeffect
     show dp library with dissolve 
     hide GAME SCREEN with dissolve 
     show standard mr goose with dissolve 
@@ -380,15 +403,18 @@ label day2continue:
         "DONE!":
             show dp library with dissolve
             show standard mr goose right facing
+            MsG "That is such a cool game!"
+            mG "Right? Glad you enjoyed it"
             MsG "Bye Jupyter! This was super fun!! We should do this again this week!!" 
             mG "See ya later [MsGName]!!" 
+            hide standard mr goose with dissolve 
             MsGthinking "He’s so cute!!" 
             N "You walk back to your dorm room, thinking about your study session with Jupyter. It seems like you’ve developed a crush on our homie Jupyter." 
 
 ########################################################################################################################################################################
 ########################################################################################################################################################################
 
-###############             EM              ################
+###############             CL2, EM              ################
 label day3start:
     show screen disableskiptext
     show screen Opening1() with dissolve
@@ -401,19 +427,24 @@ label day3start:
     hide screen day3 with Dissolve(2)
     hide screen Opening1 with dissolve
     hide screen disableskiptext
-
+    
     
     hide daytwotextone with dissolve
+    
     N "Two weeks later..."
-    N "You just finished a Chem Egg Student Society (CESS) meeting when you receive a text from Jupyter asking to hang out in the QNC basement."
+    N "You just finished a Chem Egg Student Society (CESS) meeting, after discussing the potential of lobbying EggSoc to not pay $50k for a robot arm for the ECE kids."
+    N "But instead using a fraction of that money for more study space renovations in E6 instead."
+    play music "audio/qncmusic.mp3"
+    N "Oh and would you look at that, a text from Jupyter asking to hang out in the QNC basement."
+    MsG "Hmm do I wanna go hang with him?"
     menu:
         "Say no and go to the WEEF office to ask questions about the CHE 100 assignment":
             N "You leave Jupyter on read and decide to head to WEEF to ask the WEEF TAs about your CHE 100 assignment. Boohoo, nerd."
             $shipfavour-=20
             if shipfavour<0:
-                $shipfavour==0
+                $shipfavour=0
             if shipfavour>120:
-                $shipfavour==120
+                $shipfavour=120
             play sound loserelationshippoints
             jump day4start
         "Go to QNC and meet Jupyter for some fun times":
@@ -446,9 +477,10 @@ label day3start:
                     N "Spicy.. try not to mess it up"
                     $ shipfavour+=10
                     if shipfavour<0:
-                        $shipfavour==0
+                        $shipfavour=0
                     if shipfavour>120:
-                        $shipfavour==120
+                        $shipfavour=120
+                    play sound highblingbuttonclickeffect
                     jump ddrgamesetup
                 "Mary Had a Little Lamb ":
                     N "Seriously?"
@@ -456,9 +488,10 @@ label day3start:
                     N "Better hope Jupyter gets over the fact that you have the skill rating of a toddler..."
                     $ shipfavour-=10
                     if shipfavour<0:
-                        $shipfavour==0
+                        $shipfavour=0
                     if shipfavour>120:
-                        $shipfavour==120
+                        $shipfavour=120
+                    play sound loserelationshippoints
                     jump ddrgamesetup2
                 ####
                 #transition to ddr minigame
@@ -471,6 +504,7 @@ label day3start:
 label returnfromddr:
     scene qncbasement with dissolve
     show qncbasement
+    play music "audio/qnc.mp3"
     N "You and Jupyter jam along happily on the QNC piano, possibly disturbing every other goose in the vicinity."
     show standard mr goose with dissolve:
         yalign 1.5
@@ -497,13 +531,15 @@ label returnfromddr:
         "Lean in for a hug":
             $shipfavour+=15
             if shipfavour<0:
-                $shipfavour==0
+                $shipfavour=0
             if shipfavour>120:
-                $shipfavour==120
+                $shipfavour=120
+            
             hide standard mr goose 
             show blushing mr goose with dissolve:
                 yalign 1.5
                 xalign 0.5
+            play sound highblingbuttonclickeffect
             N "You lean in for a hug. You can feel Jupyter stiffen and offer you an awkward hug back."
             hide blushing mr goose
             jump day4start
@@ -513,6 +549,7 @@ label returnfromddr:
             show standard mr goose right facing with dissolve:
                 yalign 1.5
                 xalign 0.5
+            play sound highblingbuttonclickeffect
             N "You wave goodbye at Jupyter and he waves back and smiles"
             N "You feel your heart beat a little faster than before. Maybe someone is beginning to feel like they're in love?"
             hide standard mr goose right facing
@@ -532,7 +569,7 @@ label day4start:
     pause 3 
     hide screen day4 with dissolve
     hide screen disableskiptext
-    #play music what audio? 
+    play music "audio/chatime.mp3"
 
     scene chatime
     show chatime with dissolve
@@ -568,8 +605,7 @@ label day4start:
         "Go to E6 with Ana, Timmy, and Jupyter and spend some quality time with the homies": 
             N "You decide to go to E6 with Ana, Timmy, and Jupyter." 
             $shipfavour+=20
-            play sound highblingbuttonclickeffect
-            #hide CHATIME DC PHOTO with dissolve 
+            play music "audio/e6study.mp3"
             show e6studyspace2 with dissolve 
             N "Jupyter pulls out his computer and starts doing some LEETCODE LIKE A NERDY CS BOY (which is exactly what he is). You decide to watch and admire Jupyter as he codes. Maybe you should complement him as he codes…"
             MsGthinking "Oh no what should I do???????"
@@ -577,6 +613,7 @@ label day4start:
             MsGthinking "HhhhHHHHhh uhhhhhh let me weigh the options."
             jump tugofwar
         "Decline the offer and go back to your residence to die on the inside." :
+            play music "audio/nogame.mp3"
             MsG "Sorry guys, I gotta go back to my res. My regularly scheduled mental breakdown is in 10 mins, and I need to cry my eyes out to the ending scene to the k-drama Snowdrop in order to feel something. Bye guys!" 
             hide timmy with dissolve
             show sad mr goose with dissolve 
@@ -585,9 +622,9 @@ label day4start:
             N "Safe to say, you had an amazing time bawling your eyes out to a TV show, while Ana, Jupyter, and Timmy hung out together in E6. If I were you, I’d watch out if you wanted to date Jupyter." 
             $shipfavour-=40 
             if shipfavour<0:
-                $shipfavour==0
+                $shipfavour=0
             if shipfavour>120:
-                $shipfavour==12
+                $shipfavour=12
             play sound loserelationshippoints
             pause 3
             jump day5  
@@ -602,9 +639,10 @@ label returnfromtog:
             N "You suck at flirting dude."
             $shipfavour+=20
             if shipfavour<0:
-                $shipfavour==0
+                $shipfavour=0
             if shipfavour>120:
-                $shipfavour==120
+                $shipfavour=120
+            play sound highblingbuttonclickeffect
             mG "Heh, thanks."
             jump day4end
         "....":
@@ -649,24 +687,27 @@ label day4end:
     hide ana mouth with dissolve 
 
     N "You and Jupyter keep firing pickup lines at each other, making Ana and Timmy third and fourth wheel awkwardly on the side." 
-    N "Needless to say, little leetcoding was done by Jupyter, and no studying was done by the rest of you. Before you knew it, it was already dinnertime. Ana had a club meeting after dinner, and Timmy had to go rescue his roommate from the depths of diarrhea in the V1 washroom."
+    N "Needless to say, little leetcoding was done by Jupyter, and no studying was done by the rest of you. Before you knew it, it was already dinnertime."
+    N "Ana had a club meeting after dinner, and Timmy had to go rescue his roommate from the depths of diarrhea in the V1 washroom, so once again..."
+    N "The cosmos align for you to not screw up."
 
     show standard mr goose with dissolve 
 
     mG "Hey [MsGName], do you wanna go get dinner together? Just the two of us?" 
 
     menu: 
-        "Go get dinner with Jupyter – this might be a good chance to make a move":
+        "Go get dinner with Jupyter":
             MsG "Of course!!" 
             $shipfavour+=20
             if shipfavour<0:
-                $shipfavour==0
+                $shipfavour=0
             if shipfavour>120:
-                $shipfavour==120
+                $shipfavour=120
             play sound highblingbuttonclickeffect
             pause 1
             jump campuspizzaline
         "Say no and go get crappy food from your residence’s dining hall":
+            play music "audio/nogame.mp3"
             N "You decline the dinner invitation from Jupyter." 
             MsG "Sorry Jupyter, the residence chicken fingers kinda got a grip on my stomach, they’re just so memorable that I just have to have more." 
 
@@ -702,9 +743,13 @@ label campuspizzaline:
             mG "C'mon!"
             jump rpstest11
 label returnfromrps:
+    
     play music e6study
     scene campuspizza
     show campuspizza
+    show blushing mr goose with dissolve:
+        yalign 1.5
+        xalign 0.5
     N "You and Jupyter later enjoy a very nice large pizza with grass instead of pepperoni (I mean, you both are geese…). The two of you are having a very nice conversation. Suddenly, Jupyter asks you an unexpected question." 
     mG "Hey [MsGName], do you have a crush on anyone?"
 ###############          SL                 ################
@@ -719,9 +764,9 @@ label returnfromrps:
             hide sad mr goose right facing with dissolve 
             $shipfavour-=50
             if shipfavour<0:
-                $shipfavour==0
+                $shipfavour=0
             if shipfavour>120:
-                $shipfavour==120
+                $shipfavour=120
             play sound loserelationshippoints
             pause 3
         "Say yes and refuse to elaborate.":
@@ -733,11 +778,12 @@ label returnfromrps:
             mG "Oooh he must be one lucky goose then!" 
             $shipfavour+=40
             if shipfavour<0:
-                $shipfavour==0
+                $shipfavour=0
             if shipfavour>120:
-                $shipfavour==120
+                $shipfavour=120
             play sound highblingbuttonclickeffect
             pause 1
+    mG "Uh it's probably time for us to go back, we best head off before it gets dark."
     mG "I didn’t know time could fly by so quickly! Should I walk you home?" 
     MsG "That would be great, thanks!!" 
     N "Jupyter walks you back to your residence. He gives you a goodbye hug and waits for you to enter your residence building before leaving. What a… romantic evening…?" 
@@ -746,7 +792,7 @@ label returnfromrps:
 ########################################################################################################################################################################
 ########################################################################################################################################################################
 
-###############            CL,CL2               ################
+###############            CL,CL2, SL               ################
 transform endingtrans:
     zoom 0.7
     xalign 0.5
@@ -767,23 +813,34 @@ label day5:
 #   hide screen screenbeforetoday
 
     
-    
-    N "It’s been a crazy first term at the University of Waterloon and you can’t believe that it’s only been that long since you’ve met Jupyter! After a long day of classes, you get a text from him asking if you want to explore downtown Toronto with the group. Of course, you accept and you all explore the downtown area." 
+    play music "audio/christmas.mp3"
+    N "It’s been a crazy first term at the University of Waterloon and you can’t believe that it’s only been that long since you’ve met Jupyter! After a long day of classes, you and your buddies go to explore downtown Toronto together." 
 
-    N "After a long ride on the GO Train, you go into the ago to see all the wonderful art it has to offer. Then, you waddle around the sketchy streets of Toronto before ending up in the Christmas Market."
+    N "After a long ride on the GO Train, you go into the AGO to see all the wonderful art it has to offer. Then, you waddle around the sketchy streets of Toronto before ending up in the Christmas Market."
+    mG "Wanna play another game [MsGName]?"
+    menu:
+        "Yes!!":
+            mG "I gotcha, check this out."
+        "Nah, let's go check out the christmas market now!!":
+            jump returnfromten
+    show standard mr goose:
+        yalign 0.7
+        xalign 0.1
+        zoom 0.6
     jump counting_to_ten
 
+label returnfromten:
     show christmas market 2 with dissolve
     hide ago
-
+    hide standard mr goose
     show standard mr goose right facing:
         yalign 0.95
         xalign 0.05
         zoom 0.8
     with dissolve
-    mG "Hey [MsG]! How were your final exams?"
+    mG "Hey by the way [MsGName]! How were your final exams?"
 
-    MsG "Jupyter!!!! I think they went well! All of our studying really paid off and I am confident I passed them all. Is everyone excited to be in the Christmas Market? Although I don’t love the cold, Christmas is my favourite holiday!"
+    MsG "I think they went well! All of our studying really paid off and I am confident I passed them all. Is everyone excited to be in the Christmas Market? Although I don’t love the cold, Christmas is my favourite holiday!"
     show ana:
         yalign 0.95
         xalign 0.95
@@ -793,7 +850,7 @@ label day5:
     show timmy:
         yalign 0.45
         xalign 0.5
-        zoom 0.65
+        zoom 0.8
     with dissolve
     T "I personally wish I was down in Florida right now! This cold weather really sucks!"
 
@@ -825,7 +882,7 @@ label day5:
     show timmy:
         yalign 0.45
         xalign 0.5
-        zoom 0.65
+        zoom 0.8
     show ana:
         yalign 0.95
         xalign 0.95
@@ -850,25 +907,27 @@ label day5:
 
     hide standard mr goose right facing
     show blushing mr goose right facing:
-        yalign 0.7
+        yalign 0.9
         xalign 0.1
-        zoom 1.1
+        zoom 1.6
     with dissolve
 
     mG "Huh? Oh yea. Sorry I was just thinking about something. [MsG] there has been something I’ve been wanting to tell you for the longest time."
 
     MsG "What’s up? You can tell me anything"
 
-    mG "I have had so much fun getting to know you over this past term. You have helped me with so many things and made me the goose I am today. This first term has been so stressful and hectic and I don’t think I would have survived it without you by my side. I guess what I am trying to say is…"
+    mG "I have had so much fun getting to know you over this past term. You have helped me with so many things and made me the goose I am today. This first term has been so stressful and hectic and I don’t think I would have survived it without you by my side."
+    mG " I guess what I am trying to say is…"
     
     mG "..."
     hide screen bars with dissolve
 
     mG "I like you [MsG]... " ###Have fun rewriting this charles :D
+    ##CL2 i cringe every time I see this pls
     #CL create 2 endings that  have the conditional statements of having a certain likeability
     #need ending screens unless they continue from before
 
-###############            CL,CL2               ################
+###############            CL,CL2, SL               ################
     if shipfavour>=115:
         show blushing ms goose:
             yalign 0.7
@@ -879,21 +938,24 @@ label day5:
         MsG "Oh Jupyter, I like you too! I’ve been meaning to tell you, but school just kept us so busy, and I never got the right opportunity to…" 
 
         show blushing mr goose right facing:
-            yalign 0.7
+            yalign 0.9
             xalign 0.1
-            zoom 1
+            zoom 1.6
         with dissolve 
 
         mG "Oh my goose-ness, really? I’m so happy you feel the same way, [MsG]. Would you like to be my girlfriend then?"
         MsG "I would love to! This is the best day in my entire life. Thank you, Jupyter!" 
+        mG "I guess this is our first date then! Do you want to take a picture with the tree?"
+        MsG "Heck yeah!"
 
         hide blushing mr goose with dissolve 
 
-        ###please insert something into here i was hit by a frieght train of plot development way too quickly###
-
         N "You and Jupyter end up dating! What a beautiful and romantic ending to this story. Makes me want to tear up as well."
+        pause 2
+        N "I suppose I should mention a disclaimer."
+        N "This story is a work of fiction and is by no means an accurate depiction of Waterloo University."
+        N "No one here is a goose, trust me on this."
         hide screen bars
-        play music 'audio/Glimpseofus.mp3'
         scene EndCreditsBG
         show screen disableskiptext
         show screen EndCreditsBG with dissolve
@@ -943,13 +1005,14 @@ label day5:
         MsG "That’s great news Jupyter! You deserve someone as great as Ana..."
 
         MsG "I-I’m so happy for the two of you....."
-
+        MsGthinking "It's going to be okay........."
         hide screen bars
         show screen disableskiptext
-        play music 'audio/Glimpseofus.mp3'
+        play music 'audio/Lilypad.mp3'
         show screen EndCredits1 with Dissolve(2)
         pause 3
         hide screen EndCredits1 with dissolve
+        
         jump endcredits2
         call screen navigation
 

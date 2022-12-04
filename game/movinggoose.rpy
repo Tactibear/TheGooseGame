@@ -1,4 +1,4 @@
-﻿###############            CL2               ################
+﻿###############            CL,CL2               ################
 screen goosechase():
     $ timerstate=True
     layer 'master'
@@ -12,25 +12,30 @@ screen goosechase():
     ##drop coin
     key "g" action Return("g")
 
-    ##bases
+    ##base images to be printed on the screen, that will be static
     add "movinggoosebgc.jpg" zoom 4.1
     add "nest.png" pos(xnestpos,ynestpos) zoom 0.3
     #add "standard ms goose.png" pos(xpmove,ypmove) zoom 0.1
     #add "angerenemy" anchor (1,1) pos (xbot1,ybot1) zoom 0.3 
     add "coin.png" pos(xcoinpos,ycoinpos) zoom 0.02 
     text "Score [score]" size 100 xpos 0.7 ypos 0.1 
-    text "Lives: [lives]" size 50 xpos 0.7 ypos 0.06 
+    text "Lives: [lives]" size 50 xpos 0.7 ypos 0.06
+    text "WASD to move\nF to pickup\nG to drop" size 30 xpos 0.87
     
 
     if msgmove==True:
         add "standard ms goose.png" pos(xpmove,ypmove) zoom 0.1
+
+    ## if game is running, timer is also running, so
     if timerstate==True: 
-        
+        ## keep checking if user goes outside screen borders, if yes, block them
+        ## easter egg portal game hoohoohoo
         timer 0.1 repeat True action If(xpmove>1900, SetVariable('xpmove', xpmove==1900))
         timer 0.1 repeat True action If(xpmove<0, SetVariable('xpmove', xpmove==0))
         timer 0.1 repeat True action If(ypmove>1000, SetVariable('ypmove', ypmove==1000))
         timer 0.1 repeat True action If(ypmove<0, SetVariable('ypmove', ypmove==0))
         
+        ##check bot locations relative to user, and move towards user accordingly
         timer 0.1 repeat True action If(xpmove-210>xbot1, SetVariable('xbot1', xbot1+3))
         timer 0.1 repeat True action If(xpmove-210<xbot1, SetVariable('xbot1', xbot1-3))
         timer 0.1 repeat True action If(ypmove-40>ybot1, SetVariable('ybot1', ybot1+3))
@@ -44,12 +49,15 @@ screen goosechase():
         # else:
         #     $ybot1-=3
 
+
+        ## calculate the distance between user and bot
         $absenxdist=abs(xpmove-xbot1)
         $absenydist=abs(ypmove-ybot1)
-        
+        ##keep checking if the two entities are touching
         timer 0.1 repeat True action If(absenxdist<100 and absenydist<100, true=Jump('gettouchedlol'))
 
-        timer 0.1 repeat True action If(recordedtime > 0, SetVariable('recordedtime', recordedtime-0.1), false=Jump(recordedtimer_ends))
+        ## timer once again, see buttonmashergame file 
+        #timer 0.1 repeat True action If(recordedtime > 0, SetVariable('recordedtime', recordedtime-0.1), false=Jump(recordedtimer_ends))
         timer 1 repeat True action If(recordedtime > 0, true=SetVariable('recordedtime', recordedtime-1), false=Jump(recordedtimer_ends))
         ## if the time is less than 3s, we colour the text red
         if recordedtime <= 20:
@@ -63,10 +71,17 @@ screen goosechase():
 ##
 ## CODE FOR DISPLAY LIVES WILL COME LATER/IF I FEEL LIKE IT
 init:
+    ## define the layers stuff can be displayed on
+    ## master is the default layer for images, and z order sorts items on the same layer
+    ## shifting the screen back to master, from the screen layer, so our character sprites aren't covered by the screen.
+    ## without the characters being on the screen, we can update their positions constantly based on user inputs, 
+    ## without needing to keep calling the screen
     define config.layers = [ 'master', 'transient', 'screens', 'overlay', 'ontop' ]
+
 init python:
     import random
-    import pygame
+    import pygame ## rip bozo, failure, couldn't do it in time
+    ##setting up variables 
     msgmove=False
     xcoinpos=-50
     ycoinpos=-50
@@ -79,14 +94,8 @@ init python:
     recordedtimer_ends = 'timerendedlol'
     lives=3
 label firstcoinmovingspritegame:
-    $ timerstate=False
-    N "Your goal here is to collect 10 coins that spawn across the map."
-    N "Use your WASD keys to move around."
-    N "Your collect key is going to be F."
-    N "Then drop off the coin at your nest with G."
-    N "Try not to get in the way of the frustrated programmer, they tend not to like it."
-    N "Oh, and also try to get it done within this arbitrarily set time limit."
-    N "I do actually have all day, but I like to see you sweat."
+    hide screen bars
+    $ renpy.block_rollback()
     $ coin_exist=True
     $ coin_collected=False
     $ score=0
@@ -96,6 +105,9 @@ label firstcoinmovingspritegame:
     $ ybot1 = 600
     $ last_pressed='a'
     show screen goosechase
+    $ timerstate=False
+
+    
 
 # label coinrespawn:
 #     if score==0:
@@ -165,20 +177,25 @@ label movingspritegame:
             jump gobacktomain
         if res == "a" :
             $ last_pressed = "a"
+            play sound "audio/buttonhovereffect.mp3"
             $ xpmove -= 69 
         if res == "d" :
             $ last_pressed = "d"
+            play sound "audio/buttonhovereffect.mp3"
             $ xpmove += 69 
         if res == "w" :
+            play sound "audio/buttonhovereffect.mp3"
             $ last_pressed = "w"
             $ ypmove -= 69 
         if res == "s" :
+            play sound "audio/buttonhovereffect.mp3"
             $ last_pressed = "s"
             $ ypmove += 69  
         $absdistx=abs(xcoinpos-xpmove)
         $absdisty=abs(ycoinpos-ypmove)
 
         if res=="f" and absdistx<200 and absdisty<200:
+            play sound "audio/coinping.mp3"
             $ last_pressed = "f"
             $ coin_collected=True
             
@@ -190,6 +207,7 @@ label movingspritegame:
         $absdisty=abs(ynestpos+80-ypmove)
 
         if coin_collected==True and res=="g" and absdistx<200 and absdisty<200:
+            play sound "audio/coinping.mp3"
             $coin_collected=False
             $ score+=1
             ##Originally wanted to make it so that each coin would sit in a neat little row on the nest, but decided it was more work than it was worth
@@ -208,14 +226,81 @@ label timerendedlol:
     $timerstate=False
     N "You ran out of time."
     hide screen goosechase
+    show screen bars
     jump returnlostlives
 label lostlives:
     $timerstate=False
     N "You suck at dodging."
     hide screen goosechase
+    show screen bars
     jump returnlostlives
 label gobacktomain:
     $timerstate==False
     hide screen goosechase
+    show screen bars
     jump day2continue
 ############## ADDD SOUND EFFECTS AND BETTER BGC AFTER
+
+
+#                                                                                               ▓▓████▓▓▒▒            
+#                                                                                           ░░████▓▓▓▓▓▓▓▓▓▓          
+#                                                                                           ██▓▓  ░░▓▓████▓▓▓▓        
+#                                                                                           ████░░░░  ▓▓██████▒▒      
+#                                                                                         ▓▓████▒▒░░    ▒▒██▓▓▓▓▓▓██▒▒
+#                                                                                         ██████▓▓░░░░░░  ▓▓██▒▒      
+#                                                                                         ████████░░░░░░▒▒▒▒          
+#                                                                                         ██████████▓▓░░              
+#                                                                                         ██████████                  
+#                                                                                         ██████████                  
+#                                                                                       ░░████████▓▓                  
+#                                                                                       ░░████████                    
+#                                                                                       ██████▓▓██                    
+#                                                                                       ██████████                    
+#                                                                                       ████▓▓████                    
+#                                                                                       ██████████                    
+#                                                                                       ██████████                    
+#                                                                                       ██████████                    
+#                                                                                     ░░████▓▓██▓▓                    
+#                                                                                     ▒▒████████▓▓                    
+#                                                                                     ██████████▓▓                    
+#                                                                                     ████████▓▓▓▓                    
+#                                                                                     ██████████▓▓                    
+#                                                                                   ░░██████████▓▓                    
+#                                                                                   ▓▓██████▓▓▒▒                      
+#                                                                                   ▓▓██▓▓▒▒░░░░                      
+#                                                                                   ████▓▓░░░░                        
+#                                                                                 ▒▒▓▓▓▓▒▒░░░░░░                      
+#                                                                                 ▓▓▓▓▒▒░░░░░░░░                      
+#                                                                   ░░░░▒▒▒▒░░░░▒▒▓▓▒▒▒▒░░░░░░░░                      
+#                                                           ░░▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░                      
+#                                                     ░░▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒░░▒▒▒▒░░░░░░░░░░                        
+#                                               ░░▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░                      
+#                                           ▒▒▓▓▒▒▒▒▒▒▓▓▒▒▓▓▒▒▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒░░░░░░░░░░                        
+#                                       ░░▓▓▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒▓▓▒▒▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░▒▒░░░░░░░░░░░░░░                  
+#                                   ░░▒▒▒▒▓▓▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒▒▓▓▒▒▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░▒▒░░░░░░░░░░░░░░                  
+#                             ░░▒▒▒▒▓▓▒▒▓▓▒▒▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▓▓▒▒░░░░░░░░▒▒▒▒▒▒░░░░░░░░░░░░░░░░                  
+#                       ░░▒▒▒▒▓▓▒▒▒▒▓▓▓▓▓▓▒▒▒▒▓▓▒▒▒▒▓▓▒▒▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░▒▒░░░░░░░░░░░░░░░░                  
+#                   ░░▒▒▒▒▓▓▓▓▓▓▒▒▒▒▒▒▒▒▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░▒▒░░░░░░░░░░░░░░                    
+#               ░░▒▒▓▓▓▓▓▓▒▒░░▓▓▓▓▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒▒▓▓▒▒▒▒▓▓▒▒▓▓▒▒░░▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░                    
+#         ░░▓▓▓▓▓▓▒▒▓▓▒▒▓▓██▒▒▒▒▓▓▓▓▒▒▒▒▓▓▒▒▒▒▓▓▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░                      
+#     ████▓▓██▓▓▓▓▓▓▓▓██▓▓▓▓██▓▓▓▓▓▓▒▒▒▒▓▓▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒▓▓▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░                      
+# ░░▒▒  ██░░░░████████▓▓██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░                              
+#     ▒▒▓▓████▓▓▓▓██▒▒░░  ░░▒▒░░▒▒▒▒▒▒▒▒▒▒▒▒░░░░▒▒▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░                          
+#   ▓▓▓▓████▓▓▒▒▒▒░░░░░░░░░░░░░░      ░░░░░░      ▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░                            
+#                     ░░░░░░░░░░░░░░  ░░░░░░░░    ▒▒▓▓▓▓▓▓▓▓▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░  ░░                              
+#                             ░░░░░░░░░░░░░░░░░░░░  ▓▓██▓▓▓▓▓▓▓▓▒▒▒▒▒▒░░░░░░░░░░░░░░░░                                
+#                                   ░░░░░░░░░░░░    ░░▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒░░░░░░                                    
+#                                     ░░░░░░░░░░░░░░░░░░▒▒▓▓▓▓▓▓▓▓▓▓▒▒░░░░▒▒▒▒░░                                      
+#                                         ░░░░░░░░░░░░░░▒▒▒▒░░▒▒▒▒▒▒▒▒░░░░                                            
+#                                             ████░░          ▓▓▒▒░░░░                                                
+#                                             ▓▓████          ▒▒▒▒▒▒                                                  
+#                                             ▓▓████          ░░▓▓▒▒                                                  
+#                                             ██████          ▒▒▓▓░░                                                  
+#                                             ██████          ░░▓▓░░                                                  
+#                                           ░░████▓▓            ▓▓░░                                                  
+#                                           ▒▒██████            ▓▓░░                                                  
+#                                           ▓▓██████            ▓▓░░                                                  
+#                                           ▒▒▓▓▒▒▓▓            ▓▓░░                                                  
+#                                               ▒▒██            ▓▓▒▒                                                  
+#                                               ▒▒▓▓          ░░▒▒▒▒                                                  
+#                                               ▒▒░░            ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓                                      

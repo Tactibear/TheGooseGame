@@ -1,13 +1,8 @@
 ###############           CL2                ################
 define N = Character("Goose God", color="#000000")
 
-# define rpslibrary=[('rock','paper'), ('paper','scissors'), ('scissors','rock')]
-# screen rpstest():
-#     frame:
-#         image "fightinggod.jpg" zoom 0.8
-
-#     imagebutton auto "goosegod_%s.png" align(-1.2, 0.4) action NullAction() at goosegodimage
 ##CL just fixing some code
+## CL2 :(((((
 transform goosegood:
     zoom 0.5
     xpos 400
@@ -22,6 +17,8 @@ label rpsagainstgod:
     N 'Whoops did not mean to spoil.'
     N 'So now, little goosling, try and win against the almighty omnipotent being.'
     N 'Choose your hand.'
+    ## make the computer always win, cause its god
+    ## mwahahahahahaha
     menu:
         "Rock!":
             $userchoice='rock'

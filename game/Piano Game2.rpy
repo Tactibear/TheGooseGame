@@ -1,4 +1,6 @@
 ﻿################                  CL Function to create the game base of a working piano game                   ########################
+## comments are all CL
+##image transformation to zoom the background image and the keyboard
 transform zoom1:
     yalign 0.00000001
     xalign 0.05
@@ -19,14 +21,14 @@ label ddrgamesetup2:
     "Use the A,S,K,L keys to input"
     "Game Start"
     play music "<from 3.0>audio/MaryHadALittleLamb.mp3" volume 3
-    call piano_setup2(0.5, 0.5, 0.005, renpy.random.choice(arr_keys), renpy.random.randint(1, 9) * 0.1, 0.5)
+    call piano_setup2(0.5, 0.5, 0.005, renpy.random.choice(arr_keys), renpy.random.randint(1, 9) * 0.1, 0.5) from _call_piano_setup2
     # in the above, I randomly select a key from a previously defined set of keys (arr_keys), and randomize the location
     jump ddrgame2
 
 label ddrgame2:
     $ renpy.block_rollback()
     while cont == 1:
-        call piano_setup2(0.5, 0.5, 0.005, renpy.random.choice(arr_keys), renpy.random.randint(1, 9) * 0.1, 0.5)
+        call piano_setup2(0.5, 0.5, 0.005, renpy.random.choice(arr_keys), renpy.random.randint(1, 9) * 0.1, 0.5) from _call_piano_setup2_1
         # to repeat the qte events until it is missed
     jump pianoend2
 
@@ -110,6 +112,7 @@ screen piano_game2:
                 # this is the part that changes the colour to red if the time reaches less than 25%
 
 label missedkey2:
+    ##function that ticks down the lives if a note is missed and checks to see if there are lives left
     with vpunch
     if Livesleft1 >1:
         $ Livesleft1-=1
@@ -120,6 +123,7 @@ label missedkey2:
         jump ddrgame2
 
 label onkeypress2:
+    ##function that will tick down the notes remaining if the key is pressed in time
     if noteremain>1:
         $ noteremain -=1
         $ cont = 1
@@ -128,7 +132,9 @@ label onkeypress2:
     jump ddrgame2
 
 label pianoend2:
+    ##function that occurs once either the lives hits 0 or when the notes counter hits 0 or when a note time is missed
     play music qnc
+    ## if statement that defines your reward based on song success
     if cont == 2:
         $ shipfavour+=15
         N "ConGraTs On FinIsHiNg ThE SoNg"

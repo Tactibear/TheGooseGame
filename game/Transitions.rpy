@@ -133,7 +133,7 @@ screen TimeSkipText2():
             ## set font
             font 'fonts/Blomberg.otf'
 
-##CL creating end of the game screen with credits
+###############           CL              ################
 screen EndCreditsBG():
     frame:
         xalign 0.5
@@ -173,6 +173,7 @@ label endcredits2:
         yanchor 0.5 ypos 0.5
         xanchor 0.5 xpos 0.5
     with dissolve
+    ## rolls the credits with a move function that scrolls text upwards
     show text(credits_s) at Move((0.5, 3.5), (0.5, 0.0), credits_speed, repeat=False, bounce=False, xanchor="center", yanchor="bottom")
     with Pause(credits_speed)
     show thankyou:
@@ -182,9 +183,11 @@ label endcredits2:
     pause 5
     hide thankyou with dissolve
     hide screen disableskiptext
+    ## recalls the navigation screen which ends the game until userinput is had
     call screen navigation
+## defines the variables that make the text scroll
 init python:
-    credits = ('Sprites and CG', 'Stephanie Li'), ('Backgrounds', 'Stephanie Li'), ('Backgrounds', 'Charles Liu'), ('Backgrounds', 'Camilo Llanten'), ('Backgrounds', 'Emily Medved'), ('GUI', 'Camilo Llanten'), ('GUI', 'Charles Liu'), ('Writing', 'Emily Medved'), ('Writing', 'Stephanie Li'), ('Writing', 'Camilo Llanten'), ('Writing', 'Charles Liu'), ('Programming', 'Charles Liu'), ('Programming', 'Camilo Llanten'), ('Programming', 'Stephanie Li'), ('Programming', 'Emily Medved')
+    credits = ('Sprites and CG', 'Stephanie Li'), ('Backgrounds', 'Stephanie Li'), ('Backgrounds', 'Charles Liu'), ('Backgrounds', 'Camilo Llanten'), ('Backgrounds', 'Emily Medved'), ('GUI', 'Camilo Llanten'), ('GUI', 'Charles Liu'), ('Writing', 'Emily Medved'), ('Writing', 'Stephanie Li'), ('Writing', 'Camilo Llanten'), ('Writing', 'Charles Liu'), ('Programming', 'Charles Liu'), ('Programming', 'Camilo Llanten'), ('Programming', 'Stephanie Li'), ('Programming', 'Emily Medved'), ('Music', "'Lilypad' - LilyPichu\nComfiBeats")
     credits_s = "{size=80}Credits\n\n"
     c1 = ''
     for c in credits:
@@ -192,5 +195,4 @@ init python:
             credits_s += "\n{size=40}" + c[0] + "\n"
         credits_s += "{size=60}" + c[1] + "\n"
         c1=c[0]
-    credits_s += "\n{size=40}Engine\n{size=60}Ren'py\n8.0.3" #Don't forget to set this to our Ren'py version
-##CL try to disable the functionality of skipping through some text/scenes
+    credits_s += "\n{size=40}Engine\n{size=60}Ren'py\n8.0.3,22090809" #Don't forget to set this to our Ren'py version for credit
