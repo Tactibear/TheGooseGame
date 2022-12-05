@@ -206,8 +206,9 @@ label continuefromclicker:
     MsG "I hope you don't mind that I brought my friend Ana!"
     show timmy wave with dissolve
     T "Oh my gosh, [MsGName]! I haven't seen you in so long! How have you been?"
-    MsG "I've been doing great! I missed you so much Timmy!"
-    T "Me too! This is my friend Jupyter by the way, he's in CS BBA, what a silly CS boy."
+    MsG "I've been doing great! I missed you so much Timmy, how have things been going!"
+    T "Me too, I missed you! Petroleum engineering has been rough on the feathers."
+    T "This is my friend Jupyter by the way, he's in CS BBA, what a silly CS boy."
     hide timmy wave with dissolve
     show standard mr goose with dissolve:
         yalign 1.5
