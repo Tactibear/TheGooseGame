@@ -279,6 +279,8 @@ label day2start:
             N "Really? Where are your priorities?" 
             N "Welp."
             N "Let's go and get this over with."
+            $ shipfavour = -1
+            play sound loserelationshippoints
             jump day3start
 
         "Gee wilkers, I sure will join y'all.": 
