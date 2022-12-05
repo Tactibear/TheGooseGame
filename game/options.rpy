@@ -7,7 +7,7 @@
 ## CL2
 ## Name the game on title screen
 ## none is needed, since we have our own custom text
-define config.name = _("")
+define config.name = _("It Takes Two To Tangoose")
 
 ## allow to show title on title screen
 define gui.show_name = True

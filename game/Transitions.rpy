@@ -187,7 +187,7 @@ label endcredits2:
     call screen navigation
 ## defines the variables that make the text scroll
 init python:
-    credits = ('Sprites and CG', 'Stephanie Li'), ('Backgrounds', 'Stephanie Li'), ('Backgrounds', 'Charles Liu'), ('Backgrounds', 'Camilo Llanten'), ('Backgrounds', 'Emily Medved'), ('GUI', 'Camilo Llanten'), ('GUI', 'Charles Liu'), ('Writing', 'Emily Medved'), ('Writing', 'Stephanie Li'), ('Writing', 'Camilo Llanten'), ('Writing', 'Charles Liu'), ('Programming', 'Charles Liu'), ('Programming', 'Camilo Llanten'), ('Programming', 'Stephanie Li'), ('Programming', 'Emily Medved'), ('Music', "'Lilypad' - LilyPichu\nComfiBeats")
+    credits = ('Sprites and CG', 'Stephanie Li'), ('Backgrounds', 'Stephanie Li'), ('Backgrounds', 'Charles Liu'), ('Backgrounds', 'Camilo Llanten'), ('Backgrounds', 'Emily Medved'), ('GUI', 'Camilo Llanten'), ('GUI', 'Charles Liu'), ('Writing', 'Emily Medved'), ('Writing', 'Stephanie Li'), ('Writing', 'Camilo Llanten'), ('Writing', 'Charles Liu'), ('Programming', 'Charles Liu'), ('Programming', 'Camilo Llanten'), ('Programming', 'Stephanie Li'), ('Programming', 'Emily Medved'), ('End Credit Music', "'Lilypad' - LilyPichu\nComfiBeats")
     credits_s = "{size=80}Credits\n\n"
     c1 = ''
     for c in credits:

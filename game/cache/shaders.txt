@@ -1,14 +1,14 @@
-renpy.dissolve renpy.dissolve
->>>>>>> 72f9b7e0a4665df0f3988fbf96ad79db62d770df
->>>>>>> cca2120 (updated transitiojns)
-renpy.ftl
-renpy.texture
-renpy.dissolve renpy.geometry
 renpy.geometry renpy.texture
-<<<<<<< HEAD
+>>>>>>> cca2120 (updated transitiojns)
 =======
-renpy.solid
->>>>>>> 37d109f (DDR game code with other working files)
-renpy.geometry renpy.solid
 renpy.alpha renpy.texture
+renpy.dissolve renpy.geometry
+renpy.geometry renpy.solid
+renpy.dissolve renpy.dissolve
+renpy.texture
+renpy.ftl
+<<<<<<< HEAD
+>>>>>>> 37d109f (DDR game code with other working files)
 renpy.alpha renpy.geometry renpy.texture
+renpy.solid
+>>>>>>> 72f9b7e0a4665df0f3988fbf96ad79db62d770df

@@ -4,7 +4,12 @@
 # Stephanie - SL
 # SHIFT+I TO INSPECT IN GAME, over whatever the mouse is hovering over
 ###############           CL2                ################
+
 init python:
+
+    config.has_autosave=False
+    config.has_quicksave=False
+
     import pygame
     import random
     shipfavour=30
@@ -368,6 +373,7 @@ label day2start:
             N "Try not to get in the way of the frustrated programmer, they tend not to like it."
             N "Oh, and also try to get it done within this arbitrarily set time limit."
             N "I do actually have all day, but I like to see you sweat." 
+            N "Keep moving or you may catch a wing to the face."
             ## transition to game !!!! 
 
             hide dp library with dissolve 
@@ -383,6 +389,7 @@ label returnlostlives:
         $shipfavour=0
     if shipfavour>120:
         $shipfavour=120
+    jump nocongrats
 label day2continue: 
     show black    
     $timediff=ogtime-recordedtime+0.1
@@ -396,6 +403,7 @@ label day2continue:
         N "[recordedtime] seconds, very well done."
     $shipfavour+=lives*5
     play sound highblingbuttonclickeffect
+label nocongrats:
     show dp library with dissolve 
     hide GAME SCREEN with dissolve 
     show standard mr goose with dissolve 
